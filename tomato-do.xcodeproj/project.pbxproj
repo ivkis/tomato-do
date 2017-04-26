@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */; };
-		2C1F1B5D1EAFBC7C002626B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5C1EAFBC7C002626B7 /* ViewController.swift */; };
+		2C1F1B5D1EAFBC7C002626B7 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */; };
 		2C1F1B601EAFBC7C002626B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */; };
 		2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B611EAFBC7C002626B7 /* tomato_do.xcdatamodeld */; };
 		2C1F1B651EAFBC7C002626B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		2C1F1B571EAFBC7C002626B7 /* tomato-do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tomato-do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C1F1B5C1EAFBC7C002626B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		2C1F1B5F1EAFBC7C002626B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C1F1B621EAFBC7C002626B7 /* tomato_do.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tomato_do.xcdatamodel; sourceTree = "<group>"; };
 		2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */,
-				2C1F1B5C1EAFBC7C002626B7 /* ViewController.swift */,
+				2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */,
 				2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */,
 				2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */,
 				2C1F1B661EAFBC7C002626B7 /* LaunchScreen.storyboard */,
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C1F1B5D1EAFBC7C002626B7 /* ViewController.swift in Sources */,
+				2C1F1B5D1EAFBC7C002626B7 /* MainScreenViewController.swift in Sources */,
 				2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */,
 				2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */,
 			);
@@ -380,6 +380,7 @@
 				2C1F1B6E1EAFBC7C002626B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
