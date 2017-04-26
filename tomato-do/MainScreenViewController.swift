@@ -18,6 +18,7 @@ class MainScreenViewController: UIViewController {
     }
     
     func setupMainScreenViewController() {
+        addTaskButton.layer.cornerRadius = 2
     }
 }
 
