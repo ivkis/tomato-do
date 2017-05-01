@@ -7,4 +7,6 @@ target 'tomato-do' do
 
   # Pods for tomato-do
   pod 'Firebase'
+  pod 'R.swift'
+  pod 'SwiftLint'
 end

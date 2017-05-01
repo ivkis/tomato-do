@@ -11,6 +11,8 @@ import UIKit
 class MainScreenViewController: UIViewController {
 
     @IBOutlet weak var addTaskButton: UIButton!
+    @IBAction func addTaskButtonTapped(_ sender: UIButton) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
