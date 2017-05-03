@@ -121,13 +121,19 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MainScreenViewController
+      typealias InitialController = UIKit.UINavigationController
       
+      let addTaskViewController = StoryboardViewControllerResource<AddTaskViewController>(identifier: "AddTaskViewController")
       let bundle = R.hostingBundle
       let name = "Main"
       
+      func addTaskViewController(_: Void = ()) -> AddTaskViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addTaskViewController)
+      }
+      
       static func validate() throws {
         if UIKit.UIImage(named: "homePicture") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homePicture' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
       }
       
       fileprivate init() {}

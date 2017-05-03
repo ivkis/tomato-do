@@ -11,8 +11,6 @@ import UIKit
 class MainScreenViewController: UIViewController {
 
     @IBOutlet weak var addTaskButton: UIButton!
-    @IBAction func addTaskButtonTapped(_ sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +19,14 @@ class MainScreenViewController: UIViewController {
     
     func setupMainScreenViewController() {
         addTaskButton.layer.cornerRadius = 2
+        navigationController?.navigationBar.isHidden = true
     }
+    
+    @IBAction func addTaskButtonTapped(_ sender: Any) {
+        let controller = R.storyboard.main.addTaskViewController()!
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+
 }
 
