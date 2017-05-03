@@ -9,14 +9,16 @@
 import UIKit
 
 class AddTaskViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        AddTaskViewController()
+        setupAddTaskViewController()
     }
     
-    func AddTaskViewController() {
+    func setupAddTaskViewController() {
     }
-    
+
+
 }
 
 
