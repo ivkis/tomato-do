@@ -26,13 +26,13 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У Вас нет задач, добавить одну?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVK-kQ-fdV">
-                                <rect key="frame" x="62.5" y="297" width="270" height="22"/>
+                                <rect key="frame" x="63" y="297" width="270" height="22"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGd-mA-yfu">
-                                <rect key="frame" x="112.5" y="338" width="150" height="34"/>
+                                <rect key="frame" x="113" y="338" width="150" height="34"/>
                                 <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="0rL-RA-Qel"/>
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ssk-uV-HV7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="Ssk-uV-HV7">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ssk-uV-HV7" id="37F-qR-7H4">
@@ -100,6 +100,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LZg-hx-ehN" id="9d8-mN-Llt"/>
+                                    <outlet property="delegate" destination="LZg-hx-ehN" id="btA-kH-pf1"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,6 +117,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Mw9-0l-pk1" secondAttribute="trailing" constant="-16" id="tcj-pw-vci"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addTaskTableView" destination="Mw9-0l-pk1" id="aW6-1z-bX5"/>
+                        <outlet property="addTaskTextField" destination="O2A-T1-H4K" id="LcR-Pt-BJL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSJ-i9-fRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
