@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0A8C731EB78595005B8090 /* R.generated.swift */; };
-		2C0BDEB71EBA26F6006F57EF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BDEB61EBA26F6006F57EF /* Task.swift */; };
 		2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */; };
 		2C1F1B5D1EAFBC7C002626B7 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */; };
 		2C1F1B601EAFBC7C002626B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 
 /* Begin PBXFileReference section */
 		2C0A8C731EB78595005B8090 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
-		2C0BDEB61EBA26F6006F57EF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		2C1F1B571EAFBC7C002626B7 /* tomato-do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tomato-do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */,
 				2CDDABC11EB77D2F007E20A4 /* AddTaskViewController.swift */,
 				2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */,
-				2C0BDEB61EBA26F6006F57EF /* Task.swift */,
 				2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */,
 				2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */,
 				2C1F1B661EAFBC7C002626B7 /* LaunchScreen.storyboard */,
@@ -242,7 +239,6 @@
 				2CDDABC21EB77D2F007E20A4 /* AddTaskViewController.swift in Sources */,
 				2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */,
 				2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */,
-				2C0BDEB71EBA26F6006F57EF /* Task.swift in Sources */,
 				2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
