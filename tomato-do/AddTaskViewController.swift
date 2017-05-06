@@ -14,11 +14,11 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: UITableView!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var tasks: [Task] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetcRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
@@ -46,6 +46,7 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return tasks.count
     }
     
@@ -58,8 +59,6 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func saveTask(taskToDo: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
@@ -72,6 +71,64 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
             print(error.localizedDescription)
         }
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        let taskToDelete = tasks[indexPath.row]
+        context.delete(taskToDelete)
+
+        do {
+            try context.save()
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch let error as NSError {
+            print("Error: \(error), description \(error.userInfo)")
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
