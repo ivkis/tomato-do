@@ -14,15 +14,19 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - PureLayout (3.0.2)
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
   - SwiftLint (0.17.0)
+  - TableManager (1.7.4)
 
 DEPENDENCIES:
   - Firebase
+  - PureLayout
   - R.swift
   - SwiftLint
+  - TableManager
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -30,10 +34,12 @@ SPEC CHECKSUMS:
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
+  TableManager: 1777230f3d2e65619461d05515293766a399a14d
 
-PODFILE CHECKSUM: 57bfdb5e72cef7bd7b7445481caf4724436981ca
+PODFILE CHECKSUM: 4651a332b7ff1ad6de0ca7cac7ad0a8ad6324fe3
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
