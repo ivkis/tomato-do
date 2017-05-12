@@ -19,6 +19,7 @@ class MainScreenViewController: UIViewController {
     
     func setupMainScreenViewController() {
         addTaskButton.layer.cornerRadius = 2
+        navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func addTaskButtonTapped(_ sender: Any) {

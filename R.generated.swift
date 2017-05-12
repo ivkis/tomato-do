@@ -31,10 +31,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `backgroundPomodoro`.
+    static let backgroundPomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "backgroundPomodoro")
+    /// Image `cloudsBackground`.
+    static let cloudsBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "cloudsBackground")
     /// Image `homePicture`.
     static let homePicture = Rswift.ImageResource(bundle: R.hostingBundle, name: "homePicture")
+    
+    /// `UIImage(named: "backgroundPomodoro", bundle: ..., traitCollection: ...)`
+    static func backgroundPomodoro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backgroundPomodoro, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cloudsBackground", bundle: ..., traitCollection: ...)`
+    static func cloudsBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cloudsBackground, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "homePicture", bundle: ..., traitCollection: ...)`
     static func homePicture(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -140,7 +154,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "homePicture") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homePicture' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "backgroundPomodoro") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backgroundPomodoro' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
         if _R.storyboard.main().pomodoroViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pomodoroViewController' could not be loaded from storyboard 'Main' as 'PomodoroViewController'.") }
       }

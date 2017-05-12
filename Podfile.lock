@@ -1,4 +1,5 @@
 PODS:
+  - BEMCheckBox (1.4.0)
   - Firebase (3.15.0):
     - Firebase/Core (= 3.15.0)
   - Firebase/Core (3.15.0):
@@ -22,6 +23,7 @@ PODS:
   - TableManager (1.7.4)
 
 DEPENDENCIES:
+  - BEMCheckBox
   - Firebase
   - PureLayout
   - R.swift
@@ -29,6 +31,7 @@ DEPENDENCIES:
   - TableManager
 
 SPEC CHECKSUMS:
+  BEMCheckBox: e18e4a148905b290bd03d98b767651c104f4eda3
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
@@ -40,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
   TableManager: 1777230f3d2e65619461d05515293766a399a14d
 
-PODFILE CHECKSUM: 4651a332b7ff1ad6de0ca7cac7ad0a8ad6324fe3
+PODFILE CHECKSUM: e1435f820796e48a1be29350509c0527dca6aee5
 
 COCOAPODS: 1.2.1

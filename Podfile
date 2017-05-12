@@ -11,4 +11,5 @@ target 'tomato-do' do
   pod 'SwiftLint'
   pod 'TableManager'
   pod 'PureLayout'
+  pod 'BEMCheckBox'
 end
