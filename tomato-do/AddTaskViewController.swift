@@ -36,12 +36,14 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setupAddTaskViewController() {
+        navigationController?.navigationBar.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskCell)
         let task = tasks[indexPath.row]
         cell?.textLabel?.text = task.taskToDo
+
         return cell!
     }
     
@@ -50,16 +52,21 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
         return tasks.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let conroller = R.storyboard.main.pomodoroViewController()!
+        navigationController?.pushViewController(conroller, animated: true)
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.saveTask(taskToDo: (textField.text)!)
         addTaskTextField.text = ""
         addTaskTableView.reloadData()
         self.view.endEditing(true)
+
         return true
     }
     
     func saveTask(taskToDo: String) {
-        
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
@@ -73,11 +80,11 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+
         return true
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-
         let taskToDelete = tasks[indexPath.row]
         context.delete(taskToDelete)
 
@@ -90,45 +97,3 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

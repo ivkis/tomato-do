@@ -129,14 +129,20 @@ struct _R: Rswift.Validatable {
       let addTaskViewController = StoryboardViewControllerResource<AddTaskViewController>(identifier: "AddTaskViewController")
       let bundle = R.hostingBundle
       let name = "Main"
+      let pomodoroViewController = StoryboardViewControllerResource<PomodoroViewController>(identifier: "PomodoroViewController")
       
       func addTaskViewController(_: Void = ()) -> AddTaskViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: addTaskViewController)
       }
       
+      func pomodoroViewController(_: Void = ()) -> PomodoroViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: pomodoroViewController)
+      }
+      
       static func validate() throws {
         if UIKit.UIImage(named: "homePicture") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'homePicture' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
+        if _R.storyboard.main().pomodoroViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pomodoroViewController' could not be loaded from storyboard 'Main' as 'PomodoroViewController'.") }
       }
       
       fileprivate init() {}
