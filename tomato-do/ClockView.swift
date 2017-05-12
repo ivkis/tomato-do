@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PureLayout
 
 class ClockView: UIView {
     
@@ -18,30 +19,37 @@ class ClockView: UIView {
     
     override init (frame: CGRect) {
         super.init (frame: frame)
-        self.createLable()
+        self.createLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        let arcCenter = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
+        let radius = self.bounds.width/2
+        let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(-Float.pi/2), endAngle: CGFloat(2*Float.pi-Float.pi/2), clockwise: true)
+        shapeLayer.path = circlePath.cgPath
+
+        shapeLayer.frame = layer.bounds
+    }
+    
     private func addCircle() {
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 205, y: 200), radius: CGFloat(100), startAngle: CGFloat(-Float.pi/2), endAngle: CGFloat(2*Float.pi-Float.pi/2), clockwise: true)
-        
-        self.shapeLayer.path = circlePath.cgPath
         self.shapeLayer.fillColor = UIColor.clear.cgColor
         self.shapeLayer.strokeColor = UIColor.white.cgColor
         self.shapeLayer.lineWidth = 2.5
-        
+
         self.layer.addSublayer(self.shapeLayer)
     }
     
-    private func createLable() {
-        self.label = UILabel(frame: CGRect(x: 138, y: 147, width: 200, height: 100))
-        self.label.font = UIFont(name: self.label.font.fontName, size: 50)
+    private func createLabel() {
+        label.textAlignment = .center
+        self.label.font = UIFont.monospacedDigitSystemFont(ofSize: 50, weight: UIFontWeightRegular)
         self.label.textColor = UIColor.white
-        
         self.addSubview(self.label)
+        self.label.autoPinEdgesToSuperviewEdges()
     }
     
     private func startAnimation() {

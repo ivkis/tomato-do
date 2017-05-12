@@ -6,8 +6,8 @@
 //  Copyright © 2017 Иван Лазарев. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import PureLayout
 
 class PomodoroViewController: UIViewController {
 
@@ -18,9 +18,15 @@ class PomodoroViewController: UIViewController {
     
     func pomodoroClock() {
         let viewClock = ClockView()
+
         viewClock.setTimer(value: 10)
         viewClock.startClockTimer()
+
         self.view.addSubview(viewClock)
+
+        viewClock.autoSetDimensions(to: CGSize(width: 200, height: 200))
+        viewClock.autoPinEdge(toSuperviewEdge: .top, withInset: 100)
+        viewClock.autoAlignAxis(toSuperviewAxis: .vertical)
     }
 
 }
