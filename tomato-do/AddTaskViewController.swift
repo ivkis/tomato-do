@@ -44,6 +44,10 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
         let task = tasks[indexPath.row]
         cell?.textLabel?.text = task.taskToDo
 
+        cell?.checkBox.onTintColor = .red
+        cell?.checkBox.onCheckColor = .red
+        cell?.checkBox.lineWidth = 1.5
+
         return cell!
     }
     

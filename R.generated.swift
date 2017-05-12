@@ -31,28 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
     /// Image `backgroundPomodoro`.
     static let backgroundPomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "backgroundPomodoro")
-    /// Image `cloudsBackground`.
-    static let cloudsBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "cloudsBackground")
-    /// Image `homePicture`.
-    static let homePicture = Rswift.ImageResource(bundle: R.hostingBundle, name: "homePicture")
     
     /// `UIImage(named: "backgroundPomodoro", bundle: ..., traitCollection: ...)`
     static func backgroundPomodoro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.backgroundPomodoro, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "cloudsBackground", bundle: ..., traitCollection: ...)`
-    static func cloudsBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cloudsBackground, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "homePicture", bundle: ..., traitCollection: ...)`
-    static func homePicture(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.homePicture, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -66,7 +52,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `taskCell`.
-    static let taskCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "taskCell")
+    static let taskCell: Rswift.ReuseIdentifier<TableViewCell> = Rswift.ReuseIdentifier(identifier: "taskCell")
     
     fileprivate init() {}
   }
