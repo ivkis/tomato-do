@@ -8,9 +8,10 @@
 
 import UIKit
 import BEMCheckBox
+import FMMoveTableView
 
 
-class TableViewCell: UITableViewCell {
+class TableViewCell: FMMoveTableViewCell {
     
     @IBOutlet weak var checkBox: BEMCheckBox!
     

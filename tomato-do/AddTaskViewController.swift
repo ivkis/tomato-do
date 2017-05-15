@@ -8,11 +8,12 @@
 
 import UIKit
 import CoreData
+import FMMoveTableView
 
-class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var addTaskTextField: UITextField!
-    @IBOutlet weak var addTaskTableView: UITableView!
+    @IBOutlet weak var addTaskTableView: FMMoveTableView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -35,6 +36,14 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
         addTaskTextField.delegate = self
     }
     
+    func moveTableView(_ tableView: FMMoveTableView!, moveRowFrom fromIndexPath: IndexPath!, to toIndexPath: IndexPath!) {
+        guard fromIndexPath.row != toIndexPath.row else {
+            return
+        }
+        tasks.rearrange(from: fromIndexPath.row, to: toIndexPath.row)
+        addTaskTableView.reloadData()
+    }
+
     func setupAddTaskViewController() {
         navigationController?.navigationBar.isHidden = true
     }
@@ -42,6 +51,7 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskCell)
         let task = tasks[indexPath.row]
+        cell?.textLabel?.font = UIFont(name:"Courier", size:18)
         cell?.textLabel?.text = task.taskToDo
 
         cell?.checkBox.onTintColor = .red
@@ -99,5 +109,11 @@ class AddTaskViewController: UIViewController, UITableViewDelegate, UITableViewD
         } catch let error as NSError {
             print("Error: \(error), description \(error.userInfo)")
         }
+    }
+}
+
+extension Array {
+    mutating func rearrange(from: Int, to: Int) {
+        insert(remove(at: from), at: to)
     }
 }
