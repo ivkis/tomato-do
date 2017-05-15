@@ -10,7 +10,9 @@
 #endif
 #endif
 
+#import "FMMoveTableView.h"
+#import "FMMoveTableViewCell.h"
 
-FOUNDATION_EXPORT double TableManagerVersionNumber;
-FOUNDATION_EXPORT const unsigned char TableManagerVersionString[];
+FOUNDATION_EXPORT double FMMoveTableViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char FMMoveTableViewVersionString[];
 

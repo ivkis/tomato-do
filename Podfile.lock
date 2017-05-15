@@ -12,6 +12,7 @@ PODS:
   - FirebaseCore (3.5.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.9)
+  - FMMoveTableView (1.1.2)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -20,15 +21,14 @@ PODS:
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
   - SwiftLint (0.17.0)
-  - TableManager (1.7.4)
 
 DEPENDENCIES:
   - BEMCheckBox
   - Firebase
+  - FMMoveTableView
   - PureLayout
   - R.swift
   - SwiftLint
-  - TableManager
 
 SPEC CHECKSUMS:
   BEMCheckBox: e18e4a148905b290bd03d98b767651c104f4eda3
@@ -36,13 +36,13 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FMMoveTableView: 63b46cf806133f5220cf92592dc0e6f7eb07633d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
-  TableManager: 1777230f3d2e65619461d05515293766a399a14d
 
-PODFILE CHECKSUM: e1435f820796e48a1be29350509c0527dca6aee5
+PODFILE CHECKSUM: ad87b2a07bc56dfee7227f9e89fb8fb252b053c9
 
 COCOAPODS: 1.2.1

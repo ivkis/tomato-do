@@ -9,7 +9,7 @@ target 'tomato-do' do
   pod 'Firebase'
   pod 'R.swift'
   pod 'SwiftLint'
-  pod 'TableManager'
   pod 'PureLayout'
   pod 'BEMCheckBox'
+  pod ‘FMMoveTableView'
 end
