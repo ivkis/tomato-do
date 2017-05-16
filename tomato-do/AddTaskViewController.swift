@@ -21,9 +21,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     
     override func viewWillAppear(_ animated: Bool) {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        let sectionSortDescriptor = NSSortDescriptor(key: "positionTask", ascending: true)
-        let sortDescriptors = [sectionSortDescriptor]
-        fetchRequest.sortDescriptors = sortDescriptors
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "positionTask", ascending: true)]
         
         do {
             tasks = try context.fetch(fetchRequest)
@@ -43,6 +41,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
             return
         }
         tasks.rearrange(from: fromIndexPath.row, to: toIndexPath.row)
+        saveArrayInCoreData()
         addTaskTableView.reloadData()
     }
 
@@ -50,6 +49,17 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         navigationController?.navigationBar.isHidden = true
     }
     
+    func saveArrayInCoreData() {
+        for (index, task) in tasks.enumerated() {
+            task.positionTask = Int16(index)
+        }
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskCell)
         let task = tasks[indexPath.row]
@@ -74,7 +84,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.saveTask(taskToDo: (textField.text)!, positionTask: 0)
+        self.saveTask(taskToDo: (textField.text)!)
         addTaskTextField.text = ""
         addTaskTableView.reloadData()
         self.view.endEditing(true)
@@ -82,22 +92,12 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         return true
     }
     
-    func saveTask(taskToDo: String, positionTask: Int16) {
+    func saveTask(taskToDo: String) {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
-        taskObject.positionTask = positionTask
         tasks.insert(taskObject, at: 0)
-
-        for (index, task) in tasks.enumerated() {
-            task.positionTask = Int16(index)
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        saveArrayInCoreData()
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
