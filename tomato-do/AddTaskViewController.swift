@@ -20,11 +20,13 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     var tasks: [Task] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        let fetcRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let sectionSortDescriptor = NSSortDescriptor(key: "positionTask", ascending: true)
+        let sortDescriptors = [sectionSortDescriptor]
+        fetchRequest.sortDescriptors = sortDescriptors
         
         do {
-            tasks = try context.fetch(fetcRequest)
+            tasks = try context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
@@ -72,7 +74,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.saveTask(taskToDo: (textField.text)!)
+        self.saveTask(taskToDo: (textField.text)!, positionTask: 0)
         addTaskTextField.text = ""
         addTaskTableView.reloadData()
         self.view.endEditing(true)
@@ -80,14 +82,19 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         return true
     }
     
-    func saveTask(taskToDo: String) {
+    func saveTask(taskToDo: String, positionTask: Int16) {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
+        taskObject.positionTask = positionTask
+        tasks.insert(taskObject, at: 0)
+
+        for (index, task) in tasks.enumerated() {
+            task.positionTask = Int16(index)
+        }
         
         do {
             try context.save()
-            tasks.append(taskObject)
         } catch {
             print(error.localizedDescription)
         }
