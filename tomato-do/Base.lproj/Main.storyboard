@@ -100,9 +100,22 @@
                                                         <constraint firstAttribute="width" constant="30" id="NUq-rj-3HP"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-qf-QOT">
+                                                    <rect key="frame" x="337" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Age-d4-Lpj"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Lmo-vL-CJr"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="pomodoro"/>
+                                                    <connections>
+                                                        <action selector="pomodoroGoTimer:" destination="LZg-hx-ehN" eventType="touchUpInside" id="0ln-xq-vYx"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="4iE-H9-lZc" secondAttribute="bottom" constant="7" id="Jtb-QU-Bya"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="XmG-Rk-30W"/>
+                                                <constraint firstItem="gzn-qf-QOT" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="topMargin" constant="-1" id="pDu-Vj-xK2"/>
                                                 <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="37F-qR-7H4" secondAttribute="leading" constant="8" id="qac-xb-bF5"/>
                                                 <constraint firstItem="4iE-H9-lZc" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="top" constant="7" id="sCC-Qk-9g1"/>
                                             </constraints>
@@ -204,5 +217,6 @@
     </scenes>
     <resources>
         <image name="backgroundPomodoro" width="600" height="375"/>
+        <image name="pomodoro" width="288" height="264"/>
     </resources>
 </document>
