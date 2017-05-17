@@ -19,25 +19,24 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         let conroller = R.storyboard.main.pomodoroViewController()!
         navigationController?.pushViewController(conroller, animated: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         CoreDataManager.shared.downloadFromCoreData()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAddTaskViewController()
         addTaskTextField.delegate = self
-    }
-    
+      }
+
     func setupAddTaskViewController() {
         navigationController?.navigationBar.isHidden = true
     }
-    
+
     func moveTableView(_ tableView: FMMoveTableView!, moveRowFrom fromIndexPath: IndexPath!, to toIndexPath: IndexPath!) {
         guard fromIndexPath.row != toIndexPath.row else {
-
             return
         }
 
@@ -48,9 +47,9 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskCell)
         let task = CoreDataManager.shared.tasks[indexPath.row]
+
         cell?.textLabel?.font = UIFont(name:"Courier", size:18)
         cell?.textLabel?.text = task.taskToDo
-
         cell?.checkBox.onTintColor = .red
         cell?.checkBox.onCheckColor = .red
         cell?.checkBox.lineWidth = 1.5
@@ -67,9 +66,11 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let index = NSIndexPath(row: 0, section: 0)
+
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
         addTaskTextField.text = ""
-        addTaskTableView.reloadData()
+        addTaskTableView.insertRows(at: [index as IndexPath], with: .fade)
         self.view.endEditing(true)
 
         return true
@@ -82,6 +83,6 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         CoreDataManager.shared.deleteTask(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }

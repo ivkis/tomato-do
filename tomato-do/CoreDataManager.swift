@@ -59,8 +59,7 @@ class CoreDataManager {
     }
 
     func rearrange(from: Int, to: Int) {
-        rearrange(from: from, to: to)
+        tasks.rearrange(from: from, to: to)
         saveArrayInCoreData()
     }
-
 }
