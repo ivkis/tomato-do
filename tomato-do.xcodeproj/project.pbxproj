@@ -16,6 +16,7 @@
 		2C1F1B681EAFBC7C002626B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B661EAFBC7C002626B7 /* LaunchScreen.storyboard */; };
 		2CDDABC21EB77D2F007E20A4 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDABC11EB77D2F007E20A4 /* AddTaskViewController.swift */; };
 		A7351A481EC5BD2500117057 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7351A471EC5BD2500117057 /* TableViewCell.swift */; };
+		A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75008A01ECC38B7007E26BC /* CoreDataManager.swift */; };
 		A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75611481EC4943D0019BEC3 /* ClockView.swift */; };
 		A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761602D1EC4512600616AE0 /* PomodoroViewController.swift */; };
 		A7DA017F1ECAC7C000623CB8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */; };
@@ -36,6 +37,7 @@
 		3F0A32F4B32C77566D66D4BB /* Pods-tomato-do.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tomato-do.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tomato-do/Pods-tomato-do.debug.xcconfig"; sourceTree = "<group>"; };
 		85374693008CB05A7CEAC851 /* Pods-tomato-do.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tomato-do.release.xcconfig"; path = "Pods/Target Support Files/Pods-tomato-do/Pods-tomato-do.release.xcconfig"; sourceTree = "<group>"; };
 		A7351A471EC5BD2500117057 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A75008A01ECC38B7007E26BC /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A75611481EC4943D0019BEC3 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A761602D1EC4512600616AE0 /* PomodoroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
 		A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */,
 				2CDDABC11EB77D2F007E20A4 /* AddTaskViewController.swift */,
 				A75611481EC4943D0019BEC3 /* ClockView.swift */,
+				A75008A01ECC38B7007E26BC /* CoreDataManager.swift */,
 				A7DA01801ECAC80500623CB8 /* Extensions */,
 				2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */,
 				A761602D1EC4512600616AE0 /* PomodoroViewController.swift */,
@@ -263,6 +266,7 @@
 				A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */,
 				A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */,
 				2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */,
+				A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */,
 				2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
