@@ -35,6 +35,17 @@ class CoreDataManager {
         }
     }
 
+    func updateTaskAt(_ index: Int, text: String) {
+        let taskToUpdate = tasks[index]
+        taskToUpdate.taskToDo = text
+
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     func saveArrayInCoreData() {
         for (index, task) in tasks.enumerated() {
             task.positionTask = Int16(index)

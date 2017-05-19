@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import FMMoveTableView
 
-class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTableViewDataSource, UITextFieldDelegate {
+class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTableViewDataSource, UITextFieldDelegate, TableViewCellDelegate {
     
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: FMMoveTableView!
@@ -47,8 +47,8 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.taskCell)
         let task = CoreDataManager.shared.tasks[indexPath.row]
-
         cell?.textLabel?.font = UIFont(name:"Courier", size:18)
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
         cell?.textLabel?.text = task.taskToDo
         cell?.checkBox.onTintColor = .red
         cell?.checkBox.onCheckColor = .red
@@ -63,11 +63,18 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+        cell.enterEditMode()
+        cell.delegate = self
+    }
+
+    func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String) {
+        let indexPath = addTaskTableView.indexPath(for: cell)
+        CoreDataManager.shared.updateTaskAt((indexPath?.row)!, text: text)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let index = NSIndexPath(row: 0, section: 0)
-
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
         addTaskTextField.text = ""
         addTaskTableView.insertRows(at: [index as IndexPath], with: .fade)
