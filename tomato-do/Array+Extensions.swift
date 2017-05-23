@@ -6,7 +6,6 @@
 //  Copyright © 2017 Иван Лазарев. All rights reserved.
 //
 
-
 extension Array {
     mutating func rearrange(from: Int, to: Int) {
         insert(remove(at: from), at: to)

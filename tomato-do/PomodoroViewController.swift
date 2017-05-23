@@ -19,7 +19,7 @@ class PomodoroViewController: UIViewController {
     func pomodoroClock() {
         let viewClock = ClockView()
 
-        viewClock.setTimer(value: 10)
+        viewClock.setTimer(value: 1500)
         viewClock.startClockTimer()
 
         self.view.addSubview(viewClock)

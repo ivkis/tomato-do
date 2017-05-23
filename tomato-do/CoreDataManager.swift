@@ -38,24 +38,14 @@ class CoreDataManager {
     func updateTaskAt(_ index: Int, text: String) {
         let taskToUpdate = tasks[index]
         taskToUpdate.taskToDo = text
-
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        saveContext(context: context)
     }
 
     func saveArrayInCoreData() {
         for (index, task) in tasks.enumerated() {
             task.positionTask = Int16(index)
         }
-
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        saveContext(context: context)
     }
 
     func downloadFromCoreData() {
@@ -64,6 +54,14 @@ class CoreDataManager {
 
         do {
             tasks = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func saveContext(context: NSManagedObjectContext) {
+        do {
+            try context.save()
         } catch {
             print(error.localizedDescription)
         }
