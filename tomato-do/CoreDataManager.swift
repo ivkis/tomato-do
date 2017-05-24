@@ -35,6 +35,22 @@ class CoreDataManager {
         }
     }
 
+    func updateCheckBox(_ index: Int, value: Bool) {
+        let checkBoxToUpdate = tasks[index]
+        checkBoxToUpdate.checkBoxValue = value
+        saveContext(context: context)
+    }
+
+    func moveCompletedTask(_ index: Int) {
+        tasks.rearrange(from: index, to: (tasks.count)-1)
+        saveArrayInCoreData()
+    }
+
+    func moveСancelExecutionTask(_ index: Int) {
+        tasks.rearrange(from: index, to: 0)
+        saveArrayInCoreData()
+    }
+
     func updateTaskAt(_ index: Int, text: String) {
         let taskToUpdate = tasks[index]
         taskToUpdate.taskToDo = text

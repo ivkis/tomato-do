@@ -12,9 +12,10 @@ import FMMoveTableView
 
 protocol TableViewCellDelegate: class {
     func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String)
+    func tableViewCell(_ cell: TableViewCell, didChangeCheckBox value: Bool)
 }
 
-class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate {
+class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelegate {
 
     weak var delegate: TableViewCellDelegate?
 
@@ -25,6 +26,21 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         editTaskTextField.isHidden = true
         editTaskTextField.delegate = self
+        checkBox.delegate = self
+    }
+
+    func configure(with task: Task) {
+        selectionStyle = UITableViewCellSelectionStyle.none
+        textLabel?.text = task.taskToDo
+        checkBox.onTintColor = .red
+        checkBox.onCheckColor = .red
+        checkBox.lineWidth = 1.5
+        checkBox.on = task.checkBoxValue
+        if task.checkBoxValue == true {
+            contentView.alpha = 0.1
+        } else {
+            contentView.alpha = 1
+        }
     }
 
     func enterEditMode() {
@@ -35,6 +51,19 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate {
         editTaskTextField.text = textLabel?.text
     }
 
+    func editAndSaveLabel() {
+        textLabel?.text = editTaskTextField.text
+        delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
+    }
+
+    // MARK: - BEMCheckBoxDelegate
+
+    func animationDidStop(for checkBox: BEMCheckBox) {
+        delegate?.tableViewCell(self, didChangeCheckBox: checkBox.on)
+    }
+
+    // MARK: - UITextFieldDelegate
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         editTaskTextField.resignFirstResponder()
         editAndSaveLabel()
@@ -44,10 +73,5 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         editAndSaveLabel()
-    }
-
-    func editAndSaveLabel() {
-        textLabel?.text = editTaskTextField.text
-        delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
     }
 }
