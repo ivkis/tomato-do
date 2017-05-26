@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import PureLayout
+import AVFoundation
 
 class ClockView: UIView {
     
@@ -16,7 +17,15 @@ class ClockView: UIView {
     private var countDownTimer = Timer()
     private var timerValue = 900
     private var label = UILabel()
+
+    lazy var endPlayer: AVAudioPlayer = {
+        return try! AVAudioPlayer(contentsOf: R.file.clockSoundMp3()!)
+    }()
     
+    lazy var tickPlayer: AVAudioPlayer = {
+        return try! AVAudioPlayer(contentsOf: R.file.tickingSoundMp3()!)
+    }()
+
     override init (frame: CGRect) {
         super.init (frame: frame)
         self.createLabel()
@@ -31,25 +40,25 @@ class ClockView: UIView {
         let arcCenter = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
         let radius = self.bounds.width/2
         let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(-Float.pi/2), endAngle: CGFloat(2*Float.pi-Float.pi/2), clockwise: true)
-        shapeLayer.path = circlePath.cgPath
 
+        shapeLayer.path = circlePath.cgPath
         shapeLayer.frame = layer.bounds
     }
     
     private func addCircle() {
-        self.shapeLayer.fillColor = UIColor.clear.cgColor
-        self.shapeLayer.strokeColor = UIColor.white.cgColor
-        self.shapeLayer.lineWidth = 2.5
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
+        shapeLayer.lineWidth = 2.5
 
-        self.layer.addSublayer(self.shapeLayer)
+        self.layer.addSublayer(shapeLayer)
     }
     
     private func createLabel() {
         label.textAlignment = .center
-        self.label.font = UIFont.monospacedDigitSystemFont(ofSize: 50, weight: UIFontWeightRegular)
-        self.label.textColor = UIColor.white
-        self.addSubview(self.label)
-        self.label.autoPinEdgesToSuperviewEdges()
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 50, weight: UIFontWeightRegular)
+        label.textColor = UIColor.white
+        self.addSubview(label)
+        label.autoPinEdgesToSuperviewEdges()
     }
     
     private func startAnimation() {
@@ -60,16 +69,16 @@ class ClockView: UIView {
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
         
-        self.shapeLayer.add(animation, forKey: "ani")
+        shapeLayer.add(animation, forKey: "ani")
     }
     
     private func updateLabel(value: Int) {
-        self.setLabelText(self.timeFormatted(value))
-        self.addCircle()
+        setLabelText(timeFormatted(value))
+        addCircle()
     }
     
     private func setLabelText(_ value: String) {
-        self.label.text = value
+        label.text = value
     }
     
     private func timeFormatted(_ totalSecond: Int) -> String {
@@ -80,22 +89,24 @@ class ClockView: UIView {
     }
     
     @objc private func countdown(_ dt: Timer) {
-        self.timerValue -= 1
-        if self.timerValue < 0 {
-            self.countDownTimer.invalidate()
-        }
-        else {
-            self.setLabelText(self.timeFormatted(self.timerValue))
+        timerValue -= 1
+        setLabelText(timeFormatted(timerValue))
+        if timerValue == 0 {
+            countDownTimer.invalidate()
+            tickPlayer.stop()
+            endPlayer.play()
         }
     }
     
     func setTimer(value: Int) {
-        self.timerValue = value
-        self.updateLabel(value: value)
+        timerValue = value
+        updateLabel(value: value)
     }
     
     func startClockTimer() {
-        self.countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown(_: )), userInfo: nil, repeats: true)
-        self.startAnimation()
+        countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown(_: )), userInfo: nil, repeats: true)
+        tickPlayer.play()
+        tickPlayer.numberOfLoops = -1
+        startAnimation()
     }    
 }

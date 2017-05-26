@@ -19,6 +19,8 @@
 		A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75008A01ECC38B7007E26BC /* CoreDataManager.swift */; };
 		A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75611481EC4943D0019BEC3 /* ClockView.swift */; };
 		A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761602D1EC4512600616AE0 /* PomodoroViewController.swift */; };
+		A76208751ED86F020098C701 /* clockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A76208731ED86F020098C701 /* clockSound.mp3 */; };
+		A76208761ED86F020098C701 /* tickingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A76208741ED86F020098C701 /* tickingSound.mp3 */; };
 		A7DA017F1ECAC7C000623CB8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */; };
 		FDA05B59E8D1B7C400F3DCAB /* Pods_tomato_do.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F41601C2C9B1A6FF37725A /* Pods_tomato_do.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		A75008A01ECC38B7007E26BC /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A75611481EC4943D0019BEC3 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A761602D1EC4512600616AE0 /* PomodoroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
+		A76208731ED86F020098C701 /* clockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clockSound.mp3; path = ../../../Downloads/clockSound.mp3; sourceTree = "<group>"; };
+		A76208741ED86F020098C701 /* tickingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickingSound.mp3; path = ../../../Downloads/tickingSound.mp3; sourceTree = "<group>"; };
 		A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F1F41601C2C9B1A6FF37725A /* Pods_tomato_do.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tomato_do.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,8 +104,18 @@
 				2C1F1B691EAFBC7C002626B7 /* Info.plist */,
 				2C0A8C731EB78595005B8090 /* R.generated.swift */,
 				2C1F1B611EAFBC7C002626B7 /* tomato_do.xcdatamodeld */,
+				A76DCFA11ED71E7400DA8BB9 /* Resources */,
 			);
 			path = "tomato-do";
+			sourceTree = "<group>";
+		};
+		A76DCFA11ED71E7400DA8BB9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A76208731ED86F020098C701 /* clockSound.mp3 */,
+				A76208741ED86F020098C701 /* tickingSound.mp3 */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A7DA01801ECAC80500623CB8 /* Extensions */ = {
@@ -184,8 +198,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1F1B681EAFBC7C002626B7 /* LaunchScreen.storyboard in Resources */,
+				A76208751ED86F020098C701 /* clockSound.mp3 in Resources */,
 				2C1F1B651EAFBC7C002626B7 /* Assets.xcassets in Resources */,
 				2C1F1B601EAFBC7C002626B7 /* Main.storyboard in Resources */,
+				A76208761ED86F020098C701 /* tickingSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
