@@ -23,14 +23,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
-    /// Resource file `clockSound.mp3`.
-    static let clockSoundMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "clockSound", pathExtension: "mp3")
+    /// Resource file `endClockSound.mp3`.
+    static let endClockSoundMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "endClockSound", pathExtension: "mp3")
     /// Resource file `tickingSound.mp3`.
     static let tickingSoundMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "tickingSound", pathExtension: "mp3")
     
-    /// `bundle.url(forResource: "clockSound", withExtension: "mp3")`
-    static func clockSoundMp3(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.clockSoundMp3
+    /// `bundle.url(forResource: "endClockSound", withExtension: "mp3")`
+    static func endClockSoundMp3(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.endClockSoundMp3
       return fileResource.bundle.url(forResource: fileResource)
     }
     

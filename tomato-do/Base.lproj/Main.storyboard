@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1796" y="122.78860569715144"/>
         </scene>
-        <!--Pomodoro View Controller-->
+        <!--POMODORO-->
         <scene sceneID="NqS-rq-8aI">
             <objects>
                 <viewController storyboardIdentifier="PomodoroViewController" id="FJs-bb-6U5" customClass="PomodoroViewController" customModule="tomato_do" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,28 +177,110 @@
                         <viewControllerLayoutGuide type="bottom" id="asG-ez-pUa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xbo-L6-9mO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRV-wn-CGt">
-                                <rect key="frame" x="79" y="349" width="216" height="39"/>
-                                <color key="backgroundColor" red="0.55292274746192893" green="0.16544675616570861" blue="0.090861968003476984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qi-Nm-sdj">
+                                <rect key="frame" x="68" y="332" width="240" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="tgq-Hk-pod"/>
+                                    <constraint firstAttribute="height" constant="40" id="F16-Bt-6k1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="A0p-jb-oQy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRV-wn-CGt">
+                                <rect key="frame" x="68" y="332" width="240" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tgq-Hk-pod"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="PAUSE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="5w8-BT-zLL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-5R-x3K">
+                                <rect key="frame" x="68" y="332" width="130" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="jjV-aM-ViR"/>
+                                    <constraint firstAttribute="height" constant="40" id="otC-c0-X7J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="STOP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H4-xt-eD7">
+                                <rect key="frame" x="178" y="332" width="130" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Cy-DM-gcR"/>
+                                    <constraint firstAttribute="width" constant="130" id="FE7-9i-jrQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="RESUME">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="46d-Qx-Vuv"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S">
+                                <rect key="frame" x="0.0" y="479" width="375" height="124"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.29107602763005813" blue="0.15967682404095684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.29107602760000001" blue="0.15967682399999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="VRV-wn-CGt" secondAttribute="trailing" constant="64" id="0UU-c3-48z"/>
-                            <constraint firstItem="VRV-wn-CGt" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leadingMargin" constant="63" id="itF-nZ-dJH"/>
-                            <constraint firstItem="VRV-wn-CGt" firstAttribute="top" secondItem="KyO-jX-WMF" secondAttribute="bottom" constant="329" id="oZ6-aM-7mH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VRV-wn-CGt" secondAttribute="trailing" constant="51" id="0UU-c3-48z"/>
+                            <constraint firstItem="OeY-AK-O4S" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leading" id="1Ee-Ic-DZv"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="5gC-y3-7fH"/>
+                            <constraint firstItem="8H4-xt-eD7" firstAttribute="trailing" secondItem="VRV-wn-CGt" secondAttribute="trailing" id="HrX-SV-XUW"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="T2m-BV-ccu"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="leading" secondItem="VRV-wn-CGt" secondAttribute="leading" id="dil-eK-cAQ"/>
+                            <constraint firstItem="OeY-AK-O4S" firstAttribute="top" secondItem="KyO-jX-WMF" secondAttribute="bottom" constant="479" id="et3-ST-b8S"/>
+                            <constraint firstAttribute="trailing" secondItem="OeY-AK-O4S" secondAttribute="trailing" id="huB-NC-J0f"/>
+                            <constraint firstItem="VRV-wn-CGt" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leadingMargin" constant="52" id="itF-nZ-dJH"/>
+                            <constraint firstItem="8H4-xt-eD7" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="mS8-Ei-aGB"/>
+                            <constraint firstItem="VRV-wn-CGt" firstAttribute="top" secondItem="KyO-jX-WMF" secondAttribute="bottom" constant="332" id="oZ6-aM-7mH"/>
+                            <constraint firstItem="asG-ez-pUa" firstAttribute="top" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="sYc-Xi-Uxf"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="trailing" secondItem="VRV-wn-CGt" secondAttribute="trailing" id="wly-1b-vhO"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="wrk-Og-ZdY"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="leading" secondItem="VRV-wn-CGt" secondAttribute="leading" id="yAB-Ps-YBy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="POMODORO" id="i6K-c5-MpR">
+                        <barButtonItem key="leftBarButtonItem" title="To-Do" id="8Ie-Qq-buR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backToDoPress:" destination="FJs-bb-6U5" id="Svt-IO-ji4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="pauseButton" destination="VRV-wn-CGt" id="n8j-8l-8WX"/>
+                        <outlet property="resumeButton" destination="8H4-xt-eD7" id="47r-Fl-rIb"/>
+                        <outlet property="startButton" destination="6qi-Nm-sdj" id="1Fx-TW-Yxq"/>
+                        <outlet property="stopButton" destination="Wkc-5R-x3K" id="sfk-hO-Hry"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

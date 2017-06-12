@@ -26,7 +26,5 @@ class MainScreenViewController: UIViewController {
         let controller = R.storyboard.main.addTaskViewController()!
         navigationController?.pushViewController(controller, animated: true)
     }
-    
-
 }
 

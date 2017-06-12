@@ -42,7 +42,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
 
         CoreDataManager.shared.rearrange(from: fromIndexPath.row, to: toIndexPath.row)
         addTaskTableView.moveRow(at: fromIndexPath, to: toIndexPath)
-//        addTaskTableView.reloadData()
+        addTaskTableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
