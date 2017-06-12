@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MmL-nM-x50">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TUg-yh-389">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,65 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Screen View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="tomato_do" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundPomodoro" translatesAutoresizingMaskIntoConstraints="NO" id="uT7-I8-Z0N">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У Вас нет задач, добавить одну?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVK-kQ-fdV">
-                                <rect key="frame" x="63" y="297" width="270" height="22"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGd-mA-yfu">
-                                <rect key="frame" x="113" y="338" width="150" height="34"/>
-                                <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0rL-RA-Qel"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" title="добавить задачу">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTaskButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a02-dS-3oa"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="JVK-kQ-fdV" firstAttribute="trailing" secondItem="xGd-mA-yfu" secondAttribute="trailing" constant="70" id="6xg-h3-3My"/>
-                            <constraint firstItem="uT7-I8-Z0N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="IOA-MW-DmJ"/>
-                            <constraint firstItem="xGd-mA-yfu" firstAttribute="centerY" secondItem="uT7-I8-Z0N" secondAttribute="centerY" id="NkN-XN-aKh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uT7-I8-Z0N" secondAttribute="bottom" id="Wdi-QD-AdE"/>
-                            <constraint firstItem="xGd-mA-yfu" firstAttribute="top" secondItem="JVK-kQ-fdV" secondAttribute="bottom" constant="19" id="c75-hG-OEM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uT7-I8-Z0N" secondAttribute="trailing" constant="-16" id="ew9-Pv-qBr"/>
-                            <constraint firstItem="JVK-kQ-fdV" firstAttribute="leading" secondItem="xGd-mA-yfu" secondAttribute="leading" constant="-50" id="nNG-mz-vOA"/>
-                            <constraint firstItem="xGd-mA-yfu" firstAttribute="centerX" secondItem="uT7-I8-Z0N" secondAttribute="centerX" id="vWM-3r-dE3"/>
-                            <constraint firstItem="uT7-I8-Z0N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="z82-LF-kV8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Z6d-0V-OMm"/>
-                    <connections>
-                        <outlet property="addTaskButton" destination="xGd-mA-yfu" id="nBc-8L-LL6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
-        </scene>
         <!--Add Task View Controller-->
         <scene sceneID="ujZ-BR-PQI">
             <objects>
@@ -82,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
-                                <rect key="frame" x="0.0" y="80" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="124" width="375" height="499"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="Ssk-uV-HV7" customClass="TableViewCell" customModule="tomato_do" customModuleProvider="target">
@@ -140,7 +81,7 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Что будем делать?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-T1-H4K">
-                                <rect key="frame" x="16" y="35" width="343" height="30"/>
+                                <rect key="frame" x="16" y="79" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -158,6 +99,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="725-IB-3TG"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTaskTableView" destination="Mw9-0l-pk1" id="aW6-1z-bX5"/>
@@ -166,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSJ-i9-fRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="122.78860569715144"/>
+            <point key="canvasLocation" x="2642" y="123"/>
         </scene>
         <!--POMODORO-->
         <scene sceneID="NqS-rq-8aI">
@@ -284,29 +226,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501.5999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="3440.8000000000002" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="5cG-3g-6fg">
+        <scene sceneID="fli-QQ-IP7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MmL-nM-x50" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TUg-yh-389" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nSt-gG-7A6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QQf-tw-45c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0QQ-JM-bJZ"/>
+                        <segue destination="LZg-hx-ehN" kind="relationship" relationship="rootViewController" id="dve-13-Vfy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e8A-ve-G65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQS-Qy-WI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="123"/>
+            <point key="canvasLocation" x="1796" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundPomodoro" width="600" height="375"/>
         <image name="pomodoro" width="288" height="264"/>
     </resources>
 </document>

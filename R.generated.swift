@@ -164,7 +164,6 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "backgroundPomodoro") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backgroundPomodoro' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "pomodoro") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pomodoro' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
         if _R.storyboard.main().pomodoroViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pomodoroViewController' could not be loaded from storyboard 'Main' as 'PomodoroViewController'.") }

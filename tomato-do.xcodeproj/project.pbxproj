@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0A8C731EB78595005B8090 /* R.generated.swift */; };
 		2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */; };
-		2C1F1B5D1EAFBC7C002626B7 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */; };
 		2C1F1B601EAFBC7C002626B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */; };
 		2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F1B611EAFBC7C002626B7 /* tomato_do.xcdatamodeld */; };
 		2C1F1B651EAFBC7C002626B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */; };
@@ -29,7 +28,6 @@
 		2C0A8C731EB78595005B8090 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		2C1F1B571EAFBC7C002626B7 /* tomato-do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tomato-do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		2C1F1B5F1EAFBC7C002626B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C1F1B621EAFBC7C002626B7 /* tomato_do.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tomato_do.xcdatamodel; sourceTree = "<group>"; };
 		2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				A75611481EC4943D0019BEC3 /* ClockView.swift */,
 				A75008A01ECC38B7007E26BC /* CoreDataManager.swift */,
 				A7DA01801ECAC80500623CB8 /* Extensions */,
-				2C1F1B5C1EAFBC7C002626B7 /* MainScreenViewController.swift */,
 				A761602D1EC4512600616AE0 /* PomodoroViewController.swift */,
 				A7351A471EC5BD2500117057 /* TableViewCell.swift */,
 				2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */,
@@ -275,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DA017F1ECAC7C000623CB8 /* Array+Extensions.swift in Sources */,
-				2C1F1B5D1EAFBC7C002626B7 /* MainScreenViewController.swift in Sources */,
 				A7351A481EC5BD2500117057 /* TableViewCell.swift in Sources */,
 				2CDDABC21EB77D2F007E20A4 /* AddTaskViewController.swift in Sources */,
 				2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */,
