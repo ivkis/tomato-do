@@ -75,7 +75,7 @@ class PomodoroViewController: UIViewController {
 
     func setupPomodoroViewController() {
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9354019761, green: 0.3499509096, blue: 0.1937675774, alpha: 1)
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = UIColor.white
     }
