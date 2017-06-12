@@ -48,14 +48,35 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `buttonTimerIcon`.
+    static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
+    /// Image `launchScreen`.
+    static let launchScreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchScreen")
+    /// Image `pomodoroLogo`.
+    static let pomodoroLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoroLogo")
     /// Image `pomodoro`.
     static let pomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoro")
+    
+    /// `UIImage(named: "buttonTimerIcon", bundle: ..., traitCollection: ...)`
+    static func buttonTimerIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.buttonTimerIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "launchScreen", bundle: ..., traitCollection: ...)`
+    static func launchScreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.launchScreen, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "pomodoro", bundle: ..., traitCollection: ...)`
     static func pomodoro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.pomodoro, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "pomodoroLogo", bundle: ..., traitCollection: ...)`
+    static func pomodoroLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pomodoroLogo, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -129,13 +150,18 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
+      try launchScreen.validate()
     }
     
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "launchScreen") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'launchScreen' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
@@ -157,7 +183,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "pomodoro") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pomodoro' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "buttonTimerIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'buttonTimerIcon' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
         if _R.storyboard.main().pomodoroViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pomodoroViewController' could not be loaded from storyboard 'Main' as 'PomodoroViewController'.") }
       }
