@@ -16,6 +16,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - IQKeyboardManagerSwift (4.0.9)
   - PureLayout (3.0.2)
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - BEMCheckBox
   - Firebase
   - FMMoveTableView
+  - IQKeyboardManagerSwift
   - PureLayout
   - R.swift
   - SwiftLint
@@ -38,11 +40,12 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FMMoveTableView: 63b46cf806133f5220cf92592dc0e6f7eb07633d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
 
-PODFILE CHECKSUM: ad87b2a07bc56dfee7227f9e89fb8fb252b053c9
+PODFILE CHECKSUM: 21eb56188b45b6c57cb51414aa659773ba4ff1da
 
 COCOAPODS: 1.2.1

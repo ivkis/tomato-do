@@ -12,4 +12,5 @@ target 'tomato-do' do
   pod 'PureLayout'
   pod 'BEMCheckBox'
   pod ‘FMMoveTableView'
+  pod 'IQKeyboardManagerSwift'
 end
