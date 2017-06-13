@@ -53,6 +53,8 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelega
 
     func editAndSaveLabel() {
         textLabel?.text = editTaskTextField.text
+        editTaskTextField.isHidden = true
+        textLabel?.isHidden = false
         delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
     }
 

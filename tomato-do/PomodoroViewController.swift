@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-class PomodoroViewController: UIViewController {
+class PomodoroViewController: UIViewController, UITextFieldDelegate {
 
     let viewClock = ClockView()
 
@@ -17,6 +17,7 @@ class PomodoroViewController: UIViewController {
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
+    @IBOutlet weak var UnexpectedTaskTextField: UITextField!
 
     @IBAction func backToDoPress(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -67,6 +68,7 @@ class PomodoroViewController: UIViewController {
         super.viewDidLoad()
         setupPomodoroViewController()
         pomodoroClock()
+        UnexpectedTaskTextField.delegate = self
 
         pauseButton.isHidden = true
         stopButton.isHidden = true
@@ -88,5 +90,13 @@ class PomodoroViewController: UIViewController {
         viewClock.autoSetDimensions(to: CGSize(width: 250, height: 250))
         viewClock.autoPinEdge(toSuperviewEdge: .top, withInset: 105)
         viewClock.autoAlignAxis(toSuperviewAxis: .vertical)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        UnexpectedTaskTextField.resignFirstResponder()
+        CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
+        UnexpectedTaskTextField.text = ""
+
+        return true
     }
 }

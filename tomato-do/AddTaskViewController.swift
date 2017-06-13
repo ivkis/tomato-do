@@ -23,6 +23,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         CoreDataManager.shared.downloadFromCoreData()
+        addTaskTableView.reloadData()
     }
 
     override func viewDidLoad() {
