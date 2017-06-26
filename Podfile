@@ -7,7 +7,7 @@ target 'tomato-do' do
   use_frameworks!
 
   # Pods for tomato-do
-  pod 'Firebase'
+  #  pod 'Firebase'
   pod 'R.swift'
   pod 'SwiftLint'
   pod 'PureLayout'
