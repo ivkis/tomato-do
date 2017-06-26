@@ -140,6 +140,7 @@
 			buildPhases = (
 				2A57583D82192B567F03EBC1 /* [CP] Check Pods Manifest.lock */,
 				2CDDABC41EB78269007E20A4 /* Run script - R.swift */,
+				A7B867841F00F7F500BB5228 /* Run script (SwiftLint) */,
 				2C1F1B531EAFBC7C002626B7 /* Sources */,
 				2C1F1B541EAFBC7C002626B7 /* Frameworks */,
 				2C1F1B551EAFBC7C002626B7 /* Resources */,
@@ -248,6 +249,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tomato-do/Pods-tomato-do-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A7B867841F00F7F500BB5228 /* Run script (SwiftLint) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run script (SwiftLint)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 		B8CE2302BEF440246DE03F41 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
