@@ -11,34 +11,40 @@ import UIKit
 import PureLayout
 import AVFoundation
 
+protocol ClockViewDelegate: class {
+    func clockViewDidEndTimer(_ clockView: ClockView)
+}
+
 class ClockView: UIView {
-    
+
+    weak var delegate: ClockViewDelegate?
+
     var shapeLayer = CAShapeLayer()
     var countDownTimer = Timer()
     var timerValue = 900
     var label = UILabel()
 
     lazy var endPlayer: AVAudioPlayer = {
-        return try! AVAudioPlayer(contentsOf: R.file.endClockSoundMp3()!)
-    }()
-    
+        return try? AVAudioPlayer(contentsOf: R.file.endClockSoundMp3()!)
+    }()!
+
     lazy var tickPlayer: AVAudioPlayer = {
-        return try! AVAudioPlayer(contentsOf: R.file.tickingSoundMp3()!)
-    }()
+        return try? AVAudioPlayer(contentsOf: R.file.tickingSoundMp3()!)
+    }()!
 
     override init (frame: CGRect) {
         super.init (frame: frame)
         self.createLabel()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     // MARK: - Timer Preferences
 
     func pauseAnimation(layer: CAShapeLayer) {
-        let pausedTime : CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
+        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
         tickPlayer.stop()
@@ -118,10 +124,11 @@ class ClockView: UIView {
     @objc private func countdown(_ dt: Timer) {
         timerValue -= 1
         setLabelText(timeFormatted(timerValue))
-        if timerValue <= 0 {
+        if timerValue == 0 {
             countDownTimer.invalidate()
             tickPlayer.stop()
             endPlayer.play()
+            delegate?.clockViewDidEndTimer(self)
         }
     }
 

@@ -11,7 +11,7 @@ import CoreData
 import FMMoveTableView
 
 class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTableViewDataSource, UITextFieldDelegate, TableViewCellDelegate {
-    
+
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: FMMoveTableView!
 
