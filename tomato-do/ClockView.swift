@@ -15,22 +15,28 @@ protocol ClockViewDelegate: class {
     func clockViewDidEndTimer(_ clockView: ClockView)
 }
 
-class ClockView: UIView {
+class ClockView: MiniPomodoroView {
 
     weak var delegate: ClockViewDelegate?
 
-    var shapeLayer = CAShapeLayer()
     var countDownTimer = Timer()
-    var timerValue = 900
     var label = UILabel()
 
     lazy var endPlayer: AVAudioPlayer = {
         return try? AVAudioPlayer(contentsOf: R.file.endClockSoundMp3()!)
-    }()!
+        }()!
 
     lazy var tickPlayer: AVAudioPlayer = {
         return try? AVAudioPlayer(contentsOf: R.file.tickingSoundMp3()!)
-    }()!
+        }()!
+
+    override var lineWidht: CGFloat {
+        return 2
+    }
+
+    override var lineRadius: CGFloat {
+        return bounds.width / 2
+    }
 
     override init (frame: CGRect) {
         super.init (frame: frame)
@@ -41,45 +47,20 @@ class ClockView: UIView {
         super.init(coder: aDecoder)
     }
 
-    // MARK: - Timer Preferences
-
-    func pauseAnimation(layer: CAShapeLayer) {
-        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
-        layer.speed = 0.0
-        layer.timeOffset = pausedTime
-        tickPlayer.stop()
-    }
-
-    func stopAnimation(layer: CAShapeLayer) {
-        layer.removeAnimation(forKey: "ani")
-        layer.speed = 1
-        layer.timeOffset = 0
-    }
-
-    func resumeAnimation(layer: CAShapeLayer) {
-        let pausedTime = layer.timeOffset
-        layer.speed = 1.0
-        layer.timeOffset = 0.0
-        layer.beginTime = 0.0
-        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        layer.beginTime = timeSincePause
+    override func resumeAnimation() {
+        super.resumeAnimation()
         tickPlayer.play()
     }
 
-    override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-        let arcCenter = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
-        let radius = self.bounds.width/2
-        let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(-Float.pi/2), endAngle: CGFloat(2*Float.pi-Float.pi/2), clockwise: true)
-
-        shapeLayer.path = circlePath.cgPath
-        shapeLayer.frame = layer.bounds
+    override func pauseAnimation() {
+        super.pauseAnimation()
+        tickPlayer.stop()
     }
 
-    private func addCircle() {
+    override func addCircle() {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.white.cgColor
-        shapeLayer.lineWidth = 2
+        shapeLayer.lineWidth = lineWidht
 
         self.layer.addSublayer(shapeLayer)
         shapeLayer.isHidden = true
@@ -93,21 +74,8 @@ class ClockView: UIView {
         label.autoPinEdgesToSuperviewEdges()
     }
 
-    private func startAnimation() {
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.duration = Double(self.timerValue)
-        animation.fillMode = kCAFillModeForwards
-        animation.isRemovedOnCompletion = false
-
-        shapeLayer.isHidden = false
-        shapeLayer.add(animation, forKey: "ani")
-    }
-
     private func updateLabel(value: Int) {
         setLabelText(timeFormatted(value))
-        addCircle()
     }
 
     func setLabelText(_ value: String) {
@@ -133,7 +101,7 @@ class ClockView: UIView {
     }
 
     func setTimer(value: Int) {
-        stopAnimation(layer: shapeLayer)
+        stopAnimation()
         timerValue = value
         updateLabel(value: value)
     }
