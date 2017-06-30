@@ -24,7 +24,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     @IBAction func backToDoPress(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        navigationController?.navigationBar.isHidden = true
     }
 
     @IBAction func startButtonPress(_ sender: Any) {
@@ -84,6 +83,11 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         viewClock.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     // MARK: - ClockViewDelegate
 
     func clockViewDidEndTimer(_ clockView: ClockView) {
@@ -113,7 +117,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     func setPomodoroUI() {
         view.backgroundColor = UIColor.Tomatodo.red
-        navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.Tomatodo.orange
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = UIColor.white
