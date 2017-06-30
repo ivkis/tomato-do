@@ -47,6 +47,10 @@ class ClockView: MiniPomodoroView {
         super.init(coder: aDecoder)
     }
 
+    deinit {
+        countDownTimer.invalidate()
+    }
+
     override func resumeAnimation() {
         super.resumeAnimation()
         tickPlayer.play()
@@ -107,7 +111,9 @@ class ClockView: MiniPomodoroView {
     }
 
     func startCoundownTimer() {
-        countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown(_: )), userInfo: nil, repeats: true)
+        countDownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            self?.countdown(timer)
+        }
         tickPlayer.numberOfLoops = -1
         tickPlayer.play()
     }
