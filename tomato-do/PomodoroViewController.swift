@@ -13,7 +13,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     let viewClock = ClockView()
     let miniViewClock = MiniPomodoroView()
-    static var counterTimer = 0
+    static var counterTimer = 1
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -29,6 +29,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     @IBAction func startButtonPress(_ sender: Any) {
         viewClock.startClockTimer()
         pomodoroCollectionView.currentPomodoro.startAnimation()
+
 
         startButton.isHidden = true
         pauseButton.isHidden = false
@@ -76,9 +77,8 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setPomodoroUI()
         pomodoroClock()
-        clockViewDidEndTimer(viewClock)
+        updateUIToCounters()
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
     }
@@ -88,23 +88,32 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
-    // MARK: - ClockViewDelegate
-
-    func clockViewDidEndTimer(_ clockView: ClockView) {
-        PomodoroViewController.counterTimer += 1
+    func updateUIToCounters() {
         if PomodoroViewController.counterTimer % 8 == 0 {
             viewClock.setTimer(value: Constants.longRestTime)
             setRestPomodoroUI()
-            viewClock.startClockTimer()
         } else if PomodoroViewController.counterTimer % 2 == 0 {
             viewClock.setTimer(value: Constants.restTime)
             setRestPomodoroUI()
-            viewClock.startClockTimer()
         } else {
             viewClock.setTimer(value: Constants.pomodoroTime)
             setPomodoroUI()
             initialStateButtons()
         }
+    }
+
+    func autoStartRestIfNeeded() {
+        if PomodoroViewController.counterTimer % 2 == 0 {
+            viewClock.startClockTimer()
+        }
+    }
+
+    // MARK: - ClockViewDelegate
+
+    func clockViewDidEndTimer(_ clockView: ClockView) {
+        PomodoroViewController.counterTimer += 1
+        updateUIToCounters()
+        autoStartRestIfNeeded()
     }
 
     func setRestPomodoroUI() {
