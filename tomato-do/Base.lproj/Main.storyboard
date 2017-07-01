@@ -50,12 +50,12 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-qf-QOT">
-                                                    <rect key="frame" x="325" y="-3" width="50" height="50"/>
+                                                    <rect key="frame" x="332" y="5" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="Age-d4-Lpj"/>
-                                                        <constraint firstAttribute="height" constant="50" id="Lmo-vL-CJr"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Age-d4-Lpj"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Lmo-vL-CJr"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="buttonTimerIcon"/>
+                                                    <state key="normal" title="Button" image="goToTimer"/>
                                                     <connections>
                                                         <action selector="pomodoroGoTimer:" destination="LZg-hx-ehN" eventType="touchUpInside" id="0ln-xq-vYx"/>
                                                     </connections>
@@ -63,8 +63,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="4iE-H9-lZc" secondAttribute="bottom" constant="7" id="Jtb-QU-Bya"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gzn-qf-QOT" secondAttribute="trailing" constant="-8" id="XmG-Rk-30W"/>
-                                                <constraint firstItem="gzn-qf-QOT" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="topMargin" constant="-11" id="pDu-Vj-xK2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="XmG-Rk-30W"/>
+                                                <constraint firstItem="gzn-qf-QOT" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="topMargin" constant="-3" id="pDu-Vj-xK2"/>
                                                 <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="37F-qR-7H4" secondAttribute="leading" constant="8" id="qac-xb-bF5"/>
                                                 <constraint firstItem="4iE-H9-lZc" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="top" constant="7" id="sCC-Qk-9g1"/>
                                             </constraints>
@@ -448,7 +448,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buttonTimerIcon" width="40" height="40"/>
+        <image name="goToTimer" width="40" height="40"/>
         <image name="miniBackground" width="40" height="40"/>
     </resources>
 </document>
