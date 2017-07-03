@@ -15,6 +15,7 @@ class MiniPomodoroView: UIView {
 
     var shapeLayer = CAShapeLayer()
     var timerValue = Constants.pomodoroTime
+
     var lineWidht: CGFloat {
         return bounds.width / 2
     }

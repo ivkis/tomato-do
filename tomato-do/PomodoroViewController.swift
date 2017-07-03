@@ -13,7 +13,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     let viewClock = ClockView()
     let miniViewClock = MiniPomodoroView()
-    static var counterTimer = 1
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -89,10 +88,10 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     }
 
     func updateUIToCounters() {
-        if PomodoroViewController.counterTimer % 8 == 0 {
+        if State.shared.counterTimer % 8 == 0 {
             viewClock.setTimer(value: Constants.longRestTime)
             setRestPomodoroUI()
-        } else if PomodoroViewController.counterTimer % 2 == 0 {
+        } else if State.shared.counterTimer % 2 == 0 {
             viewClock.setTimer(value: Constants.restTime)
             setRestPomodoroUI()
         } else {
@@ -103,7 +102,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     }
 
     func autoStartRestIfNeeded() {
-        if PomodoroViewController.counterTimer % 2 == 0 {
+        if State.shared.counterTimer % 2 == 0 {
             viewClock.startClockTimer()
         }
     }
@@ -111,7 +110,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     // MARK: - ClockViewDelegate
 
     func clockViewDidEndTimer(_ clockView: ClockView) {
-        PomodoroViewController.counterTimer += 1
+        State.shared.counterTimer += 1
         updateUIToCounters()
         autoStartRestIfNeeded()
     }

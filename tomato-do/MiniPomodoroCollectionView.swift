@@ -14,12 +14,8 @@ class MiniPomodoroCollectionView: UIView {
 
     @IBOutlet var containerViews: [UIView]!
 
-    var currentPomodoroIndex: Int {
-        return PomodoroViewController.counterTimer / 2
-    }
-
     var currentPomodoro: MiniPomodoroView {
-        return containerViews[currentPomodoroIndex].subviews.last! as! MiniPomodoroView
+        return containerViews[State.shared.currentPomodoroIndex].subviews.last! as! MiniPomodoroView
     }
 
     override func awakeFromNib() {
@@ -32,7 +28,7 @@ class MiniPomodoroCollectionView: UIView {
             let pomodoroView = MiniPomodoroView()
             view.addSubview(pomodoroView)
             pomodoroView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
-            if index < currentPomodoroIndex {
+            if index < State.shared.currentPomodoroIndex {
                 pomodoroView.finishAnimation()
             }
         }
