@@ -15,11 +15,6 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: FMMoveTableView!
 
-    @IBAction func pomodoroGoTimer(_ sender: Any) {
-        let conroller = R.storyboard.main.pomodoroViewController()!
-        navigationController?.pushViewController(conroller, animated: true)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -31,6 +26,13 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         super.viewDidLoad()
         setupAddTaskViewController()
         addTaskTextField.delegate = self
+    }
+
+    // MARK: - IBAction
+
+    @IBAction func pomodoroGoTimer(_ sender: Any) {
+        let conroller = R.storyboard.main.pomodoroViewController()!
+        navigationController?.pushViewController(conroller, animated: true)
     }
 
     func setupAddTaskViewController() {

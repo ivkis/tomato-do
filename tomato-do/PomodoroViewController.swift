@@ -21,14 +21,33 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     @IBOutlet weak var unexpectedTaskTextField: UITextField!
     @IBOutlet weak var pomodoroCollectionView: MiniPomodoroCollectionView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pomodoroClock()
+        updateUIToCounters()
+        unexpectedTaskTextField.delegate = self
+        viewClock.delegate = self
+        if let timerEndDate = State.shared.timerEndDate {
+            resumeCurrentTimer(timerEndDate: timerEndDate)
+        }
+    }
+
+    // MARK: - IBAction
+
     @IBAction func backToDoPress(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 
     @IBAction func startButtonPress(_ sender: Any) {
         viewClock.startClockTimer()
-        pomodoroCollectionView.currentPomodoro.startAnimation()
+        pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: TimeInterval(Constants.pomodoroTime))
 
+        State.shared.sheduleTimerEnd(in: TimeInterval(Constants.pomodoroTime))
 
         startButton.isHidden = true
         pauseButton.isHidden = false
@@ -49,6 +68,9 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         viewClock.resumeAnimation()
         pomodoroCollectionView.currentPomodoro.resumeAnimation()
 
+        let date = Date(timeInterval: TimeInterval(viewClock.timerValue), since: Date())
+        State.shared.timerEndDate = date
+
         resumeButton.isHidden = true
         stopButton.isHidden = true
         pauseButton.isHidden = false
@@ -67,25 +89,16 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         self.present(alertController, animated: true, completion: nil)
     }
 
-    func initialStateButtons() {
-        pauseButton.isHidden = true
-        stopButton.isHidden = true
-        resumeButton.isHidden = true
-        startButton.isHidden = false
-    }
+    // MARK: - ClockViewDelegate
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pomodoroClock()
+    func clockViewDidEndTimer(_ clockView: ClockView) {
+        State.shared.timerEndDate = nil
+        State.shared.counterTimer += 1
         updateUIToCounters()
-        unexpectedTaskTextField.delegate = self
-        viewClock.delegate = self
+        autoStartRestIfNeeded()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+    // MARK: - Customizing timerUI
 
     func updateUIToCounters() {
         if State.shared.counterTimer % 8 == 0 {
@@ -103,16 +116,11 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     func autoStartRestIfNeeded() {
         if State.shared.counterTimer % 2 == 0 {
+
+            State.shared.sheduleTimerEnd(in: TimeInterval(viewClock.timerValue))
+
             viewClock.startClockTimer()
         }
-    }
-
-    // MARK: - ClockViewDelegate
-
-    func clockViewDidEndTimer(_ clockView: ClockView) {
-        State.shared.counterTimer += 1
-        updateUIToCounters()
-        autoStartRestIfNeeded()
     }
 
     func setRestPomodoroUI() {
@@ -133,6 +141,15 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         }
     }
 
+    func initialStateButtons() {
+        pauseButton.isHidden = true
+        stopButton.isHidden = true
+        resumeButton.isHidden = true
+        startButton.isHidden = false
+    }
+
+    // MARK: - Configure location timer
+
     func pomodoroClock() {
         viewClock.setTimer(value: Constants.pomodoroTime)
 
@@ -143,6 +160,26 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         viewClock.autoAlignAxis(toSuperviewAxis: .vertical)
 
         initialStateButtons()
+    }
+
+    func resumeCurrentTimer(timerEndDate: Date) {
+        let currentDate = Date()
+        let remainingTime = timerEndDate.timeIntervalSinceNow
+        let totalDuration = TimeInterval(viewClock.timerValue)
+        let currentPosition = totalDuration - remainingTime
+
+        if currentDate.compare(timerEndDate) == .orderedAscending {
+            viewClock.setTimer(value: Int(remainingTime))
+            viewClock.startCoundownTimer()
+            viewClock.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
+            if !State.shared.isRestTime {
+                pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
+            }
+        } else {
+            State.shared.counterTimer += 1
+            State.shared.timerEndDate = nil
+            pomodoroCollectionView.updateFinishedPomodorosState()
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

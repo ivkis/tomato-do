@@ -14,7 +14,16 @@ class State {
     static let shared = State()
 
     let defaults = UserDefaults.standard
-    let currentDate = Date()
+
+    var isRestTime: Bool {
+        return counterTimer % 2 == 0
+    }
+
+    var timerEndDate: Date? {
+        didSet {
+            defaults.set(timerEndDate, forKey: "timerEndDate")
+        }
+    }
 
     var counterTimer: Int {
         didSet {
@@ -27,12 +36,18 @@ class State {
     }
 
     init() {
+        self.timerEndDate = defaults.object(forKey: "timerEndDate") as? Date
+
         let lastRunDate = defaults.object(forKey: "dateLastRun") as? Date
-        if let lastRunDate = lastRunDate, Calendar.current.compare(lastRunDate, to: currentDate, toGranularity: .day) == .orderedSame {
+        if let lastRunDate = lastRunDate, Calendar.current.compare(lastRunDate, to: Date(), toGranularity: .day) == .orderedSame {
             self.counterTimer = max(1, defaults.integer(forKey: "counterTimer"))
         } else {
             self.counterTimer = 1
         }
-        defaults.set(currentDate, forKey: "dateLastRun")
+        defaults.set(Date(), forKey: "dateLastRun")
+    }
+
+    func sheduleTimerEnd(in timeInterval: TimeInterval) {
+        self.timerEndDate = Date(timeInterval: timeInterval, since: Date())
     }
 }

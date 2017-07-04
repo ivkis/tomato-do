@@ -24,10 +24,17 @@ class MiniPomodoroCollectionView: UIView {
     }
 
     func setupMiniPomodoroCollectionView() {
-        for (index, view) in containerViews.enumerated() {
+        for view in containerViews {
             let pomodoroView = MiniPomodoroView()
             view.addSubview(pomodoroView)
             pomodoroView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        }
+        updateFinishedPomodorosState()
+    }
+
+    func updateFinishedPomodorosState() {
+        for (index, view) in containerViews.enumerated() {
+            let pomodoroView = view.subviews.last! as! MiniPomodoroView
             if index < State.shared.currentPomodoroIndex {
                 pomodoroView.finishAnimation()
             }

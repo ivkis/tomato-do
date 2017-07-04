@@ -11,9 +11,9 @@ import UIKit
 
 
 enum Constants {
-    static let pomodoroTime = 5
-    static let restTime = 2
-    static let longRestTime = 15
+    static let pomodoroTime = 15
+    static let restTime = 10
+    static let longRestTime = 20
 }
 
 extension UIColor {

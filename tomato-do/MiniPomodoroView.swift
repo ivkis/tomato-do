@@ -62,7 +62,7 @@ class MiniPomodoroView: UIView {
     }
 
     func finishAnimation() {
-        startAnimation()
+        startAnimation(totalDuration: TimeInterval(Constants.pomodoroTime))
         shapeLayer.removeAnimation(forKey: "ani")
     }
 
@@ -76,11 +76,13 @@ class MiniPomodoroView: UIView {
         shapeLayer.isHidden = true
     }
 
-    func startAnimation() {
+    func startAnimation(totalDuration: TimeInterval? = nil, currentPosition: TimeInterval = 0) {
+        let totalDuration = totalDuration ?? TimeInterval(timerValue)
+        timerValue = Int(totalDuration - currentPosition)
         let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
+        animation.fromValue = currentPosition / totalDuration
         animation.toValue = 1
-        animation.duration = Double(self.timerValue)
+        animation.duration = CFTimeInterval(timerValue)
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
 
