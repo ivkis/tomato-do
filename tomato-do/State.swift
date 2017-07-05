@@ -67,5 +67,8 @@ class State {
 
     func cancelPeriod() {
         timerEndDate = nil
+        if isRestTime {
+            counterTimer += 1
+        }
     }
 }

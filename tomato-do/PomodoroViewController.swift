@@ -15,9 +15,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     let miniViewClock = MiniPomodoroView()
 
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var resumeButton: UIButton!
     @IBOutlet weak var unexpectedTaskTextField: UITextField!
     @IBOutlet weak var pomodoroCollectionView: MiniPomodoroCollectionView!
 
@@ -30,6 +28,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         super.viewDidLoad()
         pomodoroClock()
         updateUIToCounters()
+        stopButton.isHidden = true
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
         if let timerEndDate = State.shared.timerEndDate {
@@ -50,36 +49,21 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         State.shared.sheduleTimerEnd(in: TimeInterval(Constants.pomodoroTime))
 
         startButton.isHidden = true
-        pauseButton.isHidden = false
-    }
-
-    @IBAction func pauseButtonPress(_ sender: Any) {
-        viewClock.pauseAnimation()
-        pomodoroCollectionView.currentPomodoro.pauseAnimation()
-        viewClock.countDownTimer.invalidate()
-
-        pauseButton.isHidden = true
         stopButton.isHidden = false
-        resumeButton.isHidden = false
-    }
-
-    @IBAction func resumeButtonPress(_ sender: Any) {
-        viewClock.startCoundownTimer()
-        viewClock.resumeAnimation()
-        pomodoroCollectionView.currentPomodoro.resumeAnimation()
-
-        resumeButton.isHidden = true
-        stopButton.isHidden = true
-        pauseButton.isHidden = false
     }
 
     @IBAction func stopButtonPress(_ sender: Any) {
         let noAlertAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         let yesAlertAction = UIAlertAction(title: "Yes", style: .destructive) { action in
             State.shared.cancelPeriod()
-            self.pomodoroClock()
             self.pomodoroCollectionView.currentPomodoro.stopAnimation()
-            self.setPomodoroUI()
+            self.viewClock.stopClockTimer()
+            self.updateUIToCounters()
+//            self.setPomodoroUI()
+//            self.pomodoroClock()
+
+            self.stopButton.isHidden = true
+            self.startButton.isHidden = false
         }
         let alertController = UIAlertController(title: "Stop Timer", message: "Are you sure you want to stop the curent pomodoro?", preferredStyle: .alert)
         alertController.addAction(noAlertAction)
@@ -103,7 +87,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
             setRestPomodoroUI()
         } else {
             setPomodoroUI()
-            initialStateButtons()
         }
     }
 
@@ -117,7 +100,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     func setRestPomodoroUI() {
         view.backgroundColor = UIColor.Tomatodo.blue
         navigationController?.navigationBar.barTintColor = UIColor.Tomatodo.darkBlue
-        for button in [startButton, pauseButton, stopButton, resumeButton] {
+        for button in [startButton, stopButton] {
             button?.backgroundColor = UIColor.Tomatodo.darkBlue
         }
     }
@@ -127,16 +110,9 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         navigationController?.navigationBar.barTintColor = UIColor.Tomatodo.orange
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = UIColor.white
-        for button in [startButton, pauseButton, stopButton, resumeButton] {
+        for button in [startButton, stopButton] {
             button?.backgroundColor = UIColor.Tomatodo.orange
         }
-    }
-
-    func initialStateButtons() {
-        pauseButton.isHidden = true
-        stopButton.isHidden = true
-        resumeButton.isHidden = true
-        startButton.isHidden = false
     }
 
     // MARK: - Configure location timer
@@ -149,8 +125,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         viewClock.autoSetDimensions(to: CGSize(width: 250, height: 250))
         viewClock.autoPinEdge(toSuperviewEdge: .top, withInset: 98)
         viewClock.autoAlignAxis(toSuperviewAxis: .vertical)
-
-        initialStateButtons()
     }
 
     func resumeCurrentTimer(timerEndDate: Date) {

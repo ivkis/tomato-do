@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -124,10 +123,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qi-Nm-sdj">
-                                <rect key="frame" x="59.5" y="312" width="256" height="40"/>
+                                <rect key="frame" x="59" y="312" width="256" height="40"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="F16-Bt-6k1"/>
+                                    <constraint firstAttribute="height" constant="40" id="fzo-jG-orP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,51 +135,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="A0p-jb-oQy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRV-wn-CGt">
-                                <rect key="frame" x="59.5" y="312" width="256" height="40"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="tgq-Hk-pod"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="PAUSE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="5w8-BT-zLL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-5R-x3K">
-                                <rect key="frame" x="59.5" y="312" width="126" height="40"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="otC-c0-X7J"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="STOP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H4-xt-eD7">
-                                <rect key="frame" x="189.5" y="312" width="126" height="40"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="1Cy-DM-gcR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="RESUME">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resumeButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="46d-Qx-Vuv"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
@@ -382,28 +336,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-5R-x3K">
+                                <rect key="frame" x="59" y="312" width="256" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="STOP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97260564565658569" green="0.28646859526634216" blue="0.16096878051757812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="BbR-zt-w7c" firstAttribute="top" secondItem="6qi-Nm-sdj" secondAttribute="bottom" constant="51" id="13T-MH-vtj"/>
                             <constraint firstItem="OeY-AK-O4S" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leading" id="1Ee-Ic-DZv"/>
-                            <constraint firstItem="VRV-wn-CGt" firstAttribute="trailing" secondItem="BbR-zt-w7c" secondAttribute="trailing" id="3jz-on-wM2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="5gC-y3-7fH"/>
-                            <constraint firstItem="VRV-wn-CGt" firstAttribute="leading" secondItem="BbR-zt-w7c" secondAttribute="leading" id="96Z-Bw-ibF"/>
-                            <constraint firstItem="8H4-xt-eD7" firstAttribute="width" secondItem="VRV-wn-CGt" secondAttribute="width" multiplier="0.5" constant="-2" id="AVQ-0e-rdX"/>
-                            <constraint firstItem="8H4-xt-eD7" firstAttribute="trailing" secondItem="VRV-wn-CGt" secondAttribute="trailing" id="HrX-SV-XUW"/>
-                            <constraint firstItem="BbR-zt-w7c" firstAttribute="top" secondItem="Wkc-5R-x3K" secondAttribute="bottom" constant="51" id="K9W-4M-mtO"/>
-                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="T2m-BV-ccu"/>
-                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="width" secondItem="VRV-wn-CGt" secondAttribute="width" multiplier="0.5" constant="-2" id="TRj-b2-0EA"/>
-                            <constraint firstItem="BbR-zt-w7c" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="bottom" constant="51" id="Twa-7A-eC2"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="trailing" secondItem="BbR-zt-w7c" secondAttribute="trailing" id="5oP-Ny-MQv"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="height" secondItem="6qi-Nm-sdj" secondAttribute="height" id="S73-SP-xOS"/>
                             <constraint firstItem="OeY-AK-O4S" firstAttribute="top" secondItem="BbR-zt-w7c" secondAttribute="bottom" constant="50" id="WNT-mT-qLv"/>
-                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="leading" secondItem="VRV-wn-CGt" secondAttribute="leading" id="dil-eK-cAQ"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="leading" secondItem="BbR-zt-w7c" secondAttribute="leading" id="beT-Vz-TCZ"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="trailing" secondItem="6qi-Nm-sdj" secondAttribute="trailing" id="cGj-EB-65t"/>
                             <constraint firstAttribute="trailing" secondItem="OeY-AK-O4S" secondAttribute="trailing" id="huB-NC-J0f"/>
-                            <constraint firstItem="8H4-xt-eD7" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="mS8-Ei-aGB"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="leading" secondItem="6qi-Nm-sdj" secondAttribute="leading" id="oAJ-mH-CpY"/>
                             <constraint firstItem="asG-ez-pUa" firstAttribute="top" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="p2N-QU-XeT"/>
+                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="baseline" secondItem="6qi-Nm-sdj" secondAttribute="baseline" id="rtd-RX-Aq1"/>
                             <constraint firstItem="BbR-zt-w7c" firstAttribute="centerX" secondItem="Xbo-L6-9mO" secondAttribute="centerX" id="vAX-bs-fRv"/>
-                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="trailing" secondItem="VRV-wn-CGt" secondAttribute="trailing" id="wly-1b-vhO"/>
-                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="top" secondItem="VRV-wn-CGt" secondAttribute="top" id="wrk-Og-ZdY"/>
-                            <constraint firstItem="Wkc-5R-x3K" firstAttribute="leading" secondItem="VRV-wn-CGt" secondAttribute="leading" id="yAB-Ps-YBy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="POMODORO" id="i6K-c5-MpR">
@@ -417,9 +377,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="UnexpectedTaskTextField" destination="BbR-zt-w7c" id="gAc-YH-3LN"/>
-                        <outlet property="pauseButton" destination="VRV-wn-CGt" id="n8j-8l-8WX"/>
                         <outlet property="pomodoroCollectionView" destination="OeY-AK-O4S" id="AzZ-7n-Z8p"/>
-                        <outlet property="resumeButton" destination="8H4-xt-eD7" id="47r-Fl-rIb"/>
                         <outlet property="startButton" destination="6qi-Nm-sdj" id="1Fx-TW-Yxq"/>
                         <outlet property="stopButton" destination="Wkc-5R-x3K" id="sfk-hO-Hry"/>
                     </connections>

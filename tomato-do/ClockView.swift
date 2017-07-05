@@ -118,6 +118,12 @@ class ClockView: MiniPomodoroView {
         tickPlayer.play()
     }
 
+    func stopClockTimer() {
+        stopAnimation()
+        countDownTimer.invalidate()
+        tickPlayer.stop()
+    }
+
     func startClockTimer() {
         startCoundownTimer()
         startAnimation()
