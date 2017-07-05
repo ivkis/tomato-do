@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class State {
-
     static let shared = State()
 
     let defaults = UserDefaults.standard
@@ -19,13 +18,23 @@ class State {
         return counterTimer % 2 == 0
     }
 
-    var timerEndDate: Date? {
+    var periodDuration: Int {
+        if counterTimer % 8 == 0 {
+            return Constants.longRestTime
+        } else if counterTimer % 2 == 0 {
+            return Constants.restTime
+        } else {
+            return Constants.pomodoroTime
+        }
+    }
+
+    fileprivate(set) var timerEndDate: Date? {
         didSet {
             defaults.set(timerEndDate, forKey: "timerEndDate")
         }
     }
 
-    var counterTimer: Int {
+    fileprivate(set) var counterTimer: Int {
         didSet {
             defaults.set(counterTimer, forKey: "counterTimer")
         }
@@ -49,5 +58,14 @@ class State {
 
     func sheduleTimerEnd(in timeInterval: TimeInterval) {
         self.timerEndDate = Date(timeInterval: timeInterval, since: Date())
+    }
+
+    func finishPeriod() {
+        timerEndDate = nil
+        counterTimer += 1
+    }
+
+    func cancelPeriod() {
+        timerEndDate = nil
     }
 }

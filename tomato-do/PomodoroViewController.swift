@@ -68,9 +68,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         viewClock.resumeAnimation()
         pomodoroCollectionView.currentPomodoro.resumeAnimation()
 
-        let date = Date(timeInterval: TimeInterval(viewClock.timerValue), since: Date())
-        State.shared.timerEndDate = date
-
         resumeButton.isHidden = true
         stopButton.isHidden = true
         pauseButton.isHidden = false
@@ -79,6 +76,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     @IBAction func stopButtonPress(_ sender: Any) {
         let noAlertAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         let yesAlertAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+            State.shared.cancelPeriod()
             self.pomodoroClock()
             self.pomodoroCollectionView.currentPomodoro.stopAnimation()
             self.setPomodoroUI()
@@ -92,8 +90,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     // MARK: - ClockViewDelegate
 
     func clockViewDidEndTimer(_ clockView: ClockView) {
-        State.shared.timerEndDate = nil
-        State.shared.counterTimer += 1
+        State.shared.finishPeriod()
         updateUIToCounters()
         autoStartRestIfNeeded()
     }
@@ -101,14 +98,10 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     // MARK: - Customizing timerUI
 
     func updateUIToCounters() {
-        if State.shared.counterTimer % 8 == 0 {
-            viewClock.setTimer(value: Constants.longRestTime)
-            setRestPomodoroUI()
-        } else if State.shared.counterTimer % 2 == 0 {
-            viewClock.setTimer(value: Constants.restTime)
+        viewClock.setTimer(value: State.shared.periodDuration)
+        if State.shared.isRestTime {
             setRestPomodoroUI()
         } else {
-            viewClock.setTimer(value: Constants.pomodoroTime)
             setPomodoroUI()
             initialStateButtons()
         }
@@ -116,9 +109,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     func autoStartRestIfNeeded() {
         if State.shared.counterTimer % 2 == 0 {
-
             State.shared.sheduleTimerEnd(in: TimeInterval(viewClock.timerValue))
-
             viewClock.startClockTimer()
         }
     }
@@ -176,8 +167,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
                 pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
             }
         } else {
-            State.shared.counterTimer += 1
-            State.shared.timerEndDate = nil
+            State.shared.finishPeriod()
             pomodoroCollectionView.updateFinishedPomodorosState()
         }
     }
