@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qi-Nm-sdj">
-                                <rect key="frame" x="59" y="312" width="256" height="40"/>
+                                <rect key="frame" x="59.5" y="316" width="256" height="40"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fzo-jG-orP"/>
@@ -137,11 +138,32 @@
                                     <action selector="startButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="A0p-jb-oQy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-5R-x3K">
+                                <rect key="frame" x="59.5" y="316" width="256" height="40"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="STOP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-zt-w7c">
+                                <rect key="frame" x="59.5" y="403" width="256" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="LPP-Dt-ffC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="483" width="375" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gdX-Y2-uGw">
-                                        <rect key="frame" x="30" y="15" width="315" height="40"/>
+                                        <rect key="frame" x="30.5" y="15" width="315" height="40"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMz-gB-0EW">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -230,7 +252,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AjO-tS-bLe">
-                                        <rect key="frame" x="57" y="63" width="260" height="40"/>
+                                        <rect key="frame" x="57.5" y="63" width="260" height="40"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc9-L9-T2Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -327,41 +349,32 @@
                                     <outletCollection property="containerViews" destination="1Da-82-ySc" collectionClass="NSMutableArray" id="dYN-SO-PU1"/>
                                 </connections>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-zt-w7c">
-                                <rect key="frame" x="59.5" y="403" width="256" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khb-Oz-dnp" customClass="ClockView" customModule="tomato_do" customModuleProvider="target">
+                                <rect key="frame" x="59" y="30" width="256" height="256"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="LPP-Dt-ffC"/>
+                                    <constraint firstAttribute="width" secondItem="Khb-Oz-dnp" secondAttribute="height" multiplier="1:1" id="pnI-uR-ck2"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-5R-x3K">
-                                <rect key="frame" x="59" y="312" width="256" height="40"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="STOP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97260564565658569" green="0.28646859526634216" blue="0.16096878051757812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BbR-zt-w7c" firstAttribute="top" secondItem="6qi-Nm-sdj" secondAttribute="bottom" constant="51" id="13T-MH-vtj"/>
                             <constraint firstItem="OeY-AK-O4S" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leading" id="1Ee-Ic-DZv"/>
                             <constraint firstAttribute="bottomMargin" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="5gC-y3-7fH"/>
                             <constraint firstItem="6qi-Nm-sdj" firstAttribute="trailing" secondItem="BbR-zt-w7c" secondAttribute="trailing" id="5oP-Ny-MQv"/>
+                            <constraint firstItem="Khb-Oz-dnp" firstAttribute="top" secondItem="KyO-jX-WMF" secondAttribute="bottom" constant="30" id="9UK-FT-W7V"/>
+                            <constraint firstItem="Khb-Oz-dnp" firstAttribute="centerX" secondItem="Xbo-L6-9mO" secondAttribute="centerX" id="Hzm-vG-h2A"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="height" secondItem="6qi-Nm-sdj" secondAttribute="height" id="S73-SP-xOS"/>
                             <constraint firstItem="OeY-AK-O4S" firstAttribute="top" secondItem="BbR-zt-w7c" secondAttribute="bottom" constant="50" id="WNT-mT-qLv"/>
                             <constraint firstItem="6qi-Nm-sdj" firstAttribute="leading" secondItem="BbR-zt-w7c" secondAttribute="leading" id="beT-Vz-TCZ"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="trailing" secondItem="6qi-Nm-sdj" secondAttribute="trailing" id="cGj-EB-65t"/>
+                            <constraint firstItem="6qi-Nm-sdj" firstAttribute="top" secondItem="Khb-Oz-dnp" secondAttribute="bottom" constant="30" id="d4w-cV-TmP"/>
+                            <constraint firstItem="Khb-Oz-dnp" firstAttribute="leading" secondItem="Wkc-5R-x3K" secondAttribute="leading" priority="750" id="enT-kk-6gb"/>
+                            <constraint firstItem="BbR-zt-w7c" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6qi-Nm-sdj" secondAttribute="bottom" constant="12" id="gI2-eq-D5t"/>
                             <constraint firstAttribute="trailing" secondItem="OeY-AK-O4S" secondAttribute="trailing" id="huB-NC-J0f"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="leading" secondItem="6qi-Nm-sdj" secondAttribute="leading" id="oAJ-mH-CpY"/>
                             <constraint firstItem="asG-ez-pUa" firstAttribute="top" secondItem="OeY-AK-O4S" secondAttribute="bottom" id="p2N-QU-XeT"/>
+                            <constraint firstItem="Khb-Oz-dnp" firstAttribute="trailing" secondItem="Wkc-5R-x3K" secondAttribute="trailing" priority="750" id="rNB-Kh-Vmv"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="baseline" secondItem="6qi-Nm-sdj" secondAttribute="baseline" id="rtd-RX-Aq1"/>
                             <constraint firstItem="BbR-zt-w7c" firstAttribute="centerX" secondItem="Xbo-L6-9mO" secondAttribute="centerX" id="vAX-bs-fRv"/>
                         </constraints>
@@ -380,6 +393,7 @@
                         <outlet property="pomodoroCollectionView" destination="OeY-AK-O4S" id="AzZ-7n-Z8p"/>
                         <outlet property="startButton" destination="6qi-Nm-sdj" id="1Fx-TW-Yxq"/>
                         <outlet property="stopButton" destination="Wkc-5R-x3K" id="sfk-hO-Hry"/>
+                        <outlet property="viewClock" destination="Khb-Oz-dnp" id="vOJ-Ju-z2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,9 +11,7 @@ import PureLayout
 
 class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDelegate {
 
-    let viewClock = ClockView()
-    let miniViewClock = MiniPomodoroView()
-
+    @IBOutlet weak var viewClock: ClockView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var unexpectedTaskTextField: UITextField!
@@ -26,7 +24,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pomodoroClock()
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
         State.shared.checkIfPeriodEnded()
@@ -115,14 +112,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     }
 
     // MARK: - Configure location timer
-
-    func pomodoroClock() {
-        self.view.addSubview(viewClock)
-
-        viewClock.autoSetDimensions(to: CGSize(width: 250, height: 250))
-        viewClock.autoPinEdge(toSuperviewEdge: .top, withInset: 98)
-        viewClock.autoAlignAxis(toSuperviewAxis: .vertical)
-    }
 
     func resumeCurrentTimer(timerEndDate: Date) {
         let remainingTime = timerEndDate.timeIntervalSinceNow

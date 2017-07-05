@@ -180,6 +180,7 @@
 				TargetAttributes = {
 					2C1F1B561EAFBC7C002626B7 = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 57QLMT5UKX;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -437,6 +438,7 @@
 			baseConfigurationReference = 3F0A32F4B32C77566D66D4BB /* Pods-tomato-do.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 57QLMT5UKX;
 				INFOPLIST_FILE = "tomato-do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ivkis.tomato-do";
@@ -450,6 +452,7 @@
 			baseConfigurationReference = 85374693008CB05A7CEAC851 /* Pods-tomato-do.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 57QLMT5UKX;
 				INFOPLIST_FILE = "tomato-do/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ivkis.tomato-do";
