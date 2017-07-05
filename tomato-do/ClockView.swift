@@ -52,16 +52,6 @@ class ClockView: MiniPomodoroView {
         countDownTimer.invalidate()
     }
 
-//    override func resumeAnimation() {
-//        super.resumeAnimation()
-//        tickPlayer.play()
-//    }
-//
-//    override func pauseAnimation() {
-//        super.pauseAnimation()
-//        tickPlayer.stop()
-//    }
-
     override func addCircle() {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.white.cgColor

@@ -27,6 +27,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
         State.shared.checkIfPeriodEnded()
+        endWorkingDay()
         updateUIToCounters()
         pomodoroCollectionView.updateFinishedPomodorosState()
         if let timerEndDate = State.shared.timerEndDate {
@@ -67,7 +68,9 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     func clockViewDidEndTimer(_ clockView: ClockView) {
         State.shared.finishPeriod()
         updateUIToCounters()
-        autoStartRestIfNeeded()
+        if !endWorkingDay() {
+            autoStartRestIfNeeded()
+        }
     }
 
     // MARK: - Customizing timerUI
@@ -120,6 +123,22 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         if !State.shared.isRestTime {
             pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
         }
+    }
+
+    @discardableResult
+    func endWorkingDay() -> Bool {
+        if State.shared.currentPomodoroIndex >= Constants.dailyPomodoros {
+            State.shared.resetState()
+            self.updateUIToCounters()
+            pomodoroCollectionView.updateFinishedPomodorosState()
+
+            let alertController = UIAlertController(title: "Congrats!", message: "You have completed all the scheduled for today Pomodoro", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
+            alertController.addAction(action)
+            self.present(alertController, animated: true, completion: nil)
+            return true
+        }
+        return false
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

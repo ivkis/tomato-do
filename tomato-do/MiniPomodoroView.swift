@@ -39,12 +39,6 @@ class MiniPomodoroView: UIView {
 
     // MARK: - Timer management
 
-//    func pauseAnimation() {
-//        let pausedTime: CFTimeInterval = self.shapeLayer.convertTime(CACurrentMediaTime(), from: nil)
-//        shapeLayer.speed = 0.0
-//        shapeLayer.timeOffset = pausedTime
-//    }
-
     func stopAnimation() {
         shapeLayer.removeAnimation(forKey: "ani")
         shapeLayer.speed = 1
@@ -52,18 +46,13 @@ class MiniPomodoroView: UIView {
         shapeLayer.isHidden = true
     }
 
-//    func resumeAnimation() {
-//        let pausedTime = shapeLayer.timeOffset
-//        shapeLayer.speed = 1.0
-//        shapeLayer.timeOffset = 0.0
-//        shapeLayer.beginTime = 0.0
-//        let timeSincePause = self.shapeLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-//        shapeLayer.beginTime = timeSincePause
-//    }
-
     func finishAnimation() {
         startAnimation()
         shapeLayer.removeAnimation(forKey: "ani")
+    }
+
+    func cleanAnimation() {
+        shapeLayer.isHidden = true
     }
 
     // MARK: - Creating animation

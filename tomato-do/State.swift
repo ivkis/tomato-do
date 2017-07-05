@@ -56,6 +56,11 @@ class State {
         defaults.set(Date(), forKey: "dateLastRun")
     }
 
+    func resetState() {
+        timerEndDate = nil
+        counterTimer = 1
+    }
+
     func startPeriod() {
         self.timerEndDate = Date(timeInterval: TimeInterval(periodDuration), since: Date())
     }

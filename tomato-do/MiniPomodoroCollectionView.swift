@@ -37,6 +37,8 @@ class MiniPomodoroCollectionView: UIView {
             let pomodoroView = view.subviews.last! as! MiniPomodoroView
             if index < State.shared.currentPomodoroIndex {
                 pomodoroView.finishAnimation()
+            } else {
+                pomodoroView.cleanAnimation()
             }
         }
     }
