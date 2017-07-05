@@ -45,6 +45,7 @@ class ClockView: MiniPomodoroView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.createLabel()
     }
 
     deinit {

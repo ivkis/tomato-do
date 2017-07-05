@@ -56,8 +56,8 @@ class State {
         defaults.set(Date(), forKey: "dateLastRun")
     }
 
-    func sheduleTimerEnd(in timeInterval: TimeInterval) {
-        self.timerEndDate = Date(timeInterval: timeInterval, since: Date())
+    func startPeriod() {
+        self.timerEndDate = Date(timeInterval: TimeInterval(periodDuration), since: Date())
     }
 
     func finishPeriod() {
@@ -69,6 +69,25 @@ class State {
         timerEndDate = nil
         if isRestTime {
             counterTimer += 1
+        }
+    }
+
+    func checkIfPeriodEnded() {
+        guard let timerEndDate = timerEndDate else {
+            return
+        }
+        let remainingTime = timerEndDate.timeIntervalSinceNow
+        if remainingTime < 0 {
+            finishPeriod()
+
+            if isRestTime {
+                let remainingTimeNext = Double(periodDuration) - abs(TimeInterval(remainingTime))
+                if remainingTimeNext > 0 {
+                    self.timerEndDate = Date(timeInterval: TimeInterval(remainingTimeNext), since: Date())
+                } else {
+                    finishPeriod()
+                }
+            }
         }
     }
 }

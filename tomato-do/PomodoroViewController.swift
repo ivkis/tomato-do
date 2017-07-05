@@ -27,10 +27,11 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         pomodoroClock()
-        updateUIToCounters()
-        stopButton.isHidden = true
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
+        State.shared.checkIfPeriodEnded()
+        updateUIToCounters()
+        pomodoroCollectionView.updateFinishedPomodorosState()
         if let timerEndDate = State.shared.timerEndDate {
             resumeCurrentTimer(timerEndDate: timerEndDate)
         }
@@ -44,9 +45,11 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     @IBAction func startButtonPress(_ sender: Any) {
         viewClock.startClockTimer()
-        pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: TimeInterval(Constants.pomodoroTime))
+        if !State.shared.isRestTime {
+            pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: TimeInterval(State.shared.periodDuration))
+        }
 
-        State.shared.sheduleTimerEnd(in: TimeInterval(Constants.pomodoroTime))
+        State.shared.startPeriod()
 
         startButton.isHidden = true
         stopButton.isHidden = false
@@ -59,11 +62,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
             self.pomodoroCollectionView.currentPomodoro.stopAnimation()
             self.viewClock.stopClockTimer()
             self.updateUIToCounters()
-//            self.setPomodoroUI()
-//            self.pomodoroClock()
-
-            self.stopButton.isHidden = true
-            self.startButton.isHidden = false
         }
         let alertController = UIAlertController(title: "Stop Timer", message: "Are you sure you want to stop the curent pomodoro?", preferredStyle: .alert)
         alertController.addAction(noAlertAction)
@@ -88,12 +86,13 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         } else {
             setPomodoroUI()
         }
+        startButton.isHidden = State.shared.timerEndDate != nil
+        stopButton.isHidden = State.shared.timerEndDate == nil
     }
 
     func autoStartRestIfNeeded() {
         if State.shared.counterTimer % 2 == 0 {
-            State.shared.sheduleTimerEnd(in: TimeInterval(viewClock.timerValue))
-            viewClock.startClockTimer()
+            startButtonPress(startButton)
         }
     }
 
@@ -118,8 +117,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     // MARK: - Configure location timer
 
     func pomodoroClock() {
-        viewClock.setTimer(value: Constants.pomodoroTime)
-
         self.view.addSubview(viewClock)
 
         viewClock.autoSetDimensions(to: CGSize(width: 250, height: 250))
@@ -128,21 +125,15 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     }
 
     func resumeCurrentTimer(timerEndDate: Date) {
-        let currentDate = Date()
         let remainingTime = timerEndDate.timeIntervalSinceNow
         let totalDuration = TimeInterval(viewClock.timerValue)
         let currentPosition = totalDuration - remainingTime
 
-        if currentDate.compare(timerEndDate) == .orderedAscending {
-            viewClock.setTimer(value: Int(remainingTime))
-            viewClock.startCoundownTimer()
-            viewClock.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
-            if !State.shared.isRestTime {
-                pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
-            }
-        } else {
-            State.shared.finishPeriod()
-            pomodoroCollectionView.updateFinishedPomodorosState()
+        viewClock.setTimer(value: Int(remainingTime))
+        viewClock.startCoundownTimer()
+        viewClock.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
+        if !State.shared.isRestTime {
+            pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
         }
     }
 
