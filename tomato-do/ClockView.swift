@@ -97,7 +97,7 @@ class ClockView: MiniPomodoroView {
     @objc private func countdown(_ dt: Timer) {
         timerValue -= 1
         setLabelText(timeFormatted(timerValue))
-        if timerValue == 0 {
+        if timerValue <= 0 {
             countDownTimer.invalidate()
             tickPlayer.stop()
             endPlayer.play()
