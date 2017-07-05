@@ -36,10 +36,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     // MARK: - IBAction
 
-    @IBAction func backToDoPress(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-
     @IBAction func startButtonPress(_ sender: Any) {
         viewClock.startClockTimer()
         if !State.shared.isRestTime {
