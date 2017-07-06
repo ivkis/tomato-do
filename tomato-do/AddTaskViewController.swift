@@ -28,14 +28,18 @@ class AddTaskViewController: UIViewController {
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {
+        let task = CoreDataManager.shared.tasks[indexPath.row]
         CoreDataManager.shared.updateCheckBox(indexPath.row, value: completed)
+        var newIndex: Int!
         if completed {
-            CoreDataManager.shared.moveCompletedTask(indexPath.row)
+            newIndex = CoreDataManager.shared.moveCompletedTask(indexPath.row)
         } else {
-            CoreDataManager.shared.moveСancelExecutionTask(indexPath.row)
+            newIndex = CoreDataManager.shared.moveСancelExecutionTask(indexPath.row)
         }
-        addTaskTableView.reloadRows(at: [indexPath], with: .fade)
-        addTaskTableView.reloadData()
+        let newIndexPath = IndexPath(row: newIndex, section: 0)
+        let cell = addTaskTableView.cellForRow(at: indexPath) as! TableViewCell
+        cell.configure(with: task)
+        addTaskTableView.moveRow(at: indexPath, to: newIndexPath)
     }
 }
 
@@ -103,7 +107,6 @@ extension AddTaskViewController: FMMoveTableViewDataSource, FMMoveTableViewDeleg
         guard fromIndexPath.row != toIndexPath.row else {
             return
         }
-
         CoreDataManager.shared.rearrange(from: fromIndexPath.row, to: toIndexPath.row)
         addTaskTableView.moveRow(at: fromIndexPath, to: toIndexPath)
         addTaskTableView.reloadData()

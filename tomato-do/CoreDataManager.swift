@@ -41,14 +41,18 @@ class CoreDataManager {
         saveContext(context: context)
     }
 
-    func moveCompletedTask(_ index: Int) {
-        tasks.rearrange(from: index, to: (tasks.count)-1)
+    func moveCompletedTask(_ index: Int) -> Int {
+        let newIndex = (tasks.count)-1
+        tasks.rearrange(from: index, to: newIndex)
         saveArrayInCoreData()
+        return newIndex
     }
 
-    func moveСancelExecutionTask(_ index: Int) {
-        tasks.rearrange(from: index, to: 0)
+    func moveСancelExecutionTask(_ index: Int) -> Int {
+        let newIndex = 0
+        tasks.rearrange(from: index, to: newIndex)
         saveArrayInCoreData()
+        return newIndex
     }
 
     func updateTaskAt(_ index: Int, text: String) {
