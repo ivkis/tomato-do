@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
+
 class State {
+
     static let shared = State()
 
     let defaults = UserDefaults.standard

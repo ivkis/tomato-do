@@ -10,13 +10,14 @@ import UIKit
 import BEMCheckBox
 import FMMoveTableView
 
+
 protocol TableViewCellDelegate: class {
     func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String)
     func tableViewCell(_ cell: TableViewCell, didChangeCheckBox value: Bool)
     func tableViewCellDidTapPomodoroButton(_ cell: TableViewCell)
 }
 
-class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelegate {
+class TableViewCell: FMMoveTableViewCell {
 
     weak var delegate: TableViewCellDelegate?
 
@@ -62,15 +63,17 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelega
         textLabel?.isHidden = false
         delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
     }
+}
 
-    // MARK: - BEMCheckBoxDelegate
 
+extension TableViewCell: BEMCheckBoxDelegate {
     func animationDidStop(for checkBox: BEMCheckBox) {
         delegate?.tableViewCell(self, didChangeCheckBox: checkBox.on)
     }
+}
 
-    // MARK: - UITextFieldDelegate
 
+extension TableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         editTaskTextField.resignFirstResponder()
         editAndSaveLabel()

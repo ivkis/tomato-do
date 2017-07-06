@@ -11,6 +11,7 @@ import UIKit
 import PureLayout
 import AVFoundation
 
+
 class MiniPomodoroView: UIView {
 
     var shapeLayer = CAShapeLayer()

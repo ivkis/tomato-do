@@ -15,7 +15,8 @@ protocol PomodoroViewControllerDelegate: class {
 }
 
 
-class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDelegate {
+class PomodoroViewController: UIViewController {
+
     weak var delegate: PomodoroViewControllerDelegate?
     var task: Task!
 
@@ -75,16 +76,6 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
     @IBAction func finishTaskTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
         delegate?.pomodoroViewController(self, didComplete: task)
-    }
-
-    // MARK: - ClockViewDelegate
-
-    func clockViewDidEndTimer(_ clockView: ClockView) {
-        State.shared.finishPeriod()
-        updateUIToCounters()
-        if !endWorkingDay() {
-            autoStartRestIfNeeded()
-        }
     }
 
     // MARK: - Customizing timerUI
@@ -154,12 +145,26 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         }
         return false
     }
+}
 
+
+extension PomodoroViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         unexpectedTaskTextField.resignFirstResponder()
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
         unexpectedTaskTextField.text = ""
 
         return true
+    }
+}
+
+
+extension PomodoroViewController: ClockViewDelegate {
+    func clockViewDidEndTimer(_ clockView: ClockView) {
+        State.shared.finishPeriod()
+        updateUIToCounters()
+        if !endWorkingDay() {
+            autoStartRestIfNeeded()
+        }
     }
 }

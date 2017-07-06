@@ -11,9 +11,11 @@ import UIKit
 import PureLayout
 import AVFoundation
 
+
 protocol ClockViewDelegate: class {
     func clockViewDidEndTimer(_ clockView: ClockView)
 }
+
 
 class ClockView: MiniPomodoroView {
 
