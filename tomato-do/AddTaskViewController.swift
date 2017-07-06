@@ -83,6 +83,18 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
 
+    func setTask(at indexPath: IndexPath, completed: Bool) {
+        CoreDataManager.shared.updateCheckBox(indexPath.row, value: completed)
+        if completed {
+            CoreDataManager.shared.moveCompletedTask(indexPath.row)
+        } else {
+            CoreDataManager.shared.moveСancelExecutionTask(indexPath.row)
+        }
+        addTaskTableView.reloadRows(at: [indexPath], with: .fade)
+        addTaskTableView.reloadData()
+
+    }
+
     // MARK: - TableViewCellDelegate
 
     func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String) {
@@ -96,14 +108,7 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         guard let indexPath = addTaskTableView.indexPath(for: cell) else {
             return
         }
-        CoreDataManager.shared.updateCheckBox(indexPath.row, value: value)
-        if value {
-            CoreDataManager.shared.moveCompletedTask(indexPath.row)
-        } else {
-            CoreDataManager.shared.moveСancelExecutionTask(indexPath.row)
-        }
-        addTaskTableView.reloadRows(at: [indexPath], with: .fade)
-        addTaskTableView.reloadData()
+        setTask(at: indexPath, completed: value)
     }
 
     func tableViewCellDidTapPomodoroButton(_ cell: TableViewCell) {
@@ -113,6 +118,16 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         let task = CoreDataManager.shared.tasks[indexPath.row]
         let controller = R.storyboard.main.pomodoroViewController()!
         controller.task = task
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+
+extension AddTaskViewController: PomodoroViewControllerDelegate {
+    func pomodoroViewController(_ controller: PomodoroViewController, didComplete task: Task) {
+        let taskIndex = CoreDataManager.shared.tasks.index(of: task)
+        let indexPath = IndexPath(row: taskIndex!, section: 0)
+        setTask(at: indexPath, completed: true)
     }
 }

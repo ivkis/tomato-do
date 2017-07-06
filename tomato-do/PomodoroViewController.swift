@@ -9,7 +9,14 @@
 import UIKit
 import PureLayout
 
+
+protocol PomodoroViewControllerDelegate: class {
+    func pomodoroViewController(_ controller: PomodoroViewController, didComplete task: Task)
+}
+
+
 class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDelegate {
+    weak var delegate: PomodoroViewControllerDelegate?
     var task: Task!
 
     @IBOutlet weak var viewClock: ClockView!
@@ -63,6 +70,11 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
         alertController.addAction(noAlertAction)
         alertController.addAction(yesAlertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    @IBAction func finishTaskTap(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        delegate?.pomodoroViewController(self, didComplete: task)
     }
 
     // MARK: - ClockViewDelegate
