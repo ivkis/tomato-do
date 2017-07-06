@@ -57,7 +57,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="goToTimer"/>
                                                     <connections>
-                                                        <action selector="pomodoroGoTimer:" destination="LZg-hx-ehN" eventType="touchUpInside" id="0ln-xq-vYx"/>
+                                                        <action selector="pomodoroButtonTap:" destination="Ssk-uV-HV7" eventType="touchUpInside" id="4zD-ho-Tv1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -113,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="2640.8000000000002" y="122.78860569715144"/>
         </scene>
-        <!--POMODORO-->
+        <!--Pomodoro View Controller-->
         <scene sceneID="NqS-rq-8aI">
             <objects>
                 <viewController storyboardIdentifier="PomodoroViewController" id="FJs-bb-6U5" customClass="PomodoroViewController" customModule="tomato_do" customModuleProvider="target" sceneMemberID="viewController">
@@ -381,7 +381,7 @@
                             <constraint firstItem="BbR-zt-w7c" firstAttribute="centerX" secondItem="Xbo-L6-9mO" secondAttribute="centerX" id="vAX-bs-fRv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="POMODORO" id="i6K-c5-MpR"/>
+                    <navigationItem key="navigationItem" id="i6K-c5-MpR"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="UnexpectedTaskTextField" destination="BbR-zt-w7c" id="gAc-YH-3LN"/>

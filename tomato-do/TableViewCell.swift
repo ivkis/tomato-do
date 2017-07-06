@@ -13,6 +13,7 @@ import FMMoveTableView
 protocol TableViewCellDelegate: class {
     func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String)
     func tableViewCell(_ cell: TableViewCell, didChangeCheckBox value: Bool)
+    func tableViewCellDidTapPomodoroButton(_ cell: TableViewCell)
 }
 
 class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelegate {
@@ -41,6 +42,10 @@ class TableViewCell: FMMoveTableViewCell, UITextFieldDelegate, BEMCheckBoxDelega
         } else {
             contentView.alpha = 1
         }
+    }
+
+    @IBAction func pomodoroButtonTap(_ sender: Any) {
+        delegate?.tableViewCellDidTapPomodoroButton(self)
     }
 
     func enterEditMode() {

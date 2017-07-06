@@ -10,6 +10,7 @@ import UIKit
 import PureLayout
 
 class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDelegate {
+    var task: Task!
 
     @IBOutlet weak var viewClock: ClockView!
     @IBOutlet weak var startButton: UIButton!
@@ -24,6 +25,7 @@ class PomodoroViewController: UIViewController, UITextFieldDelegate, ClockViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = task.taskToDo
         unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
         State.shared.checkIfPeriodEnded()

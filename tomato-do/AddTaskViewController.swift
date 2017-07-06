@@ -30,11 +30,6 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
 
     // MARK: - IBAction
 
-    @IBAction func pomodoroGoTimer(_ sender: Any) {
-        let conroller = R.storyboard.main.pomodoroViewController()!
-        navigationController?.pushViewController(conroller, animated: true)
-    }
-
     func setupAddTaskViewController() {
         navigationController?.navigationBar.isHidden = true
     }
@@ -109,5 +104,15 @@ class AddTaskViewController: UIViewController, FMMoveTableViewDelegate, FMMoveTa
         }
         addTaskTableView.reloadRows(at: [indexPath], with: .fade)
         addTaskTableView.reloadData()
+    }
+
+    func tableViewCellDidTapPomodoroButton(_ cell: TableViewCell) {
+        guard let indexPath = addTaskTableView.indexPath(for: cell) else {
+            return
+        }
+        let task = CoreDataManager.shared.tasks[indexPath.row]
+        let controller = R.storyboard.main.pomodoroViewController()!
+        controller.task = task
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
