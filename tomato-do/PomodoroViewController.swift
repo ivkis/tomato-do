@@ -74,7 +74,9 @@ class PomodoroViewController: UIViewController {
 
     @IBAction func finishTaskTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        delegate?.pomodoroViewController(self, didComplete: task)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.delegate?.pomodoroViewController(self, didComplete: self.task)
+        }
     }
 
     // MARK: - Customizing timerUI
