@@ -34,7 +34,6 @@ class PomodoroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = task.taskToDo
-        unexpectedTaskTextField.delegate = self
         viewClock.delegate = self
         State.shared.checkIfPeriodEnded()
         endWorkingDay()

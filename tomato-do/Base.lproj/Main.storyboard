@@ -77,8 +77,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="LZg-hx-ehN" id="9d8-mN-Llt"/>
-                                    <outlet property="delegate" destination="LZg-hx-ehN" id="btA-kH-pf1"/>
+                                    <outlet property="dataSource" destination="LZg-hx-ehN" id="egX-II-NxR"/>
+                                    <outlet property="delegate" destination="LZg-hx-ehN" id="gs1-pB-pSn"/>
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Что будем делать?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-T1-H4K">
@@ -86,6 +86,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LZg-hx-ehN" id="Ht0-u6-zLJ"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,6 +163,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="FJs-bb-6U5" id="kq3-RN-BtH"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="483" width="375" height="120"/>

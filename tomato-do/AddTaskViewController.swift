@@ -25,7 +25,6 @@ class AddTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTaskTextField.delegate = self
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {
