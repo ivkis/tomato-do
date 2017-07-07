@@ -38,7 +38,7 @@ class TableViewCell: FMMoveTableViewCell {
         checkBox.lineWidth = 1.5
         checkBox.on = task.checkBoxValue
         if task.checkBoxValue == true {
-            contentView.alpha = 0.1
+            contentView.alpha = 0.4
         } else {
             contentView.alpha = 1
         }

@@ -132,6 +132,7 @@ extension AddTaskViewController: PomodoroViewControllerDelegate {
     func pomodoroViewController(_ controller: PomodoroViewController, didComplete task: Task) {
         let taskIndex = CoreDataManager.shared.tasks.index(of: task)
         let indexPath = IndexPath(row: taskIndex!, section: 0)
-        setTask(at: indexPath, completed: true)
+        let cell = addTaskTableView.cellForRow(at: indexPath) as! TableViewCell
+        cell.checkBox.setOn(true, animated: true)
     }
 }
