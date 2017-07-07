@@ -52,7 +52,7 @@ class PomodoroViewController: UIViewController {
             pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: TimeInterval(State.shared.periodDuration))
         }
 
-        State.shared.startPeriod()
+        State.shared.startPeriod(task: task)
 
         startButton.isHidden = true
         stopButton.isHidden = false

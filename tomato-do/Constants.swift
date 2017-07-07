@@ -15,6 +15,7 @@ enum Constants {
     static let restTime = 5
     static let longRestTime = 15
     static let dailyPomodoros = 11
+    static let localNotificationName = "PeriodEndNotification"
 }
 
 

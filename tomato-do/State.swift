@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 
 class State {
@@ -33,6 +34,11 @@ class State {
     fileprivate(set) var timerEndDate: Date? {
         didSet {
             defaults.set(timerEndDate, forKey: "timerEndDate")
+            if let timerEndDate = timerEndDate {
+                sheduleNotification(date: timerEndDate)
+            } else {
+                removeNotifications(withIdentifiers: [Constants.localNotificationName])
+            }
         }
     }
 
@@ -58,12 +64,34 @@ class State {
         defaults.set(Date(), forKey: "dateLastRun")
     }
 
+    // MARK: - User Notification
+
+    func sheduleNotification(date: Date) {
+        removeNotifications(withIdentifiers: [Constants.localNotificationName])
+
+        let content = UNMutableNotificationContent()
+        content.body = isRestTime ? "Rest has ended" : "Pomodoro has ended, rest time now."
+        content.sound = UNNotificationSound.default()
+
+
+        let components = Calendar.current.dateComponents([.month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let request = UNNotificationRequest(identifier: Constants.localNotificationName, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
+    func removeNotifications(withIdentifiers identifiers: [String]) {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+
     func resetState() {
         timerEndDate = nil
         counterTimer = 1
     }
 
-    func startPeriod() {
+    func startPeriod(task: Task) {
         self.timerEndDate = Date(timeInterval: TimeInterval(periodDuration), since: Date())
     }
 
