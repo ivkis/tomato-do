@@ -48,10 +48,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
+    /// Image `goToTimerDisable`.
+    static let goToTimerDisable = Rswift.ImageResource(bundle: R.hostingBundle, name: "goToTimerDisable")
     /// Image `goToTimer`.
     static let goToTimer = Rswift.ImageResource(bundle: R.hostingBundle, name: "goToTimer")
     /// Image `launchScreen`.
@@ -71,6 +73,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "goToTimer", bundle: ..., traitCollection: ...)`
     static func goToTimer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.goToTimer, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "goToTimerDisable", bundle: ..., traitCollection: ...)`
+    static func goToTimerDisable(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goToTimerDisable, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "launchScreen", bundle: ..., traitCollection: ...)`
@@ -199,6 +206,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "miniBackground") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'miniBackground' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimer") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimer' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "goToTimerDisable") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimerDisable' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
         if _R.storyboard.main().pomodoroViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pomodoroViewController' could not be loaded from storyboard 'Main' as 'PomodoroViewController'.") }
       }

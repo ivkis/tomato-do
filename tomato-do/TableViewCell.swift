@@ -23,6 +23,7 @@ class TableViewCell: FMMoveTableViewCell {
 
     @IBOutlet weak var editTaskTextField: UITextField!
     @IBOutlet weak var checkBox: BEMCheckBox!
+    @IBOutlet weak var goToTimerTap: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,13 +34,19 @@ class TableViewCell: FMMoveTableViewCell {
     func configure(with task: Task) {
         selectionStyle = UITableViewCellSelectionStyle.none
         textLabel?.text = task.taskToDo
-        checkBox.onTintColor = .red
-        checkBox.onCheckColor = .red
         checkBox.lineWidth = 1.5
         checkBox.on = task.checkBoxValue
         if task.checkBoxValue == true {
+            goToTimerTap.isEnabled = false
+            editTaskTextField.isEnabled = false
+            checkBox.onTintColor = .gray
+            checkBox.onCheckColor = .gray
             contentView.alpha = 0.4
         } else {
+            goToTimerTap.isEnabled = true
+            editTaskTextField.isEnabled = true
+            checkBox.onTintColor = .red
+            checkBox.onCheckColor = .red
             contentView.alpha = 1
         }
     }

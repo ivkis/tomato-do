@@ -59,6 +59,7 @@
                                                         <constraint firstAttribute="height" constant="35" id="Lmo-vL-CJr"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="goToTimer"/>
+                                                    <state key="disabled" image="goToTimerDisable"/>
                                                     <connections>
                                                         <action selector="pomodoroButtonTap:" destination="Ssk-uV-HV7" eventType="touchUpInside" id="4zD-ho-Tv1"/>
                                                     </connections>
@@ -76,6 +77,7 @@
                                         <connections>
                                             <outlet property="checkBox" destination="4iE-H9-lZc" id="BaJ-Qb-zu9"/>
                                             <outlet property="editTaskTextField" destination="zfs-5I-jMB" id="4rR-Zi-5iU"/>
+                                            <outlet property="goToTimerTap" destination="gzn-qf-QOT" id="gZl-Y6-Xjv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -432,6 +434,7 @@
     </scenes>
     <resources>
         <image name="goToTimer" width="40" height="40"/>
+        <image name="goToTimerDisable" width="36" height="36"/>
         <image name="miniBackground" width="40" height="40"/>
     </resources>
 </document>
