@@ -27,7 +27,6 @@ class TableViewCell: FMMoveTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         editTaskTextField.isHidden = true
-        editTaskTextField.delegate = self
         checkBox.delegate = self
     }
 
