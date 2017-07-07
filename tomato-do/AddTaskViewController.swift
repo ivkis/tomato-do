@@ -115,13 +115,15 @@ extension AddTaskViewController: FMMoveTableViewDataSource, FMMoveTableViewDeleg
 
 
 extension AddTaskViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         let index = NSIndexPath(row: 0, section: 0)
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
-        addTaskTextField.text = ""
+        textField.text = ""
         addTaskTableView.insertRows(at: [index as IndexPath], with: .fade)
-        self.view.endEditing(true)
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }

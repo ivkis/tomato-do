@@ -150,11 +150,13 @@ class PomodoroViewController: UIViewController {
 
 
 extension PomodoroViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        unexpectedTaskTextField.resignFirstResponder()
+    func textFieldDidEndEditing(_ textField: UITextField) {
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
-        unexpectedTaskTextField.text = ""
+        textField.text = ""
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }
