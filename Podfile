@@ -14,4 +14,5 @@ target 'tomato-do' do
   pod 'BEMCheckBox'
   pod ‘FMMoveTableView'
   pod 'IQKeyboardManagerSwift'
+  pod 'Eureka'
 end

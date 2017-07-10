@@ -1,5 +1,6 @@
 PODS:
   - BEMCheckBox (1.4.1)
+  - Eureka (3.0.0)
   - FMMoveTableView (1.1.2)
   - IQKeyboardManagerSwift (4.0.10)
   - PureLayout (3.0.2)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - BEMCheckBox
+  - Eureka
   - FMMoveTableView
   - IQKeyboardManagerSwift
   - PureLayout
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   FMMoveTableView: 63b46cf806133f5220cf92592dc0e6f7eb07633d
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
@@ -25,6 +28,6 @@ SPEC CHECKSUMS:
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: 27f36831aee1efa15d77c830506b27637f564496
+PODFILE CHECKSUM: aab1648449662c57a299ee8de32222f89085e3aa
 
 COCOAPODS: 1.2.1
