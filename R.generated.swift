@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
@@ -64,6 +64,8 @@ struct R: Rswift.Validatable {
     static let pomodoroLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoroLogo")
     /// Image `pomodoro`.
     static let pomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoro")
+    /// Image `settingIcon`.
+    static let settingIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingIcon")
     
     /// `UIImage(named: "buttonTimerIcon", bundle: ..., traitCollection: ...)`
     static func buttonTimerIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -98,6 +100,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "pomodoroLogo", bundle: ..., traitCollection: ...)`
     static func pomodoroLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.pomodoroLogo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "settingIcon", bundle: ..., traitCollection: ...)`
+    static func settingIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.settingIcon, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -204,6 +211,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "settingIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'settingIcon' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "miniBackground") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'miniBackground' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimer") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimer' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimerDisable") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimerDisable' is used in storyboard 'Main', but couldn't be loaded.") }

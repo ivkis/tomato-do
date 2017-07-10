@@ -18,7 +18,6 @@ class AddTaskViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
         CoreDataManager.shared.downloadFromCoreData()
         addTaskTableView.reloadData()
     }

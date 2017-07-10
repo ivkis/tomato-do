@@ -21,6 +21,7 @@
 		A754A0B91F07A1DB007381B5 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754A0B81F07A1DB007381B5 /* State.swift */; };
 		A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75611481EC4943D0019BEC3 /* ClockView.swift */; };
 		A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761602D1EC4512600616AE0 /* PomodoroViewController.swift */; };
+		A77FFA061F1378FE00A2B4A3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */; };
 		A797FD771F06544F006E234A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797FD761F06544F006E234A /* Constants.swift */; };
 		A7D03E211ED9AA1000D10CA2 /* tickingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */; };
 		A7D03E231ED9AB5200D10CA2 /* endClockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */; };
@@ -47,6 +48,7 @@
 		A754A0B81F07A1DB007381B5 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		A75611481EC4943D0019BEC3 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A761602D1EC4512600616AE0 /* PomodoroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
+		A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A797FD761F06544F006E234A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickingSound.mp3; path = ../../../Downloads/tickingSound.mp3; sourceTree = "<group>"; };
 		A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = endClockSound.mp3; path = ../../../Downloads/endClockSound.mp3; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				A72BDACE1F0274B600657922 /* MiniPomodoroView.swift */,
 				A761602D1EC4512600616AE0 /* PomodoroViewController.swift */,
 				2C0A8C731EB78595005B8090 /* R.generated.swift */,
+				A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */,
 				A754A0B81F07A1DB007381B5 /* State.swift */,
 				A7351A471EC5BD2500117057 /* TableViewCell.swift */,
 				2C1F1B5E1EAFBC7C002626B7 /* Main.storyboard */,
@@ -304,6 +307,7 @@
 				A72BDACF1F0274B600657922 /* MiniPomodoroView.swift in Sources */,
 				2CDDABC21EB77D2F007E20A4 /* AddTaskViewController.swift in Sources */,
 				2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */,
+				A77FFA061F1378FE00A2B4A3 /* SettingViewController.swift in Sources */,
 				A726ABD41F054D770012E0EF /* MiniPomodoroCollectionView.swift in Sources */,
 				A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */,
 				A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */,
