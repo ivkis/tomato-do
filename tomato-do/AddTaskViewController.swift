@@ -18,12 +18,15 @@ class AddTaskViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+        navigationController?.restUI()
         CoreDataManager.shared.downloadFromCoreData()
         addTaskTableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.Tomatodo.blue
+        addTaskTableView.backgroundColor = UIColor.Tomatodo.blue
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {

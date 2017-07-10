@@ -100,7 +100,7 @@ class PomodoroViewController: UIViewController {
 
     func setRestPomodoroUI() {
         view.backgroundColor = UIColor.Tomatodo.blue
-        navigationController?.navigationBar.barTintColor = UIColor.Tomatodo.darkBlue
+        navigationController?.restUI()
         for button in [startButton, stopButton] {
             button?.backgroundColor = UIColor.Tomatodo.darkBlue
         }
@@ -108,9 +108,7 @@ class PomodoroViewController: UIViewController {
 
     func setPomodoroUI() {
         view.backgroundColor = UIColor.Tomatodo.red
-        navigationController?.navigationBar.barTintColor = UIColor.Tomatodo.orange
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.pomodoroUI()
         for button in [startButton, stopButton] {
             button?.backgroundColor = UIColor.Tomatodo.orange
         }

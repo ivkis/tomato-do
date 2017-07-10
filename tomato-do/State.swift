@@ -23,11 +23,11 @@ class State {
 
     var periodDuration: Int {
         if counterTimer % 8 == 0 {
-            return Constants.longRestTime
+            return Settings.shared.longBreakDuration
         } else if counterTimer % 2 == 0 {
-            return Constants.restTime
+            return Settings.shared.shortBreakDuration
         } else {
-            return Constants.pomodoroTime
+            return Settings.shared.pomodoroDuration
         }
     }
 
