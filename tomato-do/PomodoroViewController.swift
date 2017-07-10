@@ -138,8 +138,8 @@ class PomodoroViewController: UIViewController {
             self.updateUIToCounters()
             pomodoroCollectionView.updateFinishedPomodorosState()
 
-            let alertController = UIAlertController(title: "Congrats!", message: "You have completed all the scheduled for today Pomodoro", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
+            let alertController = UIAlertController(title: "Reached Daily Goal", message: "You've completed your target for the daty! Congratulations.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "I'm done", style: .destructive, handler: nil)
             alertController.addAction(action)
             self.present(alertController, animated: true, completion: nil)
             return true
