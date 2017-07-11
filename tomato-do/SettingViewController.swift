@@ -43,12 +43,16 @@ class SettingViewController: FormViewController {
                     Settings.shared.longBreakDuration = value * 60
                 }
             }
-            +++ Section("Sound setup")
+            +++ Section("Tick Sound Setup")
             <<< SwitchRow { row in
                 row.title = "Sound OFF"
+                row.value = Settings.shared.tickSoundStatus
+                row.cell.switchControl.onTintColor = UIColor.Tomatodo.orange
             }.onChange { row in
-                row.title = (row.value ?? false) ? "Sound ON" : "Sound OFF"
+                let value = row.value ?? false
+                row.title = value ? "Sound ON" : "Sound OFF"
+                Settings.shared.tickSoundStatus = value
                 row.updateCell()
-        }
+            }
     }
 }

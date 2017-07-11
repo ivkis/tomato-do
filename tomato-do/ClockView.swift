@@ -108,7 +108,9 @@ class ClockView: MiniPomodoroView {
             self?.countdown(timer)
         }
         tickPlayer.numberOfLoops = -1
-        tickPlayer.play()
+        if Settings.shared.tickSoundStatus {
+            tickPlayer.play()
+        }
     }
 
     func stopClockTimer() {
