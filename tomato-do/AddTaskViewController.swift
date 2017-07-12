@@ -26,7 +26,7 @@ class AddTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Tomatodo.blue
-        addTaskTableView.backgroundColor = UIColor.Tomatodo.blue
+        addTaskTextField.attributedPlaceholder = NSAttributedString(string: "Add a to-do", attributes: [NSForegroundColorAttributeName: UIColor.Tomatodo.grey])
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {

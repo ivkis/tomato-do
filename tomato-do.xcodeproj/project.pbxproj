@@ -18,6 +18,7 @@
 		A72BDACF1F0274B600657922 /* MiniPomodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72BDACE1F0274B600657922 /* MiniPomodoroView.swift */; };
 		A7351A481EC5BD2500117057 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7351A471EC5BD2500117057 /* TableViewCell.swift */; };
 		A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75008A01ECC38B7007E26BC /* CoreDataManager.swift */; };
+		A751448B1F15324C00EA1AD5 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751448A1F15324C00EA1AD5 /* UIView + Extensions.swift */; };
 		A754A0B91F07A1DB007381B5 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754A0B81F07A1DB007381B5 /* State.swift */; };
 		A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75611481EC4943D0019BEC3 /* ClockView.swift */; };
 		A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761602D1EC4512600616AE0 /* PomodoroViewController.swift */; };
@@ -47,6 +48,7 @@
 		A72BDACE1F0274B600657922 /* MiniPomodoroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPomodoroView.swift; sourceTree = "<group>"; };
 		A7351A471EC5BD2500117057 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A75008A01ECC38B7007E26BC /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A751448A1F15324C00EA1AD5 /* UIView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		A754A0B81F07A1DB007381B5 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		A75611481EC4943D0019BEC3 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A761602D1EC4512600616AE0 /* PomodoroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */,
 				A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */,
+				A751448A1F15324C00EA1AD5 /* UIView + Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				A726ABD41F054D770012E0EF /* MiniPomodoroCollectionView.swift in Sources */,
 				A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */,
 				A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */,
+				A751448B1F15324C00EA1AD5 /* UIView + Extensions.swift in Sources */,
 				A77FFA081F138C0A00A2B4A3 /* Settings.swift in Sources */,
 				2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */,
 				A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */,

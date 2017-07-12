@@ -14,7 +14,7 @@
         <!--TOMATO - DO-->
         <scene sceneID="ujZ-BR-PQI">
             <objects>
-                <viewController storyboardIdentifier="AddTaskViewController" id="LZg-hx-ehN" customClass="AddTaskViewController" customModule="tomato_do" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskViewController" automaticallyAdjustsScrollViewInsets="NO" id="LZg-hx-ehN" customClass="AddTaskViewController" customModule="tomato_do" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hBM-d8-FQw"/>
                         <viewControllerLayoutGuide type="bottom" id="ZL9-It-h0O"/>
@@ -23,59 +23,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
-                                <rect key="frame" x="0.0" y="124" width="375" height="499"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
+                                <rect key="frame" x="0.0" y="150" width="375" height="473"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="Ssk-uV-HV7" customClass="TableViewCell" customModule="tomato_do" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ssk-uV-HV7" id="37F-qR-7H4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iE-H9-lZc" customClass="BEMCheckBox">
-                                                    <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ8-b3-FjQ">
+                                                    <rect key="frame" x="15" y="7" width="345" height="36"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-qf-QOT">
+                                                            <rect key="frame" x="308.5" y="-0.5" width="36.5" height="36.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="36" id="Age-d4-Lpj"/>
+                                                                <constraint firstAttribute="height" constant="36" id="Lmo-vL-CJr"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="goToTimer"/>
+                                                            <state key="disabled" image="goToTimerDisable"/>
+                                                            <connections>
+                                                                <action selector="pomodoroButtonTap:" destination="Ssk-uV-HV7" eventType="touchUpInside" id="4zD-ho-Tv1"/>
+                                                            </connections>
+                                                        </button>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-5I-jMB">
+                                                            <rect key="frame" x="40" y="7" width="265" height="22"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Ssk-uV-HV7" id="ov5-fC-F9k"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iE-H9-lZc" customClass="BEMCheckBox">
+                                                            <rect key="frame" x="1" y="1" width="34" height="34"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="34" id="Efm-n3-aZn"/>
+                                                                <constraint firstAttribute="height" constant="34" id="dcx-iY-gt7"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Cgb-8w-9uW"/>
-                                                        <constraint firstAttribute="width" constant="30" id="NUq-rj-3HP"/>
+                                                        <constraint firstItem="gzn-qf-QOT" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="3Ys-fD-gBD"/>
+                                                        <constraint firstAttribute="height" constant="36" id="AJv-Iu-0fU"/>
+                                                        <constraint firstItem="4iE-H9-lZc" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="Cti-yy-ZWD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zfs-5I-jMB" secondAttribute="trailing" constant="40" id="DCk-rs-EXe"/>
+                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="40" id="Fbg-zf-pzd"/>
+                                                        <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="1" id="lPm-Uc-9bD"/>
+                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="qcI-hw-vSz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="zDu-3y-QKG"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="18"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-5I-jMB">
-                                                    <rect key="frame" x="55" y="7" width="274" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="Ssk-uV-HV7" id="ov5-fC-F9k"/>
-                                                    </connections>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-qf-QOT">
-                                                    <rect key="frame" x="332" y="5" width="35" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="Age-d4-Lpj"/>
-                                                        <constraint firstAttribute="height" constant="35" id="Lmo-vL-CJr"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="goToTimer"/>
-                                                    <state key="disabled" image="goToTimerDisable"/>
-                                                    <connections>
-                                                        <action selector="pomodoroButtonTap:" destination="Ssk-uV-HV7" eventType="touchUpInside" id="4zD-ho-Tv1"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.10196078431372549" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="4iE-H9-lZc" secondAttribute="bottom" constant="7" id="Jtb-QU-Bya"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="XmG-Rk-30W"/>
-                                                <constraint firstItem="gzn-qf-QOT" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="topMargin" constant="-3" id="pDu-Vj-xK2"/>
-                                                <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="37F-qR-7H4" secondAttribute="leading" constant="8" id="qac-xb-bF5"/>
-                                                <constraint firstItem="4iE-H9-lZc" firstAttribute="top" secondItem="37F-qR-7H4" secondAttribute="top" constant="7" id="sCC-Qk-9g1"/>
+                                                <constraint firstItem="OQ8-b3-FjQ" firstAttribute="centerY" secondItem="37F-qR-7H4" secondAttribute="centerY" id="A5L-Xq-VLr"/>
+                                                <constraint firstAttribute="trailing" secondItem="OQ8-b3-FjQ" secondAttribute="trailing" constant="15" id="aPM-4n-gX2"/>
+                                                <constraint firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="-15" id="d57-2g-39Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="55" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="checkBox" destination="4iE-H9-lZc" id="BaJ-Qb-zu9"/>
+                                            <outlet property="containerView" destination="OQ8-b3-FjQ" id="vA0-ll-rSV"/>
                                             <outlet property="editTaskTextField" destination="zfs-5I-jMB" id="4rR-Zi-5iU"/>
                                             <outlet property="goToTimerTap" destination="gzn-qf-QOT" id="gZl-Y6-Xjv"/>
                                         </connections>
@@ -86,9 +106,14 @@
                                     <outlet property="delegate" destination="LZg-hx-ehN" id="gs1-pB-pSn"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Что будем делать?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-T1-H4K">
-                                <rect key="frame" x="16" y="79" width="343" height="30"/>
-                                <nil key="textColor"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-T1-H4K">
+                                <rect key="frame" x="16" y="89" width="343" height="36"/>
+                                <color key="backgroundColor" red="0.058823529630000003" green="0.180392161" blue="0.24705882370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Pqm-fs-qeq"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -98,13 +123,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="O2A-T1-H4K" firstAttribute="top" secondItem="hBM-d8-FQw" secondAttribute="bottom" constant="15" id="1Fa-l7-Urv"/>
-                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="leading" secondItem="nv2-lR-bqo" secondAttribute="leadingMargin" constant="-16" id="2Bz-NY-9eF"/>
+                            <constraint firstItem="O2A-T1-H4K" firstAttribute="top" secondItem="hBM-d8-FQw" secondAttribute="bottom" constant="25" id="1Fa-l7-Urv"/>
+                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="leading" secondItem="nv2-lR-bqo" secondAttribute="leading" id="2Bz-NY-9eF"/>
                             <constraint firstAttribute="leadingMargin" secondItem="O2A-T1-H4K" secondAttribute="leading" id="N7O-p4-Ucd"/>
-                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="top" secondItem="hBM-d8-FQw" secondAttribute="bottom" constant="60" id="jBw-Ke-eb1"/>
+                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="top" secondItem="O2A-T1-H4K" secondAttribute="bottom" constant="25" id="Xl5-7o-2o0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2A-T1-H4K" secondAttribute="trailing" id="jQT-SI-1fM"/>
                             <constraint firstItem="ZL9-It-h0O" firstAttribute="top" secondItem="Mw9-0l-pk1" secondAttribute="bottom" id="ltB-r9-box"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Mw9-0l-pk1" secondAttribute="trailing" constant="-16" id="tcj-pw-vci"/>
+                            <constraint firstAttribute="trailing" secondItem="Mw9-0l-pk1" secondAttribute="trailing" id="tcj-pw-vci"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -184,7 +209,7 @@
                                     <action selector="stopButtonPress:" destination="FJs-bb-6U5" eventType="touchUpInside" id="JLy-b7-ijv"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Добавить задачу" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-zt-w7c">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a to-do" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-zt-w7c">
                                 <rect key="frame" x="59.5" y="403" width="256" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="LPP-Dt-ffC"/>
@@ -442,7 +467,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TUg-yh-389" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QQf-tw-45c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QQf-tw-45c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -457,7 +482,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="goToTimer" width="40" height="40"/>
+        <image name="goToTimer" width="36" height="36"/>
         <image name="goToTimerDisable" width="36" height="36"/>
         <image name="miniBackground" width="40" height="40"/>
         <image name="settingIcon" width="30" height="30"/>

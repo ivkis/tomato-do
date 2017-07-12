@@ -20,7 +20,7 @@ class SettingViewController: FormViewController {
     func setupSettingViewController() {
         form +++ Section("Period setup")
             <<< IntRow {
-                $0.title = "Pomodoro Duration"
+                $0.title = "Pomodoro Duration, min"
                 $0.value = Settings.shared.pomodoroDuration / 60
             }.onChange {
                 if let value = $0.value {
@@ -28,7 +28,7 @@ class SettingViewController: FormViewController {
                 }
             }
             <<< IntRow {
-                $0.title = "Short Break Duration"
+                $0.title = "Short Break Duration, min"
                 $0.value = Settings.shared.shortBreakDuration / 60
             }.onChange {
                 if let value = $0.value {
@@ -36,7 +36,7 @@ class SettingViewController: FormViewController {
                 }
             }
             <<< IntRow {
-                $0.title = "Long Break Duration"
+                $0.title = "Long Break Duration, min"
                 $0.value = Settings.shared.longBreakDuration / 60
             }.onChange {
                 if let value = $0.value {
