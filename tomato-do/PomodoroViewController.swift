@@ -59,14 +59,14 @@ class PomodoroViewController: UIViewController {
     }
 
     @IBAction func stopButtonPress(_ sender: Any) {
-        let noAlertAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        let yesAlertAction = UIAlertAction(title: "Yes", style: .destructive) { action in
+        let noAlertAction = UIAlertAction(title: NSLocalizedString("No", comment: "No"), style: .cancel, handler: nil)
+        let yesAlertAction = UIAlertAction(title: NSLocalizedString("Yes", comment: "Yes"), style: .destructive) { action in
             State.shared.cancelPeriod()
             self.pomodoroCollectionView.currentPomodoro.stopAnimation()
             self.viewClock.stopClockTimer()
             self.updateUIToCounters()
         }
-        let alertController = UIAlertController(title: "Stop Timer", message: "Are you sure you want to stop the curent pomodoro?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Stop Timer", comment: "Stop Timer"), message: NSLocalizedString("Are you sure you want to stop the curent pomodoro?", comment: "Are you sure you want to stop the curent pomodoro?"), preferredStyle: .alert)
         alertController.addAction(noAlertAction)
         alertController.addAction(yesAlertAction)
         self.present(alertController, animated: true, completion: nil)
@@ -136,8 +136,8 @@ class PomodoroViewController: UIViewController {
             self.updateUIToCounters()
             pomodoroCollectionView.updateFinishedPomodorosState()
 
-            let alertController = UIAlertController(title: "Reached Daily Goal", message: "You've completed your target for the daty! Congratulations.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "I'm done", style: .destructive, handler: nil)
+            let alertController = UIAlertController(title: NSLocalizedString("Reached Daily Goal", comment: "Reached Daily Goal"), message: NSLocalizedString("You've completed your target for the daty! Congratulations!", comment: "You've completed your target for the daty! Congratulations."), preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("I'm done", comment: "I'm done"), style: .destructive, handler: nil)
             alertController.addAction(action)
             self.present(alertController, animated: true, completion: nil)
             return true

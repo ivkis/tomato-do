@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "START"; ObjectID = "6qi-Nm-sdj"; */
+"6qi-Nm-sdj.normalTitle" = "СТАРТ";
+
+/* Class = "UINavigationItem"; title = "TOMATO - DO"; ObjectID = "725-IB-3TG"; */
+"725-IB-3TG.title" = "TOMATO - DO";
+
+/* Class = "UIBarButtonItem"; title = "Finish"; ObjectID = "ART-u6-SUn"; */
+"ART-u6-SUn.title" = "Выполнено";
+
+/* Class = "UITextField"; placeholder = "Add a to-do"; ObjectID = "BbR-zt-w7c"; */
+"BbR-zt-w7c.placeholder" = "Добавить задачу";
+
+/* Class = "UIBarButtonItem"; title = "To-Do"; ObjectID = "HaX-PN-0cg"; */
+"HaX-PN-0cg.title" = "Задачи";
+
+/* Class = "UIButton"; normalTitle = "STOP"; ObjectID = "Wkc-5R-x3K"; */
+"Wkc-5R-x3K.normalTitle" = "СТОП";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gzn-qf-QOT"; */
+"gzn-qf-QOT.normalTitle" = "Button";

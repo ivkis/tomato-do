@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  tomato-do
+
+  Created by IvanLazarev on 12/07/2017.
+  Copyright © 2017 Иван Лазарев. All rights reserved.
+*/
+
+
+"Add a to-do" = "Добавить задачу";
+"Reached Daily Goal" = "Цель достигнута!";
+"You've completed your target for the daty! Congratulations!" = "Вы завершили свою дневную цель. Поздравляем.";
+"I'm done" = "Я закончил";
+"No" = "Нет";
+"Yes" = "Да";
+"Stop Timer" = "Остановить таймер";
+"Are you sure you want to stop the curent pomodoro?" = "Вы действительно хотите остановить текущий таймер?";
+
+"Period setup" = "Настройка периода";
+"Pomodoro Duration, min" = "Таймер, мин";
+"Short Break Duration, min" = "Короткий отдых, мин";
+"Long Break Duration, min" = "Длинный отдых, мин";
+"Tick Sound Setup" = "Настройка звука таймера";
+"Sound OFF" = "Звук ВЫКЛ.";
+"Sound ON" = "Звук ВКЛ.";

@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZS0-lP-jWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3425" y="-175"/>
+            <point key="canvasLocation" x="3092" y="-212"/>
         </scene>
         <!--Pomodoro View Controller-->
         <scene sceneID="NqS-rq-8aI">
@@ -460,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3424.8000000000002" y="525.78710644677665"/>
+            <point key="canvasLocation" x="3092" y="505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fli-QQ-IP7">
@@ -478,7 +478,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQS-Qy-WI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="123"/>
+            <point key="canvasLocation" x="2166" y="123"/>
         </scene>
     </scenes>
     <resources>

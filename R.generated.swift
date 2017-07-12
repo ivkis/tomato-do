@@ -148,8 +148,262 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 15 localization keys.
+    struct localizable {
+      /// ru translation: Вы действительно хотите остановить текущий таймер?
+      /// 
+      /// Locales: ru
+      static let areYouSureYouWantToStopTheCurentPomodoro = Rswift.StringResource(key: "Are you sure you want to stop the curent pomodoro?", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Вы завершили свою дневную цель. Поздравляем.
+      /// 
+      /// Locales: ru
+      static let youVeCompletedYourTargetForTheDatyCongratulations = Rswift.StringResource(key: "You've completed your target for the daty! Congratulations!", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Да
+      /// 
+      /// Locales: ru
+      static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Длинный отдых, мин
+      /// 
+      /// Locales: ru
+      static let longBreakDurationMin = Rswift.StringResource(key: "Long Break Duration, min", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Добавить задачу
+      /// 
+      /// Locales: ru
+      static let addAToDo = Rswift.StringResource(key: "Add a to-do", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Звук ВКЛ.
+      /// 
+      /// Locales: ru
+      static let soundON = Rswift.StringResource(key: "Sound ON", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Звук ВЫКЛ.
+      /// 
+      /// Locales: ru
+      static let soundOFF = Rswift.StringResource(key: "Sound OFF", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Короткий отдых, мин
+      /// 
+      /// Locales: ru
+      static let shortBreakDurationMin = Rswift.StringResource(key: "Short Break Duration, min", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Настройка звука таймера
+      /// 
+      /// Locales: ru
+      static let tickSoundSetup = Rswift.StringResource(key: "Tick Sound Setup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Настройка периода
+      /// 
+      /// Locales: ru
+      static let periodSetup = Rswift.StringResource(key: "Period setup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Нет
+      /// 
+      /// Locales: ru
+      static let no = Rswift.StringResource(key: "No", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Остановить таймер
+      /// 
+      /// Locales: ru
+      static let stopTimer = Rswift.StringResource(key: "Stop Timer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Таймер, мин
+      /// 
+      /// Locales: ru
+      static let pomodoroDurationMin = Rswift.StringResource(key: "Pomodoro Duration, min", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Цель достигнута!
+      /// 
+      /// Locales: ru
+      static let reachedDailyGoal = Rswift.StringResource(key: "Reached Daily Goal", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Я закончил
+      /// 
+      /// Locales: ru
+      static let iMDone = Rswift.StringResource(key: "I'm done", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Вы действительно хотите остановить текущий таймер?
+      /// 
+      /// Locales: ru
+      static func areYouSureYouWantToStopTheCurentPomodoro(_: Void = ()) -> String {
+        return NSLocalizedString("Are you sure you want to stop the curent pomodoro?", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Вы завершили свою дневную цель. Поздравляем.
+      /// 
+      /// Locales: ru
+      static func youVeCompletedYourTargetForTheDatyCongratulations(_: Void = ()) -> String {
+        return NSLocalizedString("You've completed your target for the daty! Congratulations!", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Да
+      /// 
+      /// Locales: ru
+      static func yes(_: Void = ()) -> String {
+        return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Длинный отдых, мин
+      /// 
+      /// Locales: ru
+      static func longBreakDurationMin(_: Void = ()) -> String {
+        return NSLocalizedString("Long Break Duration, min", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Добавить задачу
+      /// 
+      /// Locales: ru
+      static func addAToDo(_: Void = ()) -> String {
+        return NSLocalizedString("Add a to-do", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Звук ВКЛ.
+      /// 
+      /// Locales: ru
+      static func soundON(_: Void = ()) -> String {
+        return NSLocalizedString("Sound ON", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Звук ВЫКЛ.
+      /// 
+      /// Locales: ru
+      static func soundOFF(_: Void = ()) -> String {
+        return NSLocalizedString("Sound OFF", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Короткий отдых, мин
+      /// 
+      /// Locales: ru
+      static func shortBreakDurationMin(_: Void = ()) -> String {
+        return NSLocalizedString("Short Break Duration, min", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Настройка звука таймера
+      /// 
+      /// Locales: ru
+      static func tickSoundSetup(_: Void = ()) -> String {
+        return NSLocalizedString("Tick Sound Setup", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Настройка периода
+      /// 
+      /// Locales: ru
+      static func periodSetup(_: Void = ()) -> String {
+        return NSLocalizedString("Period setup", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Нет
+      /// 
+      /// Locales: ru
+      static func no(_: Void = ()) -> String {
+        return NSLocalizedString("No", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Остановить таймер
+      /// 
+      /// Locales: ru
+      static func stopTimer(_: Void = ()) -> String {
+        return NSLocalizedString("Stop Timer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Таймер, мин
+      /// 
+      /// Locales: ru
+      static func pomodoroDurationMin(_: Void = ()) -> String {
+        return NSLocalizedString("Pomodoro Duration, min", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Цель достигнута!
+      /// 
+      /// Locales: ru
+      static func reachedDailyGoal(_: Void = ()) -> String {
+        return NSLocalizedString("Reached Daily Goal", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Я закончил
+      /// 
+      /// Locales: ru
+      static func iMDone(_: Void = ()) -> String {
+        return NSLocalizedString("I'm done", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.main` struct is generated, and contains static references to 7 localization keys.
+    struct main {
+      /// ru translation: Button
+      /// 
+      /// Locales: ru
+      static let gznQfQOTNormalTitle = Rswift.StringResource(key: "gzn-qf-QOT.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: TOMATO - DO
+      /// 
+      /// Locales: ru
+      static let iB3TGTitle = Rswift.StringResource(key: "725-IB-3TG.title", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Выполнено
+      /// 
+      /// Locales: ru
+      static let aRTU6SUnTitle = Rswift.StringResource(key: "ART-u6-SUn.title", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Добавить задачу
+      /// 
+      /// Locales: ru
+      static let bbRZtW7cPlaceholder = Rswift.StringResource(key: "BbR-zt-w7c.placeholder", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Задачи
+      /// 
+      /// Locales: ru
+      static let haXPN0cgTitle = Rswift.StringResource(key: "HaX-PN-0cg.title", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: СТАРТ
+      /// 
+      /// Locales: ru
+      static let qiNmSdjNormalTitle = Rswift.StringResource(key: "6qi-Nm-sdj.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: СТОП
+      /// 
+      /// Locales: ru
+      static let wkc5RX3KNormalTitle = Rswift.StringResource(key: "Wkc-5R-x3K.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Button
+      /// 
+      /// Locales: ru
+      static func gznQfQOTNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("gzn-qf-QOT.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: TOMATO - DO
+      /// 
+      /// Locales: ru
+      static func iB3TGTitle(_: Void = ()) -> String {
+        return NSLocalizedString("725-IB-3TG.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Выполнено
+      /// 
+      /// Locales: ru
+      static func aRTU6SUnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("ART-u6-SUn.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Добавить задачу
+      /// 
+      /// Locales: ru
+      static func bbRZtW7cPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("BbR-zt-w7c.placeholder", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Задачи
+      /// 
+      /// Locales: ru
+      static func haXPN0cgTitle(_: Void = ()) -> String {
+        return NSLocalizedString("HaX-PN-0cg.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: СТАРТ
+      /// 
+      /// Locales: ru
+      static func qiNmSdjNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("6qi-Nm-sdj.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: СТОП
+      /// 
+      /// Locales: ru
+      static func wkc5RX3KNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("Wkc-5R-x3K.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
