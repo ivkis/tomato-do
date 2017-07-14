@@ -25,6 +25,7 @@ class TableViewCell: FMMoveTableViewCell {
     @IBOutlet weak var checkBox: BEMCheckBox!
     @IBOutlet weak var goToTimerTap: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var taskNameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,8 @@ class TableViewCell: FMMoveTableViewCell {
 
     func configure(with task: Task) {
         selectionStyle = UITableViewCellSelectionStyle.none
-        textLabel?.text = task.taskToDo
+        taskNameLabel.text = task.taskToDo
+        //textLabel?.text = task.taskToDo
         checkBox.lineWidth = 1.5
         checkBox.on = task.checkBoxValue
         if task.checkBoxValue == true {
@@ -59,15 +61,15 @@ class TableViewCell: FMMoveTableViewCell {
     func enterEditMode() {
         editTaskTextField.isHidden = false
         editTaskTextField.becomeFirstResponder()
-        editTaskTextField.font = textLabel?.font
-        textLabel?.isHidden = true
-        editTaskTextField.text = textLabel?.text
+        editTaskTextField.font = taskNameLabel.font
+        taskNameLabel.isHidden = true
+        editTaskTextField.text = taskNameLabel.text
     }
 
     func editAndSaveLabel() {
-        textLabel?.text = editTaskTextField.text
+        taskNameLabel.text = editTaskTextField.text
         editTaskTextField.isHidden = true
-        textLabel?.isHidden = false
+        taskNameLabel.isHidden = false
         delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
     }
 }

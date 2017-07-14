@@ -49,8 +49,14 @@
                                                                 <action selector="pomodoroButtonTap:" destination="Ssk-uV-HV7" eventType="touchUpInside" id="4zD-ho-Tv1"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d5-gC-lro">
+                                                            <rect key="frame" x="43" y="0.0" width="259" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfs-5I-jMB">
-                                                            <rect key="frame" x="40" y="7" width="265" height="22"/>
+                                                            <rect key="frame" x="43" y="-1.5" width="259" height="22"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -72,11 +78,14 @@
                                                         <constraint firstItem="gzn-qf-QOT" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="3Ys-fD-gBD"/>
                                                         <constraint firstAttribute="height" constant="36" id="AJv-Iu-0fU"/>
                                                         <constraint firstItem="4iE-H9-lZc" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="Cti-yy-ZWD"/>
-                                                        <constraint firstAttribute="trailing" secondItem="zfs-5I-jMB" secondAttribute="trailing" constant="40" id="DCk-rs-EXe"/>
-                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="40" id="Fbg-zf-pzd"/>
+                                                        <constraint firstItem="6d5-gC-lro" firstAttribute="top" secondItem="OQ8-b3-FjQ" secondAttribute="top" id="PwV-KZ-5WQ"/>
+                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="leading" secondItem="6d5-gC-lro" secondAttribute="leading" id="RfK-Fn-RCO"/>
+                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="baseline" secondItem="6d5-gC-lro" secondAttribute="baseline" id="W3O-zP-6rY"/>
                                                         <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="1" id="lPm-Uc-9bD"/>
-                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="qcI-hw-vSz"/>
+                                                        <constraint firstItem="zfs-5I-jMB" firstAttribute="trailing" secondItem="6d5-gC-lro" secondAttribute="trailing" id="wVh-8e-U43"/>
+                                                        <constraint firstItem="6d5-gC-lro" firstAttribute="leading" secondItem="4iE-H9-lZc" secondAttribute="trailing" constant="8" id="wvo-hY-2ZH"/>
                                                         <constraint firstAttribute="trailing" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="zDu-3y-QKG"/>
+                                                        <constraint firstItem="gzn-qf-QOT" firstAttribute="leading" secondItem="6d5-gC-lro" secondAttribute="trailing" constant="6.5" id="zwV-1O-1Wc"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -98,6 +107,7 @@
                                             <outlet property="containerView" destination="OQ8-b3-FjQ" id="vA0-ll-rSV"/>
                                             <outlet property="editTaskTextField" destination="zfs-5I-jMB" id="4rR-Zi-5iU"/>
                                             <outlet property="goToTimerTap" destination="gzn-qf-QOT" id="gZl-Y6-Xjv"/>
+                                            <outlet property="taskNameLabel" destination="6d5-gC-lro" id="yVL-ib-fIv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZS0-lP-jWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="-212"/>
+            <point key="canvasLocation" x="3401" y="-204"/>
         </scene>
         <!--Pomodoro View Controller-->
         <scene sceneID="NqS-rq-8aI">
@@ -460,14 +470,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="505"/>
+            <point key="canvasLocation" x="3401" y="504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fli-QQ-IP7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TUg-yh-389" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QQf-tw-45c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QQf-tw-45c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -478,7 +488,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQS-Qy-WI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2166" y="123"/>
+            <point key="canvasLocation" x="1940" y="123"/>
         </scene>
     </scenes>
     <resources>
