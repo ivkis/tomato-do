@@ -19,6 +19,7 @@ class CoreDataManager {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
+        taskObject.plannedPomodoro = 5
         tasks.insert(taskObject, at: 0)
         saveArrayInCoreData()
     }

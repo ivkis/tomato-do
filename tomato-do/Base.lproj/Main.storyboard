@@ -23,19 +23,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
                                 <rect key="frame" x="0.0" y="150" width="375" height="473"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="Ssk-uV-HV7" customClass="TableViewCell" customModule="tomato_do" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ssk-uV-HV7" id="37F-qR-7H4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ8-b3-FjQ">
-                                                    <rect key="frame" x="15" y="7" width="345" height="36"/>
+                                                    <rect key="frame" x="15" y="4.5" width="345" height="36"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-qf-QOT">
                                                             <rect key="frame" x="308.5" y="-0.5" width="36.5" height="36.5"/>
@@ -72,16 +72,24 @@
                                                                 <constraint firstAttribute="height" constant="34" id="dcx-iY-gt7"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhT-BC-hhl" customClass="PlannedPomodoroView" customModule="tomato_do" customModuleProvider="target">
+                                                            <rect key="frame" x="42" y="20" width="259.5" height="14"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="gzn-qf-QOT" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="3Ys-fD-gBD"/>
                                                         <constraint firstAttribute="height" constant="36" id="AJv-Iu-0fU"/>
                                                         <constraint firstItem="4iE-H9-lZc" firstAttribute="centerY" secondItem="OQ8-b3-FjQ" secondAttribute="centerY" id="Cti-yy-ZWD"/>
+                                                        <constraint firstItem="qhT-BC-hhl" firstAttribute="top" secondItem="OQ8-b3-FjQ" secondAttribute="top" constant="20" id="Dhc-UL-tN7"/>
                                                         <constraint firstItem="6d5-gC-lro" firstAttribute="top" secondItem="OQ8-b3-FjQ" secondAttribute="top" id="PwV-KZ-5WQ"/>
                                                         <constraint firstItem="zfs-5I-jMB" firstAttribute="leading" secondItem="6d5-gC-lro" secondAttribute="leading" id="RfK-Fn-RCO"/>
                                                         <constraint firstItem="zfs-5I-jMB" firstAttribute="baseline" secondItem="6d5-gC-lro" secondAttribute="baseline" id="W3O-zP-6rY"/>
+                                                        <constraint firstItem="qhT-BC-hhl" firstAttribute="leading" secondItem="4iE-H9-lZc" secondAttribute="trailing" constant="7" id="cRl-bW-I3k"/>
+                                                        <constraint firstAttribute="bottom" secondItem="qhT-BC-hhl" secondAttribute="bottom" constant="2" id="gYX-Ja-gBj"/>
                                                         <constraint firstItem="4iE-H9-lZc" firstAttribute="leading" secondItem="OQ8-b3-FjQ" secondAttribute="leading" constant="1" id="lPm-Uc-9bD"/>
+                                                        <constraint firstItem="gzn-qf-QOT" firstAttribute="leading" secondItem="qhT-BC-hhl" secondAttribute="trailing" constant="7" id="niD-kK-3bm"/>
                                                         <constraint firstItem="zfs-5I-jMB" firstAttribute="trailing" secondItem="6d5-gC-lro" secondAttribute="trailing" id="wVh-8e-U43"/>
                                                         <constraint firstItem="6d5-gC-lro" firstAttribute="leading" secondItem="4iE-H9-lZc" secondAttribute="trailing" constant="8" id="wvo-hY-2ZH"/>
                                                         <constraint firstAttribute="trailing" secondItem="gzn-qf-QOT" secondAttribute="trailing" id="zDu-3y-QKG"/>
@@ -107,6 +115,7 @@
                                             <outlet property="containerView" destination="OQ8-b3-FjQ" id="vA0-ll-rSV"/>
                                             <outlet property="editTaskTextField" destination="zfs-5I-jMB" id="4rR-Zi-5iU"/>
                                             <outlet property="goToTimerTap" destination="gzn-qf-QOT" id="gZl-Y6-Xjv"/>
+                                            <outlet property="plannedPomodoroView" destination="qhT-BC-hhl" id="shX-Uj-E8t"/>
                                             <outlet property="taskNameLabel" destination="6d5-gC-lro" id="yVL-ib-fIv"/>
                                         </connections>
                                     </tableViewCell>

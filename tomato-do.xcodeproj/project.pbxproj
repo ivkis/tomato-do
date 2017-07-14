@@ -27,6 +27,7 @@
 		A77FFA081F138C0A00A2B4A3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA071F138C0A00A2B4A3 /* Settings.swift */; };
 		A77FFA0A1F13CFE700A2B4A3 /* NavBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */; };
 		A797FD771F06544F006E234A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797FD761F06544F006E234A /* Constants.swift */; };
+		A79CB44E1F18B6BA00F6F126 /* PlannedPomodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */; };
 		A7D03E211ED9AA1000D10CA2 /* tickingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */; };
 		A7D03E231ED9AB5200D10CA2 /* endClockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */; };
 		A7DA017F1ECAC7C000623CB8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */; };
@@ -59,6 +60,7 @@
 		A77FFA071F138C0A00A2B4A3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavBar + Extension.swift"; sourceTree = "<group>"; };
 		A797FD761F06544F006E234A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlannedPomodoroView.swift; sourceTree = "<group>"; };
 		A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickingSound.mp3; path = ../../../Downloads/tickingSound.mp3; sourceTree = "<group>"; };
 		A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = endClockSound.mp3; path = ../../../Downloads/endClockSound.mp3; sourceTree = "<group>"; };
 		A7DA017E1ECAC7C000623CB8 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A7DA01801ECAC80500623CB8 /* Extensions */,
 				A726ABD31F054D770012E0EF /* MiniPomodoroCollectionView.swift */,
 				A72BDACE1F0274B600657922 /* MiniPomodoroView.swift */,
+				A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */,
 				A761602D1EC4512600616AE0 /* PomodoroViewController.swift */,
 				2C0A8C731EB78595005B8090 /* R.generated.swift */,
 				A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */,
@@ -328,6 +331,7 @@
 				A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */,
 				A751448B1F15324C00EA1AD5 /* UIView + Extensions.swift in Sources */,
 				A77FFA081F138C0A00A2B4A3 /* Settings.swift in Sources */,
+				A79CB44E1F18B6BA00F6F126 /* PlannedPomodoroView.swift in Sources */,
 				2C1F1B5B1EAFBC7C002626B7 /* AppDelegate.swift in Sources */,
 				A75008A11ECC38B7007E26BC /* CoreDataManager.swift in Sources */,
 				2C1F1B631EAFBC7C002626B7 /* tomato_do.xcdatamodeld in Sources */,

@@ -26,6 +26,7 @@ class TableViewCell: FMMoveTableViewCell {
     @IBOutlet weak var goToTimerTap: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var plannedPomodoroView: PlannedPomodoroView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +35,9 @@ class TableViewCell: FMMoveTableViewCell {
     }
 
     func configure(with task: Task) {
+        plannedPomodoroView.configure(with: task)
         selectionStyle = UITableViewCellSelectionStyle.none
         taskNameLabel.text = task.taskToDo
-        //textLabel?.text = task.taskToDo
         checkBox.lineWidth = 1.5
         checkBox.on = task.checkBoxValue
         if task.checkBoxValue == true {

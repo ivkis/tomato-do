@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
@@ -60,6 +60,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchScreen")
     /// Image `miniBackground`.
     static let miniBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "miniBackground")
+    /// Image `plannedBackground`.
+    static let plannedBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "plannedBackground")
     /// Image `pomodoroLogo`.
     static let pomodoroLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoroLogo")
     /// Image `pomodoro`.
@@ -90,6 +92,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "miniBackground", bundle: ..., traitCollection: ...)`
     static func miniBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.miniBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "plannedBackground", bundle: ..., traitCollection: ...)`
+    static func plannedBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plannedBackground, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "pomodoro", bundle: ..., traitCollection: ...)`
