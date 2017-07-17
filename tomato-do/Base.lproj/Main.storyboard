@@ -20,11 +20,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ZL9-It-h0O"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nv2-lR-bqo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
-                                <rect key="frame" x="0.0" y="150" width="375" height="473"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="496"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="Ssk-uV-HV7" customClass="TableViewCell" customModule="tomato_do" customModuleProvider="target">
@@ -126,7 +126,7 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-T1-H4K">
-                                <rect key="frame" x="16" y="89" width="343" height="36"/>
+                                <rect key="frame" x="16" y="25" width="343" height="36"/>
                                 <color key="backgroundColor" red="0.058823529630000003" green="0.180392161" blue="0.24705882370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -139,15 +139,25 @@
                                     <outlet property="delegate" destination="LZg-hx-ehN" id="Ht0-u6-zLJ"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdj-gZ-cGh" customClass="GradientView" customModule="tomato_do" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="63" width="375" height="12"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="HTy-dQ-qcH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="O2A-T1-H4K" firstAttribute="top" secondItem="hBM-d8-FQw" secondAttribute="bottom" constant="25" id="1Fa-l7-Urv"/>
                             <constraint firstItem="Mw9-0l-pk1" firstAttribute="leading" secondItem="nv2-lR-bqo" secondAttribute="leading" id="2Bz-NY-9eF"/>
+                            <constraint firstAttribute="trailing" secondItem="jdj-gZ-cGh" secondAttribute="trailing" id="MWA-MU-iMh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="O2A-T1-H4K" secondAttribute="leading" id="N7O-p4-Ucd"/>
-                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="top" secondItem="O2A-T1-H4K" secondAttribute="bottom" constant="25" id="Xl5-7o-2o0"/>
+                            <constraint firstItem="Mw9-0l-pk1" firstAttribute="top" secondItem="O2A-T1-H4K" secondAttribute="bottom" constant="2" id="Xl5-7o-2o0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2A-T1-H4K" secondAttribute="trailing" id="jQT-SI-1fM"/>
                             <constraint firstItem="ZL9-It-h0O" firstAttribute="top" secondItem="Mw9-0l-pk1" secondAttribute="bottom" id="ltB-r9-box"/>
+                            <constraint firstItem="jdj-gZ-cGh" firstAttribute="top" secondItem="Mw9-0l-pk1" secondAttribute="top" id="olh-Ub-0xS"/>
+                            <constraint firstItem="jdj-gZ-cGh" firstAttribute="leading" secondItem="nv2-lR-bqo" secondAttribute="leading" id="rth-eH-WL6"/>
                             <constraint firstAttribute="trailing" secondItem="Mw9-0l-pk1" secondAttribute="trailing" id="tcj-pw-vci"/>
                         </constraints>
                     </view>
@@ -180,7 +190,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EqC-kb-1NZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1LU-5t-bp0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

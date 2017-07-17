@@ -23,6 +23,7 @@
 		A754A0B91F07A1DB007381B5 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754A0B81F07A1DB007381B5 /* State.swift */; };
 		A75611491EC4943D0019BEC3 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75611481EC4943D0019BEC3 /* ClockView.swift */; };
 		A761602E1EC4512600616AE0 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A761602D1EC4512600616AE0 /* PomodoroViewController.swift */; };
+		A77B12F61F1C9A8900D26F5C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B12F51F1C9A8900D26F5C /* GradientView.swift */; };
 		A77FFA061F1378FE00A2B4A3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */; };
 		A77FFA081F138C0A00A2B4A3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA071F138C0A00A2B4A3 /* Settings.swift */; };
 		A77FFA0A1F13CFE700A2B4A3 /* NavBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */; };
@@ -56,6 +57,7 @@
 		A754A0B81F07A1DB007381B5 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		A75611481EC4943D0019BEC3 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A761602D1EC4512600616AE0 /* PomodoroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
+		A77B12F51F1C9A8900D26F5C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A77FFA071F138C0A00A2B4A3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavBar + Extension.swift"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A75611481EC4943D0019BEC3 /* ClockView.swift */,
 				A75008A01ECC38B7007E26BC /* CoreDataManager.swift */,
 				A7DA01801ECAC80500623CB8 /* Extensions */,
+				A77B12F51F1C9A8900D26F5C /* GradientView.swift */,
 				A726ABD31F054D770012E0EF /* MiniPomodoroCollectionView.swift */,
 				A72BDACE1F0274B600657922 /* MiniPomodoroView.swift */,
 				A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */,
@@ -321,6 +324,7 @@
 			files = (
 				A7DA017F1ECAC7C000623CB8 /* Array+Extensions.swift in Sources */,
 				A7351A481EC5BD2500117057 /* TableViewCell.swift in Sources */,
+				A77B12F61F1C9A8900D26F5C /* GradientView.swift in Sources */,
 				A72BDACF1F0274B600657922 /* MiniPomodoroView.swift in Sources */,
 				2CDDABC21EB77D2F007E20A4 /* AddTaskViewController.swift in Sources */,
 				2C0A8C741EB78595005B8090 /* R.generated.swift in Sources */,
