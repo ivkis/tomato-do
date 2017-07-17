@@ -48,10 +48,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
+    /// Image `countImagePicker`.
+    static let countImagePicker = Rswift.ImageResource(bundle: R.hostingBundle, name: "countImagePicker")
     /// Image `goToTimerDisable`.
     static let goToTimerDisable = Rswift.ImageResource(bundle: R.hostingBundle, name: "goToTimerDisable")
     /// Image `goToTimer`.
@@ -62,6 +64,10 @@ struct R: Rswift.Validatable {
     static let miniBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "miniBackground")
     /// Image `plannedBackground`.
     static let plannedBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "plannedBackground")
+    /// Image `plannedPomodoroSelected`.
+    static let plannedPomodoroSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "plannedPomodoroSelected")
+    /// Image `plannedPomodoro`.
+    static let plannedPomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "plannedPomodoro")
     /// Image `pomodoroLogo`.
     static let pomodoroLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoroLogo")
     /// Image `pomodoro`.
@@ -72,6 +78,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "buttonTimerIcon", bundle: ..., traitCollection: ...)`
     static func buttonTimerIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.buttonTimerIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "countImagePicker", bundle: ..., traitCollection: ...)`
+    static func countImagePicker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.countImagePicker, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "goToTimer", bundle: ..., traitCollection: ...)`
@@ -97,6 +108,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "plannedBackground", bundle: ..., traitCollection: ...)`
     static func plannedBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.plannedBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "plannedPomodoro", bundle: ..., traitCollection: ...)`
+    static func plannedPomodoro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plannedPomodoro, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "plannedPomodoroSelected", bundle: ..., traitCollection: ...)`
+    static func plannedPomodoroSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plannedPomodoroSelected, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "pomodoro", bundle: ..., traitCollection: ...)`

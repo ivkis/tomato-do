@@ -12,7 +12,7 @@ import FMMoveTableView
 
 
 protocol TableViewCellDelegate: class {
-    func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String)
+    func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String, didChangePomodoroIndex planedPomodoro: Int)
     func tableViewCell(_ cell: TableViewCell, didChangeCheckBox value: Bool)
     func tableViewCellDidTapPomodoroButton(_ cell: TableViewCell)
 }
@@ -32,6 +32,8 @@ class TableViewCell: FMMoveTableViewCell {
         super.awakeFromNib()
         editTaskTextField.isHidden = true
         checkBox.delegate = self
+        let countPickerView = PomodoroCountPickerView()
+        editTaskTextField.inputAccessoryView = countPickerView
     }
 
     func configure(with task: Task) {
@@ -40,6 +42,8 @@ class TableViewCell: FMMoveTableViewCell {
         taskNameLabel.text = task.taskToDo
         checkBox.lineWidth = 1.5
         checkBox.on = task.checkBoxValue
+        let countPickerView = editTaskTextField.inputAccessoryView as! PomodoroCountPickerView
+        countPickerView.value = Int(task.plannedPomodoro)
         if task.checkBoxValue == true {
             goToTimerTap.isEnabled = false
             editTaskTextField.isEnabled = false
@@ -71,7 +75,8 @@ class TableViewCell: FMMoveTableViewCell {
         taskNameLabel.text = editTaskTextField.text
         editTaskTextField.isHidden = true
         taskNameLabel.isHidden = false
-        delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!)
+        let pomodoroCountPickerView = editTaskTextField.inputAccessoryView as! PomodoroCountPickerView
+        delegate?.tableViewCell(self, didChangeLabelText: editTaskTextField.text!, didChangePomodoroIndex: pomodoroCountPickerView.value)
     }
 }
 

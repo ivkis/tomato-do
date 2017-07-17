@@ -17,9 +17,10 @@ class PlannedPomodoroView: UIView {
     }
 
     func configure(with task: Task) {
+        subviews.forEach({ $0.removeFromSuperview() })
         var currentView: UIImageView?
         for _ in 0..<task.plannedPomodoro {
-            let exampleView = UIImageView(image: R.image.plannedBackground())
+            let exampleView = UIImageView(image: R.image.miniBackground())
             self.addSubview(exampleView)
             exampleView.autoPinEdge(toSuperviewEdge: .top)
             exampleView.autoPinEdge(toSuperviewEdge: .bottom)

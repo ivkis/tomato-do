@@ -38,6 +38,7 @@ class PomodoroViewController: UIViewController {
         State.shared.checkIfPeriodEnded()
         endWorkingDay()
         updateUIToCounters()
+        unexpectedTaskTextField.inputAccessoryView = PomodoroCountPickerView()
         pomodoroCollectionView.updateFinishedPomodorosState()
         if let timerEndDate = State.shared.timerEndDate {
             resumeCurrentTimer(timerEndDate: timerEndDate)
@@ -149,7 +150,9 @@ class PomodoroViewController: UIViewController {
 
 extension PomodoroViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
+        let pomodoroCountPickerView = textField.inputAccessoryView as! PomodoroCountPickerView
+        CoreDataManager.shared.addTask(taskToDo: (textField.text)!, plannedPomodoro: pomodoroCountPickerView.value)
+        pomodoroCountPickerView.value = 1
         textField.text = ""
     }
 

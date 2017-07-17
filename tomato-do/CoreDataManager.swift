@@ -15,11 +15,11 @@ class CoreDataManager {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private(set) var tasks = [Task]()
 
-    func addTask(taskToDo: String) {
+    func addTask(taskToDo: String, plannedPomodoro: Int) {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
         taskObject.taskToDo = taskToDo
-        taskObject.plannedPomodoro = 5
+        taskObject.plannedPomodoro = Int64(plannedPomodoro)
         tasks.insert(taskObject, at: 0)
         saveArrayInCoreData()
     }
@@ -43,7 +43,7 @@ class CoreDataManager {
     }
 
     func moveCompletedTask(_ index: Int) -> Int {
-        let newIndex = (tasks.count)-1
+        let newIndex = (tasks.count) - 1
         tasks.rearrange(from: index, to: newIndex)
         saveArrayInCoreData()
         return newIndex
@@ -56,9 +56,10 @@ class CoreDataManager {
         return newIndex
     }
 
-    func updateTaskAt(_ index: Int, text: String) {
+    func updateTaskAt(_ index: Int, text: String, plannedPomodoro: Int) {
         let taskToUpdate = tasks[index]
         taskToUpdate.taskToDo = text
+        taskToUpdate.plannedPomodoro = Int64(plannedPomodoro)
         saveContext(context: context)
     }
 

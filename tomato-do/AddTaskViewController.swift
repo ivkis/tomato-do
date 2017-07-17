@@ -28,6 +28,7 @@ class AddTaskViewController: UIViewController {
         addTaskTableView.contentInset.top = 20
         view.backgroundColor = UIColor.Tomatodo.blue
         addTaskTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Add a to-do", comment: "Add a to-do"), attributes: [NSForegroundColorAttributeName: UIColor.Tomatodo.grey])
+        addTaskTextField.inputAccessoryView = PomodoroCountPickerView()
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {
@@ -78,11 +79,13 @@ extension AddTaskViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 extension AddTaskViewController: TableViewCellDelegate {
-    func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String) {
+
+    func tableViewCell(_ cell: TableViewCell, didChangeLabelText text: String, didChangePomodoroIndex plannedPomodoro: Int) {
         guard let indexPath = addTaskTableView.indexPath(for: cell) else {
             return
         }
-        CoreDataManager.shared.updateTaskAt(indexPath.row, text: text)
+        CoreDataManager.shared.updateTaskAt(indexPath.row, text: text, plannedPomodoro: plannedPomodoro)
+        addTaskTableView.reloadRows(at: [indexPath], with: .fade)
     }
 
     func tableViewCell(_ cell: TableViewCell, didChangeCheckBox value: Bool) {
@@ -120,8 +123,10 @@ extension AddTaskViewController: FMMoveTableViewDataSource, FMMoveTableViewDeleg
 extension AddTaskViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let index = NSIndexPath(row: 0, section: 0)
-        CoreDataManager.shared.addTask(taskToDo: (textField.text)!)
+        let pomodoroCountPickerView = textField.inputAccessoryView as! PomodoroCountPickerView
+        CoreDataManager.shared.addTask(taskToDo: (textField.text)!, plannedPomodoro: pomodoroCountPickerView.value)
         textField.text = ""
+
         addTaskTableView.insertRows(at: [index as IndexPath], with: .fade)
     }
 
