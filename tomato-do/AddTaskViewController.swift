@@ -125,6 +125,7 @@ extension AddTaskViewController: UITextFieldDelegate {
         let index = NSIndexPath(row: 0, section: 0)
         let pomodoroCountPickerView = textField.inputAccessoryView as! PomodoroCountPickerView
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!, plannedPomodoro: pomodoroCountPickerView.value)
+        pomodoroCountPickerView.value = 1
         textField.text = ""
 
         addTaskTableView.insertRows(at: [index as IndexPath], with: .fade)
