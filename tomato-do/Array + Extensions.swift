@@ -1,5 +1,5 @@
 //
-//  Array+Extensions.swift
+//  Array + Extensions.swift
 //  tomato-do
 //
 //  Created by IvanLazarev on 16/05/2017.

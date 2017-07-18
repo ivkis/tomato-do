@@ -12,14 +12,7 @@ import PureLayout
 import AVFoundation
 
 
-protocol ClockViewDelegate: class {
-    func clockViewDidEndTimer(_ clockView: ClockView)
-}
-
-
 class ClockView: MiniPomodoroView {
-
-    weak var delegate: ClockViewDelegate?
 
     var countDownTimer = Timer()
     var label = UILabel()
@@ -93,7 +86,6 @@ class ClockView: MiniPomodoroView {
             countDownTimer.invalidate()
             tickPlayer.stop()
             endPlayer.play()
-            delegate?.clockViewDidEndTimer(self)
         }
     }
 

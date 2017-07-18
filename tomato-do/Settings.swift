@@ -46,9 +46,9 @@ class Settings {
 
     init() {
         defaults.register(defaults: [DefaultsKeys.pomodoroDuration: 1500, DefaultsKeys.shortBreakDuration: 300, DefaultsKeys.longBreakDuration: 900])
-        self.pomodoroDuration = defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
-        self.shortBreakDuration = defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
-        self.longBreakDuration = defaults.integer(forKey: DefaultsKeys.longBreakDuration)
+        self.pomodoroDuration = 5 //defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
+        self.shortBreakDuration = 5 //defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
+        self.longBreakDuration = 5 //defaults.integer(forKey: DefaultsKeys.longBreakDuration)
         self.tickSoundStatus = defaults.bool(forKey: DefaultsKeys.tickStatusSound)
     }
 }

@@ -17,6 +17,8 @@ class State {
 
     let defaults = UserDefaults.standard
 
+    var periodEndTimer: Timer?
+
     var isRestTime: Bool {
         return counterTimer % 2 == 0
     }
@@ -38,7 +40,12 @@ class State {
             defaults.set(timerEndDate, forKey: "timerEndDate")
             if let timerEndDate = timerEndDate {
                 sheduleNotification(date: timerEndDate)
+                self.periodEndTimer = Timer.scheduledTimer(withTimeInterval: timerEndDate.timeIntervalSinceNow, repeats: false, block: { [weak self] _ in
+                    self?.finishPeriod()
+                })
             } else {
+                self.periodEndTimer?.invalidate()
+                self.periodEndTimer = nil
                 removeNotifications(withIdentifiers: [Constants.localNotificationName])
             }
         }
@@ -55,11 +62,11 @@ class State {
     }
 
     init() {
-        self.timerEndDate = defaults.object(forKey: "timerEndDate") as? Date
-
         let lastRunDate = defaults.object(forKey: "dateLastRun") as? Date
         if let lastRunDate = lastRunDate, Calendar.current.compare(lastRunDate, to: Date(), toGranularity: .day) == .orderedSame {
+            self.timerEndDate = defaults.object(forKey: "timerEndDate") as? Date
             self.counterTimer = max(1, defaults.integer(forKey: "counterTimer"))
+            checkIfPeriodEnded()
         } else {
             self.counterTimer = 1
         }
@@ -93,18 +100,22 @@ class State {
         counterTimer = 1
     }
 
-    func startPeriod(task: Task) {
+    func startPeriod(task: Task?) {
         currentTask = task
-        self.timerEndDate = Date(timeInterval: TimeInterval(periodDuration), since: Date())
+        let interval = TimeInterval(periodDuration)
+        timerEndDate = Date(timeInterval: interval, since: Date())
     }
 
-    func finishPeriod() {
+    fileprivate func finishPeriod() {
         timerEndDate = nil
-
         if let task = currentTask, !isRestTime {
             CoreDataManager.shared.incrementCompletedPomodoros(for: task)
         }
         counterTimer += 1
+        if isRestTime {
+            startPeriod(task: currentTask)
+        }
+        NotificationCenter.default.post(name: .pomodoroStateChanged, object: nil)
     }
 
     func cancelPeriod() {

@@ -33,9 +33,8 @@ class PomodoroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(onPeriodFinished), name: .pomodoroStateChanged, object: nil)
         navigationItem.title = task.taskToDo
-        viewClock.delegate = self
-        State.shared.checkIfPeriodEnded()
         endWorkingDay()
         updateUIToCounters()
         unexpectedTaskTextField.inputAccessoryView = PomodoroCountPickerView()
@@ -91,6 +90,14 @@ class PomodoroViewController: UIViewController {
         }
         startButton.isHidden = State.shared.timerEndDate != nil
         stopButton.isHidden = State.shared.timerEndDate == nil
+    }
+
+    func onPeriodFinished() {
+        updateUIToCounters()
+        if !endWorkingDay() {
+            autoStartRestIfNeeded()
+        }
+
     }
 
     func autoStartRestIfNeeded() {
@@ -159,16 +166,5 @@ extension PomodoroViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-
-extension PomodoroViewController: ClockViewDelegate {
-    func clockViewDidEndTimer(_ clockView: ClockView) {
-        State.shared.finishPeriod()
-        updateUIToCounters()
-        if !endWorkingDay() {
-            autoStartRestIfNeeded()
-        }
     }
 }
