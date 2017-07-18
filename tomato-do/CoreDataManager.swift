@@ -68,6 +68,17 @@ class CoreDataManager {
         saveContext(context: context)
     }
 
+    func getTaskById(_ objectId: String) -> Task? {
+        guard let uri = URL(string: objectId), let objectID = context.persistentStoreCoordinator!.managedObjectID(forURIRepresentation: uri) else {
+            return nil
+        }
+        do {
+            return try context.existingObject(with: objectID) as? Task
+        } catch {
+            return nil
+        }
+    }
+
     func saveArrayInCoreData() {
         for (index, task) in tasks.enumerated() {
             task.positionTask = Int16(index)

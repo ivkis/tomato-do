@@ -23,7 +23,11 @@ class State {
         return counterTimer % 2 == 0
     }
 
-    var currentTask: Task?
+    var currentTask: Task? {
+        didSet {
+            defaults.set(currentTask?.objectID.uriRepresentation().absoluteString, forKey: "taskInMemory")
+        }
+    }
 
     var periodDuration: Int {
         if counterTimer % 8 == 0 {
@@ -65,12 +69,19 @@ class State {
         let lastRunDate = defaults.object(forKey: "dateLastRun") as? Date
         if let lastRunDate = lastRunDate, Calendar.current.compare(lastRunDate, to: Date(), toGranularity: .day) == .orderedSame {
             self.timerEndDate = defaults.object(forKey: "timerEndDate") as? Date
+            if let taskId = defaults.string(forKey: "taskInMemory") {
+                self.currentTask = CoreDataManager.shared.getTaskById(taskId)
+            }
             self.counterTimer = max(1, defaults.integer(forKey: "counterTimer"))
             checkIfPeriodEnded()
         } else {
             self.counterTimer = 1
         }
         defaults.set(Date(), forKey: "dateLastRun")
+    }
+
+    func handleAppLaunch() {
+        // Do nothing, all logic is handled in init. We just need to access State.shared at the app launch so lazy inititalization is performed
     }
 
     // MARK: - User Notification
