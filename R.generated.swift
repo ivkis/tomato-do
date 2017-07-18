@@ -48,14 +48,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
     /// Image `completedPomodoro`.
     static let completedPomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "completedPomodoro")
-    /// Image `countImagePicker`.
-    static let countImagePicker = Rswift.ImageResource(bundle: R.hostingBundle, name: "countImagePicker")
     /// Image `goToTimerDisable`.
     static let goToTimerDisable = Rswift.ImageResource(bundle: R.hostingBundle, name: "goToTimerDisable")
     /// Image `goToTimer`.
@@ -85,11 +83,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "completedPomodoro", bundle: ..., traitCollection: ...)`
     static func completedPomodoro(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.completedPomodoro, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "countImagePicker", bundle: ..., traitCollection: ...)`
-    static func countImagePicker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.countImagePicker, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "goToTimer", bundle: ..., traitCollection: ...)`

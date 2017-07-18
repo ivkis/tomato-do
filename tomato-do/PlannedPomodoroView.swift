@@ -19,8 +19,9 @@ class PlannedPomodoroView: UIView {
     func configure(with task: Task) {
         subviews.forEach({ $0.removeFromSuperview() })
         var currentView: UIImageView?
+        let count = max(task.plannedPomodoro, task.completedPomodoro)
 
-        for i in 0..<task.plannedPomodoro {
+        for i in 0..<count {
             let image = i < task.completedPomodoro ? R.image.completedPomodoro() : R.image.miniBackground()
             let plannedPomodoroView = UIImageView(image: image)
             self.addSubview(plannedPomodoroView)
