@@ -19,18 +19,20 @@ class PlannedPomodoroView: UIView {
     func configure(with task: Task) {
         subviews.forEach({ $0.removeFromSuperview() })
         var currentView: UIImageView?
-        for _ in 0..<task.plannedPomodoro {
-            let exampleView = UIImageView(image: R.image.miniBackground())
-            self.addSubview(exampleView)
-            exampleView.autoPinEdge(toSuperviewEdge: .top)
-            exampleView.autoPinEdge(toSuperviewEdge: .bottom)
-            exampleView.autoMatch(.width, to: .height, of: exampleView)
+
+        for i in 0..<task.plannedPomodoro {
+            let image = i < task.completedPomodoro ? R.image.completedPomodoro() : R.image.miniBackground()
+            let plannedPomodoroView = UIImageView(image: image)
+            self.addSubview(plannedPomodoroView)
+            plannedPomodoroView.autoPinEdge(toSuperviewEdge: .top)
+            plannedPomodoroView.autoPinEdge(toSuperviewEdge: .bottom)
+            plannedPomodoroView.autoMatch(.width, to: .height, of: plannedPomodoroView)
             if let currentView = currentView {
-                exampleView.autoPinEdge(.leading, to: .trailing, of: currentView, withOffset: 2)
+                plannedPomodoroView.autoPinEdge(.leading, to: .trailing, of: currentView, withOffset: 2)
             } else {
-                exampleView.autoPinEdge(toSuperviewEdge: .leading)
+                plannedPomodoroView.autoPinEdge(toSuperviewEdge: .leading)
             }
-            currentView = exampleView
+            currentView = plannedPomodoroView
         }
     }
 }

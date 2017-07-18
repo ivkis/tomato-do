@@ -63,6 +63,11 @@ class CoreDataManager {
         saveContext(context: context)
     }
 
+    func incrementCompletedPomodoros(for task: Task) {
+        task.completedPomodoro += 1
+        saveContext(context: context)
+    }
+
     func saveArrayInCoreData() {
         for (index, task) in tasks.enumerated() {
             task.positionTask = Int16(index)

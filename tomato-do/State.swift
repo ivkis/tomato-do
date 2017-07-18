@@ -21,6 +21,8 @@ class State {
         return counterTimer % 2 == 0
     }
 
+    var currentTask: Task?
+
     var periodDuration: Int {
         if counterTimer % 8 == 0 {
             return Settings.shared.longBreakDuration
@@ -92,11 +94,16 @@ class State {
     }
 
     func startPeriod(task: Task) {
+        currentTask = task
         self.timerEndDate = Date(timeInterval: TimeInterval(periodDuration), since: Date())
     }
 
     func finishPeriod() {
         timerEndDate = nil
+
+        if let task = currentTask, !isRestTime {
+            CoreDataManager.shared.incrementCompletedPomodoros(for: task)
+        }
         counterTimer += 1
     }
 

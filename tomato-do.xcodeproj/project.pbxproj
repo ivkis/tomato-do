@@ -116,8 +116,8 @@
 			children = (
 				2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */,
 				2CDDABC11EB77D2F007E20A4 /* AddTaskViewController.swift */,
-				A797FD761F06544F006E234A /* Constants.swift */,
 				A75611481EC4943D0019BEC3 /* ClockView.swift */,
+				A797FD761F06544F006E234A /* Constants.swift */,
 				A75008A01ECC38B7007E26BC /* CoreDataManager.swift */,
 				A7DA01801ECAC80500623CB8 /* Extensions */,
 				A77B12F51F1C9A8900D26F5C /* GradientView.swift */,
