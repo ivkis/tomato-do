@@ -28,10 +28,10 @@
 		A77FFA061F1378FE00A2B4A3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */; };
 		A77FFA081F138C0A00A2B4A3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA071F138C0A00A2B4A3 /* Settings.swift */; };
 		A77FFA0A1F13CFE700A2B4A3 /* NavBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */; };
+		A78CFE021F20E7AA0001892C /* endClockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78CFE001F20E7AA0001892C /* endClockSound.mp3 */; };
+		A78CFE031F20E7AA0001892C /* tickingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A78CFE011F20E7AA0001892C /* tickingSound.mp3 */; };
 		A797FD771F06544F006E234A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A797FD761F06544F006E234A /* Constants.swift */; };
 		A79CB44E1F18B6BA00F6F126 /* PlannedPomodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */; };
-		A7D03E211ED9AA1000D10CA2 /* tickingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */; };
-		A7D03E231ED9AB5200D10CA2 /* endClockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */; };
 		A7DA017F1ECAC7C000623CB8 /* Array + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA017E1ECAC7C000623CB8 /* Array + Extensions.swift */; };
 		A7FE09C81F1E3588001F0DC2 /* NotificationCenter + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FE09C71F1E3588001F0DC2 /* NotificationCenter + Extensions.swift */; };
 		FDA05B59E8D1B7C400F3DCAB /* Pods_tomato_do.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1F41601C2C9B1A6FF37725A /* Pods_tomato_do.framework */; };
@@ -64,10 +64,10 @@
 		A77FFA051F1378FE00A2B4A3 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A77FFA071F138C0A00A2B4A3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A77FFA091F13CFE600A2B4A3 /* NavBar + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavBar + Extension.swift"; sourceTree = "<group>"; };
+		A78CFE001F20E7AA0001892C /* endClockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endClockSound.mp3; sourceTree = "<group>"; };
+		A78CFE011F20E7AA0001892C /* tickingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tickingSound.mp3; sourceTree = "<group>"; };
 		A797FD761F06544F006E234A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A79CB44D1F18B6BA00F6F126 /* PlannedPomodoroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlannedPomodoroView.swift; sourceTree = "<group>"; };
-		A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickingSound.mp3; path = ../../../Downloads/tickingSound.mp3; sourceTree = "<group>"; };
-		A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = endClockSound.mp3; path = ../../../Downloads/endClockSound.mp3; sourceTree = "<group>"; };
 		A7DA017E1ECAC7C000623CB8 /* Array + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array + Extensions.swift"; sourceTree = "<group>"; };
 		A7FE09C71F1E3588001F0DC2 /* NotificationCenter + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter + Extensions.swift"; sourceTree = "<group>"; };
 		F1F41601C2C9B1A6FF37725A /* Pods_tomato_do.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tomato_do.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +116,7 @@
 		2C1F1B591EAFBC7C002626B7 /* tomato-do */ = {
 			isa = PBXGroup;
 			children = (
+				A78CFDFF1F20E7AA0001892C /* Resources */,
 				2C1F1B5A1EAFBC7C002626B7 /* AppDelegate.swift */,
 				2CDDABC11EB77D2F007E20A4 /* AddTaskViewController.swift */,
 				A75611481EC4943D0019BEC3 /* ClockView.swift */,
@@ -138,18 +139,17 @@
 				2C1F1B641EAFBC7C002626B7 /* Assets.xcassets */,
 				2C1F1B691EAFBC7C002626B7 /* Info.plist */,
 				2C1F1B611EAFBC7C002626B7 /* tomato_do.xcdatamodeld */,
-				A76DCFA11ED71E7400DA8BB9 /* Resources */,
 			);
 			path = "tomato-do";
 			sourceTree = "<group>";
 		};
-		A76DCFA11ED71E7400DA8BB9 /* Resources */ = {
+		A78CFDFF1F20E7AA0001892C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A7D03E1F1ED9AA1000D10CA2 /* tickingSound.mp3 */,
-				A7D03E221ED9AB5200D10CA2 /* endClockSound.mp3 */,
+				A78CFE001F20E7AA0001892C /* endClockSound.mp3 */,
+				A78CFE011F20E7AA0001892C /* tickingSound.mp3 */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A7DA01801ECAC80500623CB8 /* Extensions */ = {
@@ -236,12 +236,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78CFE031F20E7AA0001892C /* tickingSound.mp3 in Resources */,
 				2C1F1B681EAFBC7C002626B7 /* LaunchScreen.storyboard in Resources */,
+				A78CFE021F20E7AA0001892C /* endClockSound.mp3 in Resources */,
 				A751448F1F164B1700EA1AD5 /* Localizable.strings in Resources */,
-				A7D03E231ED9AB5200D10CA2 /* endClockSound.mp3 in Resources */,
 				2C1F1B651EAFBC7C002626B7 /* Assets.xcassets in Resources */,
 				2C1F1B601EAFBC7C002626B7 /* Main.storyboard in Resources */,
-				A7D03E211ED9AA1000D10CA2 /* tickingSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
