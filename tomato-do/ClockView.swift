@@ -115,4 +115,9 @@ class ClockView: MiniPomodoroView {
         startCoundownTimer()
         startAnimation()
     }
+
+    override func stopAnimation() {
+        super.stopAnimation()
+        countDownTimer.invalidate()
+    }
 }

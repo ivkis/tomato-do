@@ -13,11 +13,24 @@ import FMMoveTableView
 
 class AddTaskViewController: UIViewController {
 
+
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: FMMoveTableView!
+    @IBOutlet weak var pomodoroCollectionView: MiniPomodoroCollectionView!
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
+        pomodoroCollectionView.updateFinishedPomodorosState()
+        if !State.shared.isRestTime {
+            if let timerEndDate = State.shared.timerEndDate {
+                let remainingTime = timerEndDate.timeIntervalSinceNow
+                let totalDuration = TimeInterval(State.shared.periodDuration)
+                let currentPosition = totalDuration - remainingTime
+                pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
+            } else {
+                pomodoroCollectionView.currentPomodoro.cleanAnimation()
+            }
+        }
         navigationController?.restUI()
         CoreDataManager.shared.downloadFromCoreData()
         addTaskTableView.reloadData()
@@ -29,6 +42,7 @@ class AddTaskViewController: UIViewController {
         view.backgroundColor = UIColor.Tomatodo.blue
         addTaskTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Add a to-do", comment: "Add a to-do"), attributes: [NSForegroundColorAttributeName: UIColor.Tomatodo.grey])
         addTaskTextField.inputAccessoryView = PomodoroCountPickerView()
+        pomodoroCollectionView.updateFinishedPomodorosState()
     }
 
     func setTask(at indexPath: IndexPath, completed: Bool) {

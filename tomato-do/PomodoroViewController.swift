@@ -24,7 +24,6 @@ class PomodoroViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var unexpectedTaskTextField: UITextField!
-    @IBOutlet weak var pomodoroCollectionView: MiniPomodoroCollectionView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,7 +37,6 @@ class PomodoroViewController: UIViewController {
         endWorkingDay()
         updateUIToCounters()
         unexpectedTaskTextField.inputAccessoryView = PomodoroCountPickerView()
-        pomodoroCollectionView.updateFinishedPomodorosState()
         if let timerEndDate = State.shared.timerEndDate {
             resumeCurrentTimer(timerEndDate: timerEndDate)
         }
@@ -48,9 +46,6 @@ class PomodoroViewController: UIViewController {
 
     @IBAction func startButtonPress(_ sender: Any) {
         viewClock.startClockTimer()
-        if !State.shared.isRestTime {
-            pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: TimeInterval(State.shared.periodDuration))
-        }
 
         State.shared.startPeriod(task: task)
 
@@ -62,7 +57,6 @@ class PomodoroViewController: UIViewController {
         let noAlertAction = UIAlertAction(title: NSLocalizedString("No", comment: "No"), style: .cancel, handler: nil)
         let yesAlertAction = UIAlertAction(title: NSLocalizedString("Yes", comment: "Yes"), style: .destructive) { action in
             State.shared.cancelPeriod()
-            self.pomodoroCollectionView.currentPomodoro.stopAnimation()
             self.viewClock.stopClockTimer()
             self.updateUIToCounters()
         }
@@ -132,17 +126,13 @@ class PomodoroViewController: UIViewController {
         viewClock.setTimer(value: Int(remainingTime))
         viewClock.startCoundownTimer()
         viewClock.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
-        if !State.shared.isRestTime {
-            pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
         }
-    }
 
     @discardableResult
     func endWorkingDay() -> Bool {
         if State.shared.currentPomodoroIndex >= Constants.dailyPomodoros {
             State.shared.resetState()
             self.updateUIToCounters()
-            pomodoroCollectionView.updateFinishedPomodorosState()
 
             let alertController = UIAlertController(title: NSLocalizedString("Reached Daily Goal", comment: "Reached Daily Goal"), message: NSLocalizedString("You've completed your target for the daty! Congratulations!", comment: "You've completed your target for the daty! Congratulations."), preferredStyle: .alert)
             let action = UIAlertAction(title: NSLocalizedString("I'm done", comment: "I'm done"), style: .destructive, handler: nil)
