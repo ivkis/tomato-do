@@ -26,9 +26,9 @@ class AddTaskViewController: UIViewController {
                 let remainingTime = timerEndDate.timeIntervalSinceNow
                 let totalDuration = TimeInterval(State.shared.periodDuration)
                 let currentPosition = totalDuration - remainingTime
-                pomodoroCollectionView.currentPomodoro.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
+                pomodoroCollectionView.currentPomodoro?.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
             } else {
-                pomodoroCollectionView.currentPomodoro.cleanAnimation()
+                pomodoroCollectionView.currentPomodoro?.cleanAnimation()
             }
         }
         navigationController?.restUI()

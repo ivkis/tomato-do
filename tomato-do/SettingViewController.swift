@@ -18,7 +18,7 @@ class SettingViewController: FormViewController {
     }
 
     func setupSettingViewController() {
-        form +++ Section(NSLocalizedString("Period setup", comment: "Period setup"))
+        form +++ Section(NSLocalizedString("", comment: ""))
             <<< IntRow {
                 $0.title = NSLocalizedString("Pomodoro Duration, min", comment: "Pomodoro Duration, min")
                 $0.value = Settings.shared.pomodoroDuration / 60
@@ -43,7 +43,15 @@ class SettingViewController: FormViewController {
                     Settings.shared.longBreakDuration = value * 60
                 }
             }
-            +++ Section(NSLocalizedString("Tick Sound Setup", comment: "Tick Sound Setup"))
+            +++ Section(NSLocalizedString("", comment: ""))
+            <<< IntRow {
+                $0.title = NSLocalizedString("Target Pomodoros Per Day", comment: "Target Pomodoros Per Day")
+                $0.value = Settings.shared.targetPomodoros
+                }.onChange {
+                    if let value = $0.value {
+                        Settings.shared.targetPomodoros = value
+                }
+            }
             <<< SwitchRow { row in
                 row.title = NSLocalizedString("Sound OFF", comment: "Sound OFF")
                 row.value = Settings.shared.tickSoundStatus

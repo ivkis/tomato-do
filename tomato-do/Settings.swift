@@ -14,6 +14,7 @@ class Settings {
         static let pomodoroDuration = "pomodoroDuration"
         static let shortBreakDuration = "shortBreakDuration"
         static let longBreakDuration = "longBreakDuration"
+        static let targetPomodorosPerDay = "targetPomodoros"
         static let tickStatusSound = "tickStatusSound"
     }
 
@@ -38,6 +39,12 @@ class Settings {
         }
     }
 
+    var targetPomodoros: Int {
+        didSet {
+            defaults.set(targetPomodoros, forKey: DefaultsKeys.targetPomodorosPerDay)
+        }
+    }
+
     var tickSoundStatus: Bool {
         didSet {
             defaults.set(tickSoundStatus, forKey: DefaultsKeys.tickStatusSound)
@@ -45,10 +52,11 @@ class Settings {
     }
 
     init() {
-        defaults.register(defaults: [DefaultsKeys.pomodoroDuration: 1500, DefaultsKeys.shortBreakDuration: 300, DefaultsKeys.longBreakDuration: 900])
-        self.pomodoroDuration = 5 //defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
-        self.shortBreakDuration = 9 //defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
-        self.longBreakDuration = 11 //defaults.integer(forKey: DefaultsKeys.longBreakDuration)
+        defaults.register(defaults: [DefaultsKeys.pomodoroDuration: 1500, DefaultsKeys.shortBreakDuration: 300, DefaultsKeys.longBreakDuration: 900, DefaultsKeys.targetPomodorosPerDay: 11])
+        self.pomodoroDuration = defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
+        self.shortBreakDuration = defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
+        self.longBreakDuration = defaults.integer(forKey: DefaultsKeys.longBreakDuration)
+        self.targetPomodoros = defaults.integer(forKey: DefaultsKeys.targetPomodorosPerDay)
         self.tickSoundStatus = defaults.bool(forKey: DefaultsKeys.tickStatusSound)
     }
 }

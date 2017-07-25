@@ -37,13 +37,6 @@
                                     <outlet property="delegate" destination="LZg-hx-ehN" id="Ht0-u6-zLJ"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdj-gZ-cGh" customClass="GradientView" customModule="tomato_do" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="63" width="375" height="12"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="HTy-dQ-qcH"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-0l-pk1" customClass="FMMoveTableView">
                                 <rect key="frame" x="0.0" y="63" width="375" height="540"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.27843137254901962" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,195 +139,19 @@
                                     <outlet property="delegate" destination="LZg-hx-ehN" id="gs1-pB-pSn"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="483" width="375" height="120"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gdX-Y2-uGw">
-                                        <rect key="frame" x="30.5" y="15" width="315" height="40"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMz-gB-0EW">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-7y-Tnb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="JDF-4r-9Ou"/>
-                                                    <constraint firstAttribute="height" constant="40" id="POt-aU-jYU"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-Fd-kgi">
-                                                <rect key="frame" x="55" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-zY-XXd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="dhh-oP-DhC"/>
-                                                    <constraint firstAttribute="height" constant="40" id="dye-10-xzB"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZI-PL-YI4">
-                                                <rect key="frame" x="110" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="p99-Yo-OeK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="3hh-eO-X5F"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Kpr-tt-HGy"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brA-TS-8pW">
-                                                <rect key="frame" x="165" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-3x-jox">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="DsE-gH-MU5"/>
-                                                    <constraint firstAttribute="height" constant="40" id="jmb-bg-ZoZ"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAV-7F-t84">
-                                                <rect key="frame" x="220" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Mho-p6-3Vl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="WrY-bl-4Kd"/>
-                                                    <constraint firstAttribute="width" constant="40" id="xbp-k3-fNw"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tq0-5I-f52">
-                                                <rect key="frame" x="275" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="OCN-iF-oS0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="P8Z-6e-Svm"/>
-                                                    <constraint firstAttribute="height" constant="40" id="V0T-0f-ZED"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AjO-tS-bLe">
-                                        <rect key="frame" x="57.5" y="63" width="260" height="40"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc9-L9-T2Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="RWK-V3-L49">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0me-It-cke"/>
-                                                    <constraint firstAttribute="height" constant="40" id="qwp-cN-InB"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veG-Gd-4Zp">
-                                                <rect key="frame" x="55" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1Ou-GA-7Ho">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="3Ql-PH-RFl"/>
-                                                    <constraint firstAttribute="height" constant="40" id="YaE-6Y-lN0"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-Rt-NtV">
-                                                <rect key="frame" x="110" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LWX-MH-rI0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="bfM-wb-wRx"/>
-                                                    <constraint firstAttribute="height" constant="40" id="wmI-dZ-Nf0"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xk9-xs-9aL">
-                                                <rect key="frame" x="165" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="787-gl-iRT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="5Hn-UJ-xBj"/>
-                                                    <constraint firstAttribute="height" constant="40" id="ZhW-iq-gwv"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-82-ySc">
-                                                <rect key="frame" x="220" y="0.0" width="40" height="40"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="miniBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2Jf-oY-nwD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="JJv-ky-OZQ"/>
-                                                    <constraint firstAttribute="width" constant="40" id="xzh-Bf-mdZ"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdj-gZ-cGh" customClass="GradientView" customModule="tomato_do" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="63" width="375" height="12"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="J6y-HJ-uhx"/>
-                                    <constraint firstItem="gdX-Y2-uGw" firstAttribute="centerX" secondItem="OeY-AK-O4S" secondAttribute="centerX" id="VhS-MO-QRn"/>
-                                    <constraint firstItem="AjO-tS-bLe" firstAttribute="centerX" secondItem="OeY-AK-O4S" secondAttribute="centerX" id="fDq-sw-xwB"/>
-                                    <constraint firstItem="AjO-tS-bLe" firstAttribute="top" secondItem="OeY-AK-O4S" secondAttribute="top" constant="63" id="t8F-gT-eWx"/>
-                                    <constraint firstItem="gdX-Y2-uGw" firstAttribute="top" secondItem="OeY-AK-O4S" secondAttribute="top" constant="15" id="zKW-1x-aaa"/>
+                                    <constraint firstAttribute="height" constant="12" id="HTy-dQ-qcH"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="containerViews" destination="xMz-gB-0EW" collectionClass="NSMutableArray" id="npA-Sr-n9Z"/>
-                                    <outletCollection property="containerViews" destination="XNj-Fd-kgi" collectionClass="NSMutableArray" id="19h-cQ-thc"/>
-                                    <outletCollection property="containerViews" destination="EZI-PL-YI4" collectionClass="NSMutableArray" id="UCZ-T9-9Lu"/>
-                                    <outletCollection property="containerViews" destination="brA-TS-8pW" collectionClass="NSMutableArray" id="Tjr-tC-VBN"/>
-                                    <outletCollection property="containerViews" destination="FAV-7F-t84" collectionClass="NSMutableArray" id="cjO-mf-KHl"/>
-                                    <outletCollection property="containerViews" destination="Tq0-5I-f52" collectionClass="NSMutableArray" id="k15-oY-lOq"/>
-                                    <outletCollection property="containerViews" destination="jc9-L9-T2Q" collectionClass="NSMutableArray" id="kwZ-ha-RG1"/>
-                                    <outletCollection property="containerViews" destination="veG-Gd-4Zp" collectionClass="NSMutableArray" id="wPf-js-e9y"/>
-                                    <outletCollection property="containerViews" destination="BTh-Rt-NtV" collectionClass="NSMutableArray" id="MX5-S9-ql9"/>
-                                    <outletCollection property="containerViews" destination="Xk9-xs-9aL" collectionClass="NSMutableArray" id="sG5-Yp-P6z"/>
-                                    <outletCollection property="containerViews" destination="1Da-82-ySc" collectionClass="NSMutableArray" id="dYN-SO-PU1"/>
-                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-AK-O4S" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="483" width="375" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="120" id="J6y-HJ-uhx"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -479,7 +296,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="UnexpectedTaskTextField" destination="BbR-zt-w7c" id="gAc-YH-3LN"/>
-                        <outlet property="pomodoroCollectionView" destination="OeY-AK-O4S" id="AzZ-7n-Z8p"/>
                         <outlet property="startButton" destination="6qi-Nm-sdj" id="1Fx-TW-Yxq"/>
                         <outlet property="stopButton" destination="Wkc-5R-x3K" id="sfk-hO-Hry"/>
                         <outlet property="viewClock" destination="Khb-Oz-dnp" id="vOJ-Ju-z2B"/>
@@ -515,7 +331,6 @@
     <resources>
         <image name="goToTimer" width="36" height="36"/>
         <image name="goToTimerDisable" width="36" height="36"/>
-        <image name="miniBackground" width="40" height="40"/>
         <image name="settingIcon" width="30" height="30"/>
     </resources>
 </document>

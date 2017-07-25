@@ -494,7 +494,6 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "settingIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'settingIcon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "miniBackground") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'miniBackground' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimer") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimer' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimerDisable") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimerDisable' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }
