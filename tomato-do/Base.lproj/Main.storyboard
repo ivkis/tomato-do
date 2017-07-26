@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZS0-lP-jWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="-204"/>
+            <point key="canvasLocation" x="3545" y="-205"/>
         </scene>
         <!--Pomodoro View Controller-->
         <scene sceneID="NqS-rq-8aI">
@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-FO-ty2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400.8000000000002" y="427.73613193403304"/>
+            <point key="canvasLocation" x="3545" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fli-QQ-IP7">

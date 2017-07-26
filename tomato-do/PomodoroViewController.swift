@@ -130,7 +130,7 @@ class PomodoroViewController: UIViewController {
 
     @discardableResult
     func endWorkingDay() -> Bool {
-        if State.shared.currentPomodoroIndex >= Constants.dailyPomodoros {
+        if State.shared.currentPomodoroIndex >= Settings.shared.targetPomodoros {
             State.shared.resetState()
             self.updateUIToCounters()
 

@@ -13,39 +13,41 @@ import PureLayout
 
 class MiniPomodoroCollectionView: UIView {
 
-    var containerViews = [UIView]()
+    fileprivate var containerViews = [UIView]()
 
-    var currentPomodoro: MiniPomodoroView? {
-        guard State.shared.currentPomodoroIndex < containerViews.count else {
-            return nil
+    var planedCount: Int = 0 {
+        didSet {
+            createContainerViews()
         }
-        return containerViews[State.shared.currentPomodoroIndex].subviews.last! as? MiniPomodoroView
+    }
+
+    var finishedPomodorosCount: Int = 0 {
+        didSet {
+            updateFinishedPomodorosState()
+        }
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupMiniPomodoroCollectionView()
+        createContainerViews()
+        updateFinishedPomodorosState()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupMiniPomodoroCollectionView()
+        createContainerViews()
+        updateFinishedPomodorosState()
     }
 
-    func setupMiniPomodoroCollectionView() {
-        createContainerViews()
-        for view in containerViews {
-            let pomodoroView = MiniPomodoroView()
-            view.addSubview(pomodoroView)
-            pomodoroView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
-        }
-        updateFinishedPomodorosState()
+    func animatePomodoro(at index: Int, currentTime: TimeInterval, totalDuration: TimeInterval) {
+        let pomodoroView = containerViews[index].subviews.last! as? MiniPomodoroView
+        pomodoroView?.startAnimation(totalDuration: totalDuration, currentPosition: currentTime)
     }
 
     func updateFinishedPomodorosState() {
         for (index, view) in containerViews.enumerated() {
             let pomodoroView = view.subviews.last! as! MiniPomodoroView
-            if index < State.shared.currentPomodoroIndex {
+            if index < finishedPomodorosCount {
                 pomodoroView.finishAnimation()
             } else {
                 pomodoroView.cleanAnimation()
@@ -54,6 +56,8 @@ class MiniPomodoroCollectionView: UIView {
     }
 
     func createContainerViews() {
+        subviews.forEach({ $0.removeFromSuperview() })
+        containerViews = []
         var stackView: UIStackView!
         let count = 7
         let fcount = CGFloat(count)
@@ -75,9 +79,15 @@ class MiniPomodoroCollectionView: UIView {
                 stackView.autoAlignAxis(toSuperviewAxis: .vertical)
             }
             let containerView = UIView()
+
             let imageView = UIImageView(image: R.image.miniBackground())
             containerView.addSubview(imageView)
             imageView.autoPinEdgesToSuperviewEdges()
+
+            let pomodoroView = MiniPomodoroView()
+            containerView.addSubview(pomodoroView)
+            pomodoroView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+
             stackView.addArrangedSubview(containerView)
             containerViews.append(containerView)
         }
