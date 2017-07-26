@@ -61,6 +61,14 @@ class State {
         }
     }
 
+    var currentPeriodPosition: TimeInterval? {
+        guard let remainingTime = timerEndDate?.timeIntervalSinceNow else {
+            return nil
+        }
+        let totalDuration = TimeInterval(State.shared.periodDuration)
+        return totalDuration - remainingTime
+    }
+
     var currentPomodoroIndex: Int {
         return counterTimer / 2
     }

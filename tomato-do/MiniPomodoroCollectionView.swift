@@ -61,7 +61,7 @@ class MiniPomodoroCollectionView: UIView {
         var stackView: UIStackView!
         let count = 7
         let fcount = CGFloat(count)
-        for i in 0..<Settings.shared.targetPomodoros {
+        for i in 0..<planedCount {
             if i % count == 0 {
                 let previousStackView = stackView
                 stackView = UIStackView()

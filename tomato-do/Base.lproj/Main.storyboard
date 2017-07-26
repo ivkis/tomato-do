@@ -267,17 +267,27 @@
                                     <constraint firstAttribute="width" secondItem="Khb-Oz-dnp" secondAttribute="height" multiplier="1:1" id="pnI-uR-ck2"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a15-ON-ID6" customClass="MiniPomodoroCollectionView" customModule="tomato_do" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="483" width="375" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="120" id="hs8-fO-h2z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97260564565658569" green="0.28646859526634216" blue="0.16096878051757812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6qi-Nm-sdj" firstAttribute="trailing" secondItem="BbR-zt-w7c" secondAttribute="trailing" id="5oP-Ny-MQv"/>
+                            <constraint firstItem="asG-ez-pUa" firstAttribute="top" secondItem="a15-ON-ID6" secondAttribute="bottom" id="8cL-o4-zws"/>
                             <constraint firstItem="Khb-Oz-dnp" firstAttribute="top" secondItem="KyO-jX-WMF" secondAttribute="bottom" constant="30" id="9UK-FT-W7V"/>
                             <constraint firstItem="BbR-zt-w7c" firstAttribute="top" secondItem="Wkc-5R-x3K" secondAttribute="bottom" constant="47" id="F1u-XE-clW"/>
                             <constraint firstItem="Khb-Oz-dnp" firstAttribute="centerX" secondItem="Xbo-L6-9mO" secondAttribute="centerX" id="Hzm-vG-h2A"/>
+                            <constraint firstItem="a15-ON-ID6" firstAttribute="leading" secondItem="Xbo-L6-9mO" secondAttribute="leading" id="Pq4-hp-0Z5"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="height" secondItem="6qi-Nm-sdj" secondAttribute="height" id="S73-SP-xOS"/>
                             <constraint firstItem="6qi-Nm-sdj" firstAttribute="leading" secondItem="BbR-zt-w7c" secondAttribute="leading" id="beT-Vz-TCZ"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="trailing" secondItem="6qi-Nm-sdj" secondAttribute="trailing" id="cGj-EB-65t"/>
                             <constraint firstItem="6qi-Nm-sdj" firstAttribute="top" secondItem="Khb-Oz-dnp" secondAttribute="bottom" constant="30" id="d4w-cV-TmP"/>
+                            <constraint firstAttribute="trailing" secondItem="a15-ON-ID6" secondAttribute="trailing" id="dzu-ec-zHq"/>
                             <constraint firstItem="Khb-Oz-dnp" firstAttribute="leading" secondItem="Wkc-5R-x3K" secondAttribute="leading" priority="750" id="enT-kk-6gb"/>
                             <constraint firstItem="Wkc-5R-x3K" firstAttribute="leading" secondItem="6qi-Nm-sdj" secondAttribute="leading" id="oAJ-mH-CpY"/>
                             <constraint firstItem="Khb-Oz-dnp" firstAttribute="trailing" secondItem="Wkc-5R-x3K" secondAttribute="trailing" priority="750" id="rNB-Kh-Vmv"/>
@@ -296,6 +306,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="UnexpectedTaskTextField" destination="BbR-zt-w7c" id="gAc-YH-3LN"/>
+                        <outlet property="pomodoroCollectionView" destination="a15-ON-ID6" id="ce8-Ti-FX7"/>
                         <outlet property="startButton" destination="6qi-Nm-sdj" id="1Fx-TW-Yxq"/>
                         <outlet property="stopButton" destination="Wkc-5R-x3K" id="sfk-hO-Hry"/>
                         <outlet property="viewClock" destination="Khb-Oz-dnp" id="vOJ-Ju-z2B"/>

@@ -24,10 +24,12 @@ class PomodoroViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var unexpectedTaskTextField: UITextField!
+    @IBOutlet weak var pomodoroCollectionView: MiniPomodoroCollectionView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        updateMiniPomodoros()
     }
 
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class PomodoroViewController: UIViewController {
         viewClock.startClockTimer()
 
         State.shared.startPeriod(task: task)
-
+        updateMiniPomodoros()
         startButton.isHidden = true
         stopButton.isHidden = false
     }
@@ -57,6 +59,7 @@ class PomodoroViewController: UIViewController {
         let noAlertAction = UIAlertAction(title: NSLocalizedString("No", comment: "No"), style: .cancel, handler: nil)
         let yesAlertAction = UIAlertAction(title: NSLocalizedString("Yes", comment: "Yes"), style: .destructive) { action in
             State.shared.cancelPeriod()
+            self.updateMiniPomodoros()
             self.viewClock.stopClockTimer()
             self.updateUIToCounters()
         }
@@ -74,6 +77,16 @@ class PomodoroViewController: UIViewController {
     }
 
     // MARK: - Customizing timerUI
+
+    func updateMiniPomodoros() {
+        pomodoroCollectionView.planedCount = Int(task.plannedPomodoro)
+        pomodoroCollectionView.finishedPomodorosCount = Int(task.completedPomodoro)
+        if !State.shared.isRestTime {
+            if let currentPeriodPosition = State.shared.currentPeriodPosition {
+                pomodoroCollectionView.animatePomodoro(at: Int(task.completedPomodoro), currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
+            }
+        }
+    }
 
     func updateUIToCounters() {
         viewClock.setTimer(value: State.shared.periodDuration)

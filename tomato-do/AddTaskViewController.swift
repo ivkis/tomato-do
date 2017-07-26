@@ -19,16 +19,7 @@ class AddTaskViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        pomodoroCollectionView.planedCount = Settings.shared.targetPomodoros
-        pomodoroCollectionView.finishedPomodorosCount = State.shared.currentPomodoroIndex
-        if !State.shared.isRestTime {
-            if let timerEndDate = State.shared.timerEndDate {
-                let remainingTime = timerEndDate.timeIntervalSinceNow
-                let totalDuration = TimeInterval(State.shared.periodDuration)
-                let currentPosition = totalDuration - remainingTime
-                pomodoroCollectionView.animatePomodoro(at: State.shared.currentPomodoroIndex, currentTime: currentPosition, totalDuration: totalDuration)
-            }
-        }
+        updateMiniPomodoros()
         navigationController?.restUI()
         CoreDataManager.shared.downloadFromCoreData()
         addTaskTableView.reloadData()
@@ -36,6 +27,7 @@ class AddTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(addTaskTableView, selector: #selector(UITableView.reloadData), name: .pomodoroStateChanged, object: nil)
         addTaskTableView.contentInset.top = 20
         view.backgroundColor = UIColor.Tomatodo.blue
         addTaskTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Add a to-do", comment: "Add a to-do"), attributes: [NSForegroundColorAttributeName: UIColor.Tomatodo.grey])
@@ -55,6 +47,16 @@ class AddTaskViewController: UIViewController {
         let cell = addTaskTableView.cellForRow(at: indexPath) as! TableViewCell
         cell.configure(with: task)
         addTaskTableView.moveRow(at: indexPath, to: newIndexPath)
+    }
+
+    func updateMiniPomodoros() {
+        pomodoroCollectionView.planedCount = Settings.shared.targetPomodoros
+        pomodoroCollectionView.finishedPomodorosCount = State.shared.currentPomodoroIndex
+        if !State.shared.isRestTime {
+            if let currentPeriodPosition = State.shared.currentPeriodPosition {
+                pomodoroCollectionView.animatePomodoro(at: State.shared.currentPomodoroIndex, currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
+            }
+        }
     }
 }
 
