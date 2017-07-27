@@ -11,7 +11,8 @@ import UIKit
 
 
 enum Constants {
-    static let dailyPomodoros = 11
+    static let maximumPomodorosOfRow = 7
+    static let maximumPomodorosForTasks = 14
     static let localNotificationName = "PeriodEndNotification"
 }
 

@@ -47,12 +47,16 @@ class PomodoroViewController: UIViewController {
     // MARK: - IBAction
 
     @IBAction func startButtonPress(_ sender: Any) {
-        viewClock.startClockTimer()
+        guard Int(task.completedPomodoro) < Constants.maximumPomodorosForTasks else {
+            self.updateUIToCounters()
+            let alertAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok"), style: .cancel, handler: nil)
+            let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: "Attention"), message: NSLocalizedString("A very long task, break the task into smaller", comment: "A very long task, break the task into smaller"), preferredStyle: .alert)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
 
-        State.shared.startPeriod(task: task)
-        updateMiniPomodoros()
-        startButton.isHidden = true
-        stopButton.isHidden = false
+            return
+        }
+        startPeriod()
     }
 
     @IBAction func stopButtonPress(_ sender: Any) {
@@ -77,6 +81,14 @@ class PomodoroViewController: UIViewController {
     }
 
     // MARK: - Customizing timerUI
+
+    func startPeriod() {
+        viewClock.startClockTimer()
+        State.shared.startPeriod(task: task)
+        updateMiniPomodoros()
+        startButton.isHidden = true
+        stopButton.isHidden = false
+    }
 
     func updateMiniPomodoros() {
         if let currentPeriodPosition = State.shared.currentPeriodPosition, !State.shared.isRestTime {
@@ -107,7 +119,7 @@ class PomodoroViewController: UIViewController {
 
     func autoStartRestIfNeeded() {
         if State.shared.counterTimer % 2 == 0 {
-            startButtonPress(startButton)
+            startPeriod()
         }
     }
 

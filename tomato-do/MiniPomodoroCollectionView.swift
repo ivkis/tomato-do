@@ -52,7 +52,7 @@ class MiniPomodoroCollectionView: UIView {
         subviews.forEach({ $0.removeFromSuperview() })
         containerViews = []
         var stackView: UIStackView!
-        let rowCount = 7
+        let rowCount = Constants.maximumPomodorosOfRow
         let fRowCount = CGFloat(rowCount)
         for i in 0..<count {
             if i % rowCount == 0 {
