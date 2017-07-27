@@ -72,7 +72,7 @@ class MiniPomodoroView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = currentPosition / totalDuration
         animation.toValue = 1
-        animation.duration = CFTimeInterval(timerValue)
+        animation.duration = CFTimeInterval(totalDuration - currentPosition)
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
 
