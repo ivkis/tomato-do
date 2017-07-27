@@ -50,12 +50,10 @@ class AddTaskViewController: UIViewController {
     }
 
     func updateMiniPomodoros() {
-        pomodoroCollectionView.planedCount = Settings.shared.targetPomodoros
-        pomodoroCollectionView.finishedPomodorosCount = State.shared.currentPomodoroIndex
-        if !State.shared.isRestTime {
-            if let currentPeriodPosition = State.shared.currentPeriodPosition {
-                pomodoroCollectionView.animatePomodoro(at: State.shared.currentPomodoroIndex, currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
-            }
+        if let currentPeriodPosition = State.shared.currentPeriodPosition, !State.shared.isRestTime {
+            pomodoroCollectionView.configure(plannedCount: Int(Settings.shared.targetPomodoros), finishedCount: Int(State.shared.currentPomodoroIndex), animatedIndex: Int(State.shared.currentPomodoroIndex), currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
+        } else {
+            pomodoroCollectionView.configure(plannedCount: Int(Settings.shared.targetPomodoros), finishedCount: Int(State.shared.currentPomodoroIndex))
         }
     }
 }

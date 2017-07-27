@@ -79,12 +79,10 @@ class PomodoroViewController: UIViewController {
     // MARK: - Customizing timerUI
 
     func updateMiniPomodoros() {
-        pomodoroCollectionView.planedCount = Int(task.plannedPomodoro)
-        pomodoroCollectionView.finishedPomodorosCount = Int(task.completedPomodoro)
-        if !State.shared.isRestTime {
-            if let currentPeriodPosition = State.shared.currentPeriodPosition {
-                pomodoroCollectionView.animatePomodoro(at: Int(task.completedPomodoro), currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
-            }
+        if let currentPeriodPosition = State.shared.currentPeriodPosition, !State.shared.isRestTime {
+            pomodoroCollectionView.configure(plannedCount: Int(task.plannedPomodoro), finishedCount: Int(task.completedPomodoro), animatedIndex: Int(task.completedPomodoro), currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
+        } else {
+            pomodoroCollectionView.configure(plannedCount: Int(task.plannedPomodoro), finishedCount: Int(task.completedPomodoro))
         }
     }
 

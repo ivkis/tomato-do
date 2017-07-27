@@ -42,14 +42,14 @@ class State {
     fileprivate(set) var timerEndDate: Date? {
         didSet {
             defaults.set(timerEndDate, forKey: "timerEndDate")
+            self.periodEndTimer?.invalidate()
+            self.periodEndTimer = nil
             if let timerEndDate = timerEndDate {
                 sheduleNotification(date: timerEndDate)
                 self.periodEndTimer = Timer.scheduledTimer(withTimeInterval: timerEndDate.timeIntervalSinceNow, repeats: false, block: { [weak self] _ in
                     self?.finishPeriod()
                 })
             } else {
-                self.periodEndTimer?.invalidate()
-                self.periodEndTimer = nil
                 removeNotifications(withIdentifiers: [Constants.localNotificationName])
             }
         }

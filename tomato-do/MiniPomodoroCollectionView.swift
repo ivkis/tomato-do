@@ -14,37 +14,30 @@ import PureLayout
 class MiniPomodoroCollectionView: UIView {
 
     fileprivate var containerViews = [UIView]()
+    fileprivate(set) var plannedCount: Int = 0
+    fileprivate(set) var finishedPomodorosCount: Int = 0
 
-    var planedCount: Int = 0 {
-        didSet {
-            createContainerViews()
-        }
+    func configure(plannedCount: Int, finishedCount: Int, animatedIndex: Int, currentTime: TimeInterval, totalDuration: TimeInterval) {
+        self.plannedCount = plannedCount
+        self.finishedPomodorosCount = finishedCount
+        createContainerViews(count: max(plannedCount, finishedCount, animatedIndex + 1))
+        updateFinishedPomodorosState()
+        animatePomodoro(at: animatedIndex, currentTime: currentTime, totalDuration: totalDuration)
     }
 
-    var finishedPomodorosCount: Int = 0 {
-        didSet {
-            updateFinishedPomodorosState()
-        }
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        createContainerViews()
+    func configure(plannedCount: Int, finishedCount: Int) {
+        self.plannedCount = plannedCount
+        self.finishedPomodorosCount = finishedCount
+        createContainerViews(count: max(plannedCount, finishedCount))
         updateFinishedPomodorosState()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        createContainerViews()
-        updateFinishedPomodorosState()
-    }
-
-    func animatePomodoro(at index: Int, currentTime: TimeInterval, totalDuration: TimeInterval) {
+    fileprivate func animatePomodoro(at index: Int, currentTime: TimeInterval, totalDuration: TimeInterval) {
         let pomodoroView = containerViews[index].subviews.last! as? MiniPomodoroView
         pomodoroView?.startAnimation(totalDuration: totalDuration, currentPosition: currentTime)
     }
 
-    func updateFinishedPomodorosState() {
+    fileprivate func updateFinishedPomodorosState() {
         for (index, view) in containerViews.enumerated() {
             let pomodoroView = view.subviews.last! as! MiniPomodoroView
             if index < finishedPomodorosCount {
@@ -55,20 +48,20 @@ class MiniPomodoroCollectionView: UIView {
         }
     }
 
-    func createContainerViews() {
+    fileprivate func createContainerViews(count: Int) {
         subviews.forEach({ $0.removeFromSuperview() })
         containerViews = []
         var stackView: UIStackView!
-        let count = 7
-        let fcount = CGFloat(count)
-        for i in 0..<planedCount {
-            if i % count == 0 {
+        let rowCount = 7
+        let fRowCount = CGFloat(rowCount)
+        for i in 0..<count {
+            if i % rowCount == 0 {
                 let previousStackView = stackView
                 stackView = UIStackView()
                 stackView.axis = .horizontal
                 stackView.distribution = .equalSpacing
                 stackView.alignment = .center
-                stackView.spacing = floor((UIScreen.main.bounds.width - fcount * R.image.miniBackground()!.size.width) / (fcount + 1))
+                stackView.spacing = floor((UIScreen.main.bounds.width - fRowCount * R.image.miniBackground()!.size.width) / (fRowCount + 1))
                 addSubview(stackView)
 
                 if let previousStackView = previousStackView {
