@@ -49,7 +49,7 @@ class TableViewCell: FMMoveTableViewCell {
             editTaskTextField.isEnabled = false
             checkBox.onTintColor = .gray
             checkBox.onCheckColor = .gray
-            containerView.alpha = 0.4
+            containerView.alpha = 0.2
         } else {
             goToTimerTap.isEnabled = true
             editTaskTextField.isEnabled = true

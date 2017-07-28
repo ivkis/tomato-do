@@ -178,8 +178,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 15 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
     struct localizable {
+      /// ru translation: Внимание
+      /// 
+      /// Locales: ru
+      static let attention = Rswift.StringResource(key: "Attention", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       /// ru translation: Вы действительно хотите остановить текущий таймер?
       /// 
       /// Locales: ru
@@ -208,18 +212,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let soundOFF = Rswift.StringResource(key: "Sound OFF", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Кол-во Pomodoros на день
+      /// 
+      /// Locales: ru
+      static let targetPomodorosPerDay = Rswift.StringResource(key: "Target Pomodoros Per Day", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       /// ru translation: Короткий отдых, мин
       /// 
       /// Locales: ru
       static let shortBreakDurationMin = Rswift.StringResource(key: "Short Break Duration, min", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Настройка звука таймера
-      /// 
-      /// Locales: ru
-      static let tickSoundSetup = Rswift.StringResource(key: "Tick Sound Setup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Настройка периода
-      /// 
-      /// Locales: ru
-      static let periodSetup = Rswift.StringResource(key: "Period setup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       /// ru translation: Нет
       /// 
       /// Locales: ru
@@ -228,6 +228,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let stopTimer = Rswift.StringResource(key: "Stop Timer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Очень длинная задача, советуем разбить более короткие задачи.
+      /// 
+      /// Locales: ru
+      static let aVeryLongTaskBreakTheTaskIntoSmaller = Rswift.StringResource(key: "A very long task, break the task into smaller", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       /// ru translation: Таймер, мин
       /// 
       /// Locales: ru
@@ -240,6 +244,13 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let iMDone = Rswift.StringResource(key: "I'm done", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Внимание
+      /// 
+      /// Locales: ru
+      static func attention(_: Void = ()) -> String {
+        return NSLocalizedString("Attention", bundle: R.hostingBundle, comment: "")
+      }
       
       /// ru translation: Вы действительно хотите остановить текущий таймер?
       /// 
@@ -290,25 +301,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Sound OFF", bundle: R.hostingBundle, comment: "")
       }
       
+      /// ru translation: Кол-во Pomodoros на день
+      /// 
+      /// Locales: ru
+      static func targetPomodorosPerDay(_: Void = ()) -> String {
+        return NSLocalizedString("Target Pomodoros Per Day", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// ru translation: Короткий отдых, мин
       /// 
       /// Locales: ru
       static func shortBreakDurationMin(_: Void = ()) -> String {
         return NSLocalizedString("Short Break Duration, min", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// ru translation: Настройка звука таймера
-      /// 
-      /// Locales: ru
-      static func tickSoundSetup(_: Void = ()) -> String {
-        return NSLocalizedString("Tick Sound Setup", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// ru translation: Настройка периода
-      /// 
-      /// Locales: ru
-      static func periodSetup(_: Void = ()) -> String {
-        return NSLocalizedString("Period setup", bundle: R.hostingBundle, comment: "")
       }
       
       /// ru translation: Нет
@@ -323,6 +327,13 @@ struct R: Rswift.Validatable {
       /// Locales: ru
       static func stopTimer(_: Void = ()) -> String {
         return NSLocalizedString("Stop Timer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Очень длинная задача, советуем разбить более короткие задачи.
+      /// 
+      /// Locales: ru
+      static func aVeryLongTaskBreakTheTaskIntoSmaller(_: Void = ()) -> String {
+        return NSLocalizedString("A very long task, break the task into smaller", bundle: R.hostingBundle, comment: "")
       }
       
       /// ru translation: Таймер, мин

@@ -16,10 +16,11 @@
 "Stop Timer" = "Остановить таймер";
 "Are you sure you want to stop the curent pomodoro?" = "Вы действительно хотите остановить текущий таймер?";
 
-"Period setup" = "Настройка периода";
 "Pomodoro Duration, min" = "Таймер, мин";
 "Short Break Duration, min" = "Короткий отдых, мин";
 "Long Break Duration, min" = "Длинный отдых, мин";
-"Tick Sound Setup" = "Настройка звука таймера";
 "Sound OFF" = "Звук ВЫКЛ.";
 "Sound ON" = "Звук ВКЛ.";
+"Target Pomodoros Per Day" = "Кол-во Pomodoros на день";
+"Attention" = "Внимание";
+"A very long task, break the task into smaller" = "Очень длинная задача, советуем разбить на более короткие задачи.";
