@@ -17,7 +17,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    private var recognizedText: String? = nil
+    private var recognizedText: String?
 
     @IBOutlet weak var taskTextLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
@@ -50,7 +50,14 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     }
 
     @IBAction func reloadButtonTapped(_ sender: Any) {
-
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+        }
+        let when = DispatchTime.now() + 1
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.startRecording()
+        }
     }
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
