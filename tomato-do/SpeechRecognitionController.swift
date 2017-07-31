@@ -17,12 +17,26 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private var recognizedText: String? = nil
 
     @IBOutlet weak var taskTextLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var microfoneImageView: UIImageView!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.restUI()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        speechRecognizer?.delegate = self
+        microphoneSettings()
+        startRecording()
+        settingsButton.isHidden = true
+    }
 
     // MARK: - Actions
 
@@ -36,7 +50,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     }
 
     @IBAction func reloadButtonTapped(_ sender: Any) {
-        startRecording()
+
     }
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -44,25 +58,11 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     }
 
     @IBAction func okButtonTapped(_ sender: Any) {
-        guard let taskTextLabel = taskTextLabel.text else {
+        guard let recognizedText = recognizedText else {
             return
         }
-        CoreDataManager.shared.addTask(taskToDo: taskTextLabel, plannedPomodoro: 1)
+        CoreDataManager.shared.addTask(taskToDo: recognizedText, plannedPomodoro: 1)
         dismiss(animated: true, completion: nil)
-    }
-
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.restUI()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        speechRecognizer?.delegate = self
-        microphoneSettings()
-        startRecording()
-        settingsButton.isHidden = true
     }
 
     // MARK: - Speech Recognition
@@ -115,6 +115,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
             recognitionTask?.cancel()
             recognitionTask = nil
         }
+        recognizedText = nil
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryRecord)
@@ -138,7 +139,8 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
             var isFinal = false
 
             if let result = result {
-                self.taskTextLabel.text = result.bestTranscription.formattedString
+                self.recognizedText = result.bestTranscription.formattedString
+                self.taskTextLabel.text = self.recognizedText
                 isFinal = result.isFinal
             }
             if error != nil || isFinal {
