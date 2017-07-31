@@ -13,7 +13,7 @@ import UIKit
 
 class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate {
 
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ru"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
@@ -33,6 +33,10 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
         }
+    }
+
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        startRecording()
     }
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -99,6 +103,9 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
                 self.okButton.isHidden = !isButtonEnabled
                 self.reloadButton.isHidden = !isButtonEnabled
                 self.settingsButton.isHidden = isButtonEnabled
+                if !self.settingsButton.isHidden {
+                    self.taskTextLabel.text = "Please enable voice recognition."
+                }
             }
         }
     }

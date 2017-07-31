@@ -390,6 +390,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reloadButtonTapped:" destination="FaT-Vc-yQp" eventType="touchUpInside" id="OPs-YH-an2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPc-lb-Lvf">
                                 <rect key="frame" x="192.5" y="451.5" width="157.5" height="40"/>
@@ -410,12 +413,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M27-UE-QBi">
-                                <rect key="frame" x="106.5" y="451.5" width="162.5" height="40"/>
+                                <rect key="frame" x="58" y="451.5" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.058823529411764705" green="0.1803921568627451" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xUX-UT-uos"/>
                                 </constraints>
-                                <state key="normal" title="SETTINGS">
+                                <state key="normal" title="ENABLE VOICE RECOGNITION">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -438,7 +441,7 @@
                             <constraint firstItem="NPc-lb-Lvf" firstAttribute="width" secondItem="bsg-Fv-rhl" secondAttribute="width" multiplier="0.5" constant="-5" id="fjT-bH-8GQ"/>
                             <constraint firstItem="3Nc-sP-thb" firstAttribute="width" secondItem="bsg-Fv-rhl" secondAttribute="width" multiplier="0.5" constant="-5" id="h2h-aK-Uba"/>
                             <constraint firstItem="3Nc-sP-thb" firstAttribute="leading" secondItem="bsg-Fv-rhl" secondAttribute="leading" id="iLJ-Ad-aDa"/>
-                            <constraint firstItem="M27-UE-QBi" firstAttribute="width" secondItem="bsg-Fv-rhl" secondAttribute="width" multiplier="0.5" id="iOu-m0-VsJ"/>
+                            <constraint firstItem="M27-UE-QBi" firstAttribute="width" secondItem="bsg-Fv-rhl" secondAttribute="width" multiplier="0.8" id="iOu-m0-VsJ"/>
                             <constraint firstItem="3Nc-sP-thb" firstAttribute="top" secondItem="bsg-Fv-rhl" secondAttribute="bottom" constant="100" id="iSD-9P-aiJ"/>
                             <constraint firstItem="an7-rL-MVB" firstAttribute="centerX" secondItem="wLp-t3-mep" secondAttribute="centerX" id="jyy-Qk-ET6"/>
                             <constraint firstItem="NPc-lb-Lvf" firstAttribute="top" secondItem="bsg-Fv-rhl" secondAttribute="bottom" constant="100" id="lhK-Ud-zgp"/>
