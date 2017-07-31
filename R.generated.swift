@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 12 images.
+  /// This `R.image` struct is generated, and contains static references to 16 images.
   struct image {
     /// Image `buttonTimerIcon`.
     static let buttonTimerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "buttonTimerIcon")
@@ -60,8 +60,14 @@ struct R: Rswift.Validatable {
     static let goToTimer = Rswift.ImageResource(bundle: R.hostingBundle, name: "goToTimer")
     /// Image `launchScreen`.
     static let launchScreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchScreen")
+    /// Image `microfoneForController`.
+    static let microfoneForController = Rswift.ImageResource(bundle: R.hostingBundle, name: "microfoneForController")
+    /// Image `microphone`.
+    static let microphone = Rswift.ImageResource(bundle: R.hostingBundle, name: "microphone")
     /// Image `miniBackground`.
     static let miniBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "miniBackground")
+    /// Image `okButton`.
+    static let okButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "okButton")
     /// Image `plannedBackground`.
     static let plannedBackground = Rswift.ImageResource(bundle: R.hostingBundle, name: "plannedBackground")
     /// Image `plannedPomodoroSelected`.
@@ -72,6 +78,8 @@ struct R: Rswift.Validatable {
     static let pomodoroLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoroLogo")
     /// Image `pomodoro`.
     static let pomodoro = Rswift.ImageResource(bundle: R.hostingBundle, name: "pomodoro")
+    /// Image `reloadButton`.
+    static let reloadButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "reloadButton")
     /// Image `settingIcon`.
     static let settingIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingIcon")
     
@@ -100,9 +108,24 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.launchScreen, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "microfoneForController", bundle: ..., traitCollection: ...)`
+    static func microfoneForController(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.microfoneForController, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "microphone", bundle: ..., traitCollection: ...)`
+    static func microphone(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.microphone, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "miniBackground", bundle: ..., traitCollection: ...)`
     static func miniBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.miniBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "okButton", bundle: ..., traitCollection: ...)`
+    static func okButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.okButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "plannedBackground", bundle: ..., traitCollection: ...)`
@@ -128,6 +151,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "pomodoroLogo", bundle: ..., traitCollection: ...)`
     static func pomodoroLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.pomodoroLogo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "reloadButton", bundle: ..., traitCollection: ...)`
+    static func reloadButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.reloadButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "settingIcon", bundle: ..., traitCollection: ...)`
@@ -228,7 +256,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let stopTimer = Rswift.StringResource(key: "Stop Timer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Очень длинная задача, советуем разбить более короткие задачи.
+      /// ru translation: Очень длинная задача, советуем разбить на более короткие задачи.
       /// 
       /// Locales: ru
       static let aVeryLongTaskBreakTheTaskIntoSmaller = Rswift.StringResource(key: "A very long task, break the task into smaller", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
@@ -329,7 +357,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Stop Timer", bundle: R.hostingBundle, comment: "")
       }
       
-      /// ru translation: Очень длинная задача, советуем разбить более короткие задачи.
+      /// ru translation: Очень длинная задача, советуем разбить на более короткие задачи.
       /// 
       /// Locales: ru
       static func aVeryLongTaskBreakTheTaskIntoSmaller(_: Void = ()) -> String {
@@ -504,7 +532,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "microphone") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'microphone' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "settingIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'settingIcon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "microfoneForController") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'microfoneForController' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimer") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimer' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "goToTimerDisable") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'goToTimerDisable' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().addTaskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'addTaskViewController' could not be loaded from storyboard 'Main' as 'AddTaskViewController'.") }

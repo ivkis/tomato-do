@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class CoreDataManager {
 
     static let shared = CoreDataManager()
