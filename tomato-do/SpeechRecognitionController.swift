@@ -75,7 +75,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
     // MARK: - Speech Recognition
 
     func microphoneSettings() {
-
+        AVAudioSession.sharedInstance().requestRecordPermission { micAuthStatus in
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             var isButtonEnabled = false
 
@@ -115,6 +115,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
                 }
             }
         }
+        }
     }
 
     func startRecording() {
@@ -141,6 +142,7 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
         }
         recognitionRequest.shouldReportPartialResults = true
 
+        var timer: Timer?
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
 
             var isFinal = false
@@ -148,6 +150,8 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
             if let result = result {
                 self.recognizedText = result.bestTranscription.formattedString
                 self.taskTextLabel.text = self.recognizedText
+                timer?.invalidate()
+                timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.okButtonTapped(_:)), userInfo: nil, repeats: false)
                 isFinal = result.isFinal
             }
             if error != nil || isFinal {
@@ -159,7 +163,6 @@ class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate 
 
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
-
             }
         })
         let recordingFormat = inputNode.outputFormat(forBus: 0)
