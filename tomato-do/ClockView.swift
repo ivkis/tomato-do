@@ -17,10 +17,6 @@ class ClockView: MiniPomodoroView {
     var countDownTimer = Timer()
     var label = UILabel()
 
-    lazy var endPlayer: AVAudioPlayer = {
-        return try? AVAudioPlayer(contentsOf: R.file.endClockSoundMp3()!)
-        }()!
-
     lazy var tickPlayer: AVAudioPlayer = {
         return try? AVAudioPlayer(contentsOf: R.file.tickingSoundMp3()!)
         }()!
@@ -85,7 +81,6 @@ class ClockView: MiniPomodoroView {
         if timerValue <= 0 {
             countDownTimer.invalidate()
             tickPlayer.stop()
-            endPlayer.play()
         }
     }
 

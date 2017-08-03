@@ -9,9 +9,14 @@
 import UIKit
 import CoreData
 import FMMoveTableView
+import AVFoundation
 
 
 class AddTaskViewController: UIViewController {
+
+    lazy var endPlayer: AVAudioPlayer = {
+        return try? AVAudioPlayer(contentsOf: R.file.endClockSoundMp3()!)
+        }()!
 
     @IBOutlet weak var addTaskTextField: UITextField!
     @IBOutlet weak var addTaskTableView: FMMoveTableView!
@@ -58,6 +63,7 @@ class AddTaskViewController: UIViewController {
     }
 
     func onPomodoroPeriodFinished() {
+        endPlayer.play()
         addTaskTableView.reloadData()
         checkWorkingDayEnded()
     }
