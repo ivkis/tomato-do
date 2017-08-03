@@ -74,6 +74,7 @@ class MiniPomodoroCollectionView: UIView {
             let containerView = UIView()
 
             let imageView = UIImageView(image: R.image.miniBackground())
+            imageView.autoSetDimensions(to: imageView.image!.size)
             containerView.addSubview(imageView)
             imageView.autoPinEdgesToSuperviewEdges()
 
