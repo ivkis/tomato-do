@@ -53,9 +53,9 @@ class Settings {
 
     init() {
         defaults.register(defaults: [DefaultsKeys.pomodoroDuration: 1500, DefaultsKeys.shortBreakDuration: 300, DefaultsKeys.longBreakDuration: 900, DefaultsKeys.targetPomodorosPerDay: 13])
-        self.pomodoroDuration = defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
-        self.shortBreakDuration = defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
-        self.longBreakDuration = 	defaults.integer(forKey: DefaultsKeys.longBreakDuration)
+        self.pomodoroDuration = 2 //defaults.integer(forKey: DefaultsKeys.pomodoroDuration)
+        self.shortBreakDuration = 5 //defaults.integer(forKey: DefaultsKeys.shortBreakDuration)
+        self.longBreakDuration = 15 //defaults.integer(forKey: DefaultsKeys.longBreakDuration)
         self.targetPomodoros = defaults.integer(forKey: DefaultsKeys.targetPomodorosPerDay)
         self.tickSoundStatus = defaults.bool(forKey: DefaultsKeys.tickStatusSound)
     }

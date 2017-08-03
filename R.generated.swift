@@ -256,6 +256,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let stopTimer = Rswift.StringResource(key: "Stop Timer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Отлично
+      /// 
+      /// Locales: ru
+      static let ok = Rswift.StringResource(key: "Ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       /// ru translation: Очень длинная задача, советуем разбить на более короткие задачи.
       /// 
       /// Locales: ru
@@ -268,10 +272,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru
       static let reachedDailyGoal = Rswift.StringResource(key: "Reached Daily Goal", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
-      /// ru translation: Я закончил
-      /// 
-      /// Locales: ru
-      static let iMDone = Rswift.StringResource(key: "I'm done", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
       
       /// ru translation: Внимание
       /// 
@@ -357,6 +357,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Stop Timer", bundle: R.hostingBundle, comment: "")
       }
       
+      /// ru translation: Отлично
+      /// 
+      /// Locales: ru
+      static func ok(_: Void = ()) -> String {
+        return NSLocalizedString("Ok", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// ru translation: Очень длинная задача, советуем разбить на более короткие задачи.
       /// 
       /// Locales: ru
@@ -376,13 +383,6 @@ struct R: Rswift.Validatable {
       /// Locales: ru
       static func reachedDailyGoal(_: Void = ()) -> String {
         return NSLocalizedString("Reached Daily Goal", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// ru translation: Я закончил
-      /// 
-      /// Locales: ru
-      static func iMDone(_: Void = ()) -> String {
-        return NSLocalizedString("I'm done", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

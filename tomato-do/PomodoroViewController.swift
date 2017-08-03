@@ -34,9 +34,8 @@ class PomodoroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(onPeriodFinished), name: .pomodoroStateChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPeriodFinished), name: .pomodoroPeriodFinished, object: nil)
         navigationItem.title = task.taskToDo
-        endWorkingDay()
         updateUIToCounters()
         unexpectedTaskTextField.inputAccessoryView = PomodoroCountPickerView()
         if let timerEndDate = State.shared.timerEndDate {
@@ -111,10 +110,7 @@ class PomodoroViewController: UIViewController {
 
     func onPeriodFinished() {
         updateUIToCounters()
-        if !endWorkingDay() {
-            autoStartRestIfNeeded()
-        }
-
+        autoStartRestIfNeeded()
     }
 
     func autoStartRestIfNeeded() {
@@ -151,21 +147,7 @@ class PomodoroViewController: UIViewController {
         viewClock.startAnimation(totalDuration: totalDuration, currentPosition: currentPosition)
         }
 
-    @discardableResult
-    func endWorkingDay() -> Bool {
-        if State.shared.currentPomodoroIndex >= Settings.shared.targetPomodoros {
-            State.shared.resetState()
-            self.updateUIToCounters()
-
-            let alertController = UIAlertController(title: NSLocalizedString("Reached Daily Goal", comment: "Reached Daily Goal"), message: NSLocalizedString("You've completed your target for the daty! Congratulations!", comment: "You've completed your target for the daty! Congratulations."), preferredStyle: .alert)
-            let action = UIAlertAction(title: NSLocalizedString("I'm done", comment: "I'm done"), style: .destructive, handler: nil)
-            alertController.addAction(action)
-            self.present(alertController, animated: true, completion: nil)
-            return true
-        }
-        return false
     }
-}
 
 
 extension PomodoroViewController: UITextFieldDelegate {

@@ -134,7 +134,7 @@ class State {
         if isRestTime {
             startPeriod(task: currentTask)
         }
-        NotificationCenter.default.post(name: .pomodoroStateChanged, object: nil)
+        NotificationCenter.default.post(name: .pomodoroPeriodFinished, object: nil)
     }
 
     func cancelPeriod() {

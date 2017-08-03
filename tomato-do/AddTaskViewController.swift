@@ -27,7 +27,7 @@ class AddTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(addTaskTableView, selector: #selector(UITableView.reloadData), name: .pomodoroStateChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPomodoroPeriodFinished), name: .pomodoroPeriodFinished, object: nil)
         addTaskTableView.contentInset.top = 20
         view.backgroundColor = UIColor.Tomatodo.blue
         addTaskTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Add a to-do", comment: "Add a to-do"), attributes: [NSForegroundColorAttributeName: UIColor.Tomatodo.grey])
@@ -54,6 +54,20 @@ class AddTaskViewController: UIViewController {
             pomodoroCollectionView.configure(plannedCount: Int(Settings.shared.targetPomodoros), finishedCount: Int(State.shared.currentPomodoroIndex), animatedIndex: Int(State.shared.currentPomodoroIndex), currentTime: currentPeriodPosition, totalDuration: TimeInterval(State.shared.periodDuration))
         } else {
             pomodoroCollectionView.configure(plannedCount: Int(Settings.shared.targetPomodoros), finishedCount: Int(State.shared.currentPomodoroIndex))
+        }
+    }
+
+    func onPomodoroPeriodFinished() {
+        addTaskTableView.reloadData()
+        checkWorkingDayEnded()
+    }
+
+    func checkWorkingDayEnded() {
+        if State.shared.currentPomodoroIndex == Settings.shared.targetPomodoros && State.shared.isRestTime {
+            let alertController = UIAlertController(title: NSLocalizedString("Reached Daily Goal", comment: "Reached Daily Goal"), message: NSLocalizedString("You've completed your target for the daty! Congratulations!", comment: "You've completed your target for the daty! Congratulations."), preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok"), style: .destructive, handler: nil)
+            alertController.addAction(action)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }

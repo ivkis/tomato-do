@@ -10,5 +10,5 @@ import Foundation
 
 
 extension Notification.Name {
-    static let pomodoroStateChanged = Notification.Name("pomodoroStateChanged")
+    static let pomodoroPeriodFinished = Notification.Name("pomodoroPeriodFinished")
 }
