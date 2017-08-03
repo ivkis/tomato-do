@@ -133,6 +133,9 @@ extension AddTaskViewController: FMMoveTableViewDataSource, FMMoveTableViewDeleg
 
 extension AddTaskViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard textField.text?.isEmpty == false else {
+            return
+        }
         let index = NSIndexPath(row: 0, section: 0)
         let pomodoroCountPickerView = textField.inputAccessoryView as! PomodoroCountPickerView
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!, plannedPomodoro: pomodoroCountPickerView.value)

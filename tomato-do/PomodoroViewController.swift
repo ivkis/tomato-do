@@ -170,6 +170,9 @@ class PomodoroViewController: UIViewController {
 
 extension PomodoroViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard textField.text?.isEmpty == false else {
+            return
+        }
         let pomodoroCountPickerView = textField.inputAccessoryView as! PomodoroCountPickerView
         CoreDataManager.shared.addTask(taskToDo: (textField.text)!, plannedPomodoro: pomodoroCountPickerView.value)
         pomodoroCountPickerView.value = 1
