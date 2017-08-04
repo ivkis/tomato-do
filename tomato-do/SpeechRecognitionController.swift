@@ -13,7 +13,7 @@ import UIKit
 
 class SpeechRecognitionController: UIViewController, SFSpeechRecognizerDelegate {
 
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ru"))
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: Settings.shared.speechRecognitionLocale.rawValue))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()

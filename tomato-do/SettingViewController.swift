@@ -52,6 +52,14 @@ class SettingViewController: FormViewController {
                         Settings.shared.targetPomodoros = value
                 }
             }
+            +++ SegmentedRow<Settings.SpeechRecognitionLocale> { row in
+                row.title = NSLocalizedString("Speech recognition locale", comment: "Speech recognition locale")
+                row.options = [.english, .russian]
+                row.value = Settings.shared.speechRecognitionLocale
+                row.cell.segmentedControl.tintColor = UIColor.Tomatodo.orange
+            }.onChange { row in
+                    Settings.shared.speechRecognitionLocale = row.value ?? .english
+            }
             <<< SwitchRow { row in
                 row.title = NSLocalizedString("Sound OFF", comment: "Sound OFF")
                 row.value = Settings.shared.tickSoundStatus
@@ -62,5 +70,6 @@ class SettingViewController: FormViewController {
                 Settings.shared.tickSoundStatus = value
                 row.updateCell()
             }
+
     }
 }
