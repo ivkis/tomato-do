@@ -76,6 +76,13 @@ class AddTaskViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+
+    func openPomodoroViewController(for task: Task) {
+        let controller = R.storyboard.main.pomodoroViewController()!
+        controller.task = task
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 
@@ -94,17 +101,27 @@ extension AddTaskViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        cell.enterEditMode()
+        let task = CoreDataManager.shared.tasks[indexPath.row]
+        openPomodoroViewController(for: task)
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        CoreDataManager.shared.deleteTask(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let edit =  UITableViewRowAction(style: .default, title: "Edit") { _, indexPath in
+            let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+            cell.enterEditMode()
+            tableView.setEditing(false, animated: true)
+        }
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { _, indexPath in
+            CoreDataManager.shared.deleteTask(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        edit.backgroundColor = UIColor.Tomatodo.darkBlue
+        delete.backgroundColor = UIColor.Tomatodo.orange
+        return [delete, edit]
     }
 }
 
@@ -131,10 +148,7 @@ extension AddTaskViewController: TableViewCellDelegate {
             return
         }
         let task = CoreDataManager.shared.tasks[indexPath.row]
-        let controller = R.storyboard.main.pomodoroViewController()!
-        controller.task = task
-        controller.delegate = self
-        navigationController?.pushViewController(controller, animated: true)
+        openPomodoroViewController(for: task)
     }
 }
 
