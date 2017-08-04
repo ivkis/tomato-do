@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 import UserNotifications
+import iRate
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        iRate.sharedInstance().daysUntilPrompt = 2
+        iRate.sharedInstance().usesUntilPrompt = 5
+        iRate.sharedInstance().eventsUntilPrompt = 1
+        iRate.sharedInstance().promptAtLaunch = false
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onPeriodFinished), name: .pomodoroPeriodFinished, object: nil)
+
         IQKeyboardManager.sharedManager().enable = true
 
         State.shared.handleAppLaunch()
@@ -49,6 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+
+    // MARK: - Custom logic
+
+    func onPeriodFinished() {
+        if State.shared.isRestTime && State.shared.currentPomodoroIndex == 4 {
+            iRate.sharedInstance().logEvent(false)
+        }
     }
 
     // MARK: - Core Data stack
