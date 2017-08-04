@@ -4,6 +4,7 @@ PODS:
   - FMMoveTableView (1.1.2)
   - IQKeyboardManagerSwift (4.0.10)
   - iRate (1.12.1)
+  - Mixpanel-swift (2.1.8)
   - PureLayout (3.0.2)
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - FMMoveTableView
   - IQKeyboardManagerSwift
   - iRate
+  - Mixpanel-swift
   - PureLayout
   - R.swift
   - SwiftLint
@@ -26,11 +28,12 @@ SPEC CHECKSUMS:
   FMMoveTableView: 63b46cf806133f5220cf92592dc0e6f7eb07633d
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
+  Mixpanel-swift: 05695617653760d15d5aee1414f1ae7c336de1a2
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: 8067d7e8f275a2054b6be34abdfbb6e56c834a75
+PODFILE CHECKSUM: 84c33f953e4c9d94b55e1bc369b84ba7b80e95f9
 
 COCOAPODS: 1.2.1

@@ -16,5 +16,5 @@ target 'tomato-do' do
   pod 'IQKeyboardManagerSwift'
   pod 'Eureka'
   pod 'iRate'
-
+  pod 'Mixpanel-swift'
 end
