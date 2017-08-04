@@ -15,4 +15,6 @@ target 'tomato-do' do
   pod ‘FMMoveTableView'
   pod 'IQKeyboardManagerSwift'
   pod 'Eureka'
+  pod 'iRate'
+
 end

@@ -3,6 +3,7 @@ PODS:
   - Eureka (3.0.0)
   - FMMoveTableView (1.1.2)
   - IQKeyboardManagerSwift (4.0.10)
+  - iRate (1.12.1)
   - PureLayout (3.0.2)
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Eureka
   - FMMoveTableView
   - IQKeyboardManagerSwift
+  - iRate
   - PureLayout
   - R.swift
   - SwiftLint
@@ -23,11 +25,12 @@ SPEC CHECKSUMS:
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   FMMoveTableView: 63b46cf806133f5220cf92592dc0e6f7eb07633d
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
+  iRate: 59c63a290d4988f365d4338e58eca192ae92b552
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: aab1648449662c57a299ee8de32222f89085e3aa
+PODFILE CHECKSUM: 8067d7e8f275a2054b6be34abdfbb6e56c834a75
 
 COCOAPODS: 1.2.1
